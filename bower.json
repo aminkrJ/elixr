@@ -1,0 +1,19 @@
+{
+  "name": "elixr",
+  "homepage": "https://github.com/aminkrJ/elixr",
+  "authors": [
+    "Amin Karaji <amin.karaji@siteminder.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ]
+}
