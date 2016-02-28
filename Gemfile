@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'acts_as_tree'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
