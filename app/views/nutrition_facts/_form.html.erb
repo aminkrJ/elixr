@@ -1,0 +1,25 @@
+<%= form_for(@nutrition_fact) do |f| %>
+  <% if @nutrition_fact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nutrition_fact.errors.count, "error") %> prohibited this nutrition_fact from being saved:</h2>
+
+      <ul>
+      <% @nutrition_fact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %><br>
+    <%= f.text_field :category, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-default' %>
+  </div>
+<% end %>
