@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Category</th>
       <th></th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
     <% @nutrition_facts.each do |nutrition_fact| %>
       <tr>
         <td><%= nutrition_fact.name %></td>
-        <td><%= nutrition_fact.category %></td>
         <td>
           <%= link_to 'Show', nutrition_fact, class: 'btn btn-link' %>
           <%= link_to 'Edit', edit_nutrition_fact_path(nutrition_fact), class: 'btn btn-primary' %>
