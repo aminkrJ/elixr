@@ -13,11 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20160228000858) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "units", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "symbol",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "symbol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
