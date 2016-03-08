@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :ingredients do
     member do
-      match 'nutrition_facts'
     end
   end
   resources :nutrition_facts
