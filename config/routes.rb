@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :ingredients
+  resources :ingredients do
+    member do
+      match 'nutrition_facts'
+    end
+  end
   resources :nutrition_facts
   resources :units
   # The priority is based upon order of creation: first created -> highest priority.
