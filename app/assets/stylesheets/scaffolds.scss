@@ -1,5 +1,12 @@
+$form-grey: #ccc;
+
 body {
   background-color: #fff;
   padding: 10%
 }
 
+section{
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $form-grey;
+}

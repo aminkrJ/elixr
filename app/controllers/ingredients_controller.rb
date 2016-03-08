@@ -15,6 +15,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/new
   def new
     @ingredient = Ingredient.new
+    @nutrition_facts = NutritionFact.all
   end
 
   # GET /ingredients/1/edit

@@ -11,10 +11,40 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+  <section>
+    <div class="form-inline">
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :amount %><br>
+        <%= f.text_field :amount, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :unit %><br>
+        <%= f.select :unit_id, Unit.all.collect{|u| [u.name, u.id]}, {prompt: 'Select unit'}, class: 'form-control' %>
+      </div>
+    </div>
+  </section>
+
+  <section>
+  <%= f.fields_for :ingredient_nutrition_facts do |nf| %>
+      <h2>Nutrition fact</h2>
+      <div class="form-inline">
+        <div class="form-group">
+          <%= nf.select :nutrition_fact_id, @nutrition_facts.collect{|u| [u.name, u.id]}, {prompt: 'Select nutrition fact'}, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= nf.text_field :amount, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= nf.select :unit_id, Unit.all.collect{|u| [u.name, u.id]}, {prompt: 'Select unit'}, class: 'form-control' %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-default' %>
   </div>
