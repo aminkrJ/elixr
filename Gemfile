@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -34,6 +33,7 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'acts_as_tree'
+gem 'cocoon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
