@@ -1,7 +1,7 @@
 <%= form_for(@ingredient) do |f| %>
   <% if @ingredient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+    <div id="error_explanation" class='alert alert-danger' role='alert'>
+      <div><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</div>
 
       <ul>
       <% @ingredient.errors.full_messages.each do |message| %>
@@ -25,6 +25,11 @@
         <%= f.label :unit %><br>
         <%= f.select :unit_id, Unit.all.collect{|u| [u.name, u.id]}, {prompt: 'Select unit'}, class: 'form-control' %>
       </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :tags %><br>
+      <%= f.text_field :tags, class: 'form-control' %>
+      <h5><small>Seperate tags with comma ex. cooked, raw</small></h5>
     </div>
   </section>
 
