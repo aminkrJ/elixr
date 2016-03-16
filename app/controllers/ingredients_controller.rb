@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :set_form_variables, only: [:edit, :new, :duplicate]
 
   # GET /ingredients
   # GET /ingredients.json
@@ -15,14 +16,17 @@ class IngredientsController < ApplicationController
   # GET /ingredients/new
   def new
     @ingredient = Ingredient.new
-    @nutrition_facts = NutritionFact.all
-    @units = Unit.all
   end
 
   # GET /ingredients/1/edit
   def edit
-    @nutrition_facts = NutritionFact.all
-    @units = Unit.all
+  end
+
+  def duplicate
+    @ingredient = Ingredient.find params[:id]
+    @duplicated_from = @ingredient.name
+    @ingredient.name, @ingredient.unit_id, @ingredient.amount = nil, nil, nil
+    render :new
   end
 
   # POST /ingredients
@@ -74,5 +78,10 @@ class IngredientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
       params.require(:ingredient).permit(:name, :unit_id, :amount, ingredient_nutrition_facts_attributes: [:id, :amount, :unit_id, :_destroy, :nutrition_fact_id])
+    end
+
+    def set_form_variables
+      @nutrition_facts = NutritionFact.all
+      @units = Unit.all
     end
 end
