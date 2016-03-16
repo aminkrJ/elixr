@@ -16,11 +16,13 @@ class IngredientsController < ApplicationController
   def new
     @ingredient = Ingredient.new
     @nutrition_facts = NutritionFact.all
+    @units = Unit.all
   end
 
   # GET /ingredients/1/edit
   def edit
     @nutrition_facts = NutritionFact.all
+    @units = Unit.all
   end
 
   # POST /ingredients
