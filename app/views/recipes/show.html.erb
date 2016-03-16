@@ -5,20 +5,5 @@
   <%= @recipe.title %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<p>
-  <strong>How to cook:</strong>
-  <%= @recipe.how_to_cook %>
-</p>
-
-<p>
-  <strong>Difficulty:</strong>
-  <%= @recipe.difficulty %>
-</p>
-
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

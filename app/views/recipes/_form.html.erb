@@ -11,23 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :difficulty %><br>
+      <%= f.number_field :difficulty, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
+  
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :how_to_cook %><br>
-    <%= f.text_area :how_to_cook %>
+    <%= f.text_area :how_to_cook, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :difficulty %><br>
-    <%= f.number_field :difficulty %>
+
+  <h3>Ingredients</h3>
+  <%= f.fields_for :recipe_ingredients do |fr| %>
+    <%= render 'recipe_ingredient_fields', f: fr %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'add ingredient', f, :recipe_ingredients %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-default' %>
   </div>
 <% end %>
