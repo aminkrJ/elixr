@@ -4,4 +4,8 @@ class Ingredient < ActiveRecord::Base
   accepts_nested_attributes_for :ingredient_nutrition_facts, allow_destroy: true, reject_if: :all_blank
 
   validates :name, presence: true
+
+  amoeba do
+    include_association :ingredient_nutrition_facts
+  end
 end

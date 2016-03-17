@@ -35,6 +35,7 @@ gem 'bootstrap-sass'
 gem 'acts_as_tree'
 gem 'cocoon'
 gem 'devise'
+gem 'amoeba'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

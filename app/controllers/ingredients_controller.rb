@@ -23,9 +23,11 @@ class IngredientsController < ApplicationController
   end
 
   def duplicate
-    @ingredient = Ingredient.find params[:id]
-    @duplicated_from = @ingredient.name
-    @ingredient.name, @ingredient.unit_id, @ingredient.amount = nil, nil, nil
+    existing_ingredient = Ingredient.find params[:id]
+    @duplicated_from = existing_ingredient.name
+
+    @ingredient = existing_ingredient.amoeba_dup
+    @ingredient.name, @ingredient.unit_id, @ingredient.amount, @ingredient.tags = nil, nil, nil, nil
     render :new
   end
 
