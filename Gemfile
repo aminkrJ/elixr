@@ -40,11 +40,11 @@ gem 'fuubar'
 
 group :development do
   gem 'guard'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
@@ -54,5 +54,6 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'capybara'
+  gem 'poltergeist'
 end
 

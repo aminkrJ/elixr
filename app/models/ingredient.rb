@@ -3,6 +3,8 @@ class Ingredient < ActiveRecord::Base
   has_many :nutrition_facts, through: :ingredient_nutrition_facts
   accepts_nested_attributes_for :ingredient_nutrition_facts, allow_destroy: true, reject_if: :all_blank
 
+  belongs_to :unit
+
   validates :name, presence: true
 
   amoeba do
