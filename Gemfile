@@ -55,5 +55,6 @@ group :test do
   gem 'timecop'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
