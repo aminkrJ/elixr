@@ -48,13 +48,14 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'timecop'
-  gem 'capybara'
-  gem 'poltergeist'
   gem 'selenium-webdriver'
 end
 
