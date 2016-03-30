@@ -3,7 +3,10 @@
     <%= f.select :ingredient_id, @ingredients.collect{|u| [u.name, u.id]}, {prompt: 'Select ingredient'}, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.text_field :amount, class: 'form-control' %>
+    <%= f.text_field :description, class: 'form-control', placeholder: 'Description' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :amount, class: 'form-control', placeholder: 'Amount' %>
   </div>
   <div class="form-group">
     <%= f.select :unit_id, @units.collect{|u| [u.name, u.id]}, {prompt: 'Select unit'}, class: 'form-control' %>
