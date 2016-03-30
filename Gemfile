@@ -38,7 +38,10 @@ gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
 
+gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
+
 group :development do
+  gem 'pry-rails'
   gem 'guard'
   gem 'web-console', '~> 2.0'
 end
