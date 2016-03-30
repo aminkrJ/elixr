@@ -38,7 +38,7 @@ gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
 
-gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
+#gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do
   gem 'pry-rails'
