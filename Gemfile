@@ -37,6 +37,8 @@ gem 'cocoon'
 gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
+gem 'capybara'
+gem "poltergeist"
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
@@ -54,8 +56,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
-  gem "poltergeist"
   gem 'database_cleaner'
   gem 'timecop'
   gem 'selenium-webdriver'
