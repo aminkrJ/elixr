@@ -285,6 +285,7 @@ DEPENDENCIES
   jquery-rails
   pg
   poltergeist
+  pry
   pry-rails
   rails (= 4.2.1)
   rails_12factor
