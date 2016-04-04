@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
-  before_action :set_form_variables, only: [:edit, :new, :duplicate, :update]
+  before_action :set_form_variables, only: [:edit, :new, :duplicate, :update, :fetch]
 
   # GET /ingredients
   # GET /ingredients.json
@@ -69,6 +69,21 @@ class IngredientsController < ApplicationController
       format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def fetch
+    scraper = Scraper::Parser.new params[:url]
+    scraper.parse
+    scraper_nutrition_facts = scraper.nutrition_facts
+
+    @ingredient = Ingredient.new name: params[:name], amount: scraper.per_serving_amount
+
+    scraper_nutrition_facts.each do |nf|
+      nutrition_fact = NutritionFact.find_or_initialize_by name: nf.name
+      @ingredient.ingredient_nutrition_facts << IngredientNutritionFact.new(amount: nf.amount, nutrition_fact: nutrition_fact)
+    end
+
+    render :new
   end
 
   private

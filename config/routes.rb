@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   get 'engine/dashboard'
-  match 'engine/start', to: 'engine#start', via: [:get, :post]
 
   devise_for :users
   resources :recipes
   resources :ingredients do
     member do
       get 'duplicate'
+    end
+
+    collection do
+      post 'fetch'
     end
   end
   resources :nutrition_facts
