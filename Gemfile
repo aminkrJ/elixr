@@ -37,10 +37,6 @@ gem 'cocoon'
 gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
-# Heroku needs it. But still mysterious
-gem 'capybara'
-gem "poltergeist"
-gem "pry"
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
