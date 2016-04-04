@@ -55,6 +55,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem "poltergeist"
   gem 'database_cleaner'
   gem 'timecop'
   gem 'selenium-webdriver'
