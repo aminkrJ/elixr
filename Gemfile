@@ -38,12 +38,6 @@ gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
 
-# !!!
-gem 'capybara'
-gem 'poltergeist'
-gem 'pry'
-gem 'phantomjs'
-
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do
