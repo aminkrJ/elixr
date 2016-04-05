@@ -76,11 +76,11 @@ class IngredientsController < ApplicationController
     scraper.parse
     scraper_nutrition_facts = scraper.nutrition_facts
 
-    @ingredient = Ingredient.new name: params[:name], amount: scraper.per_serving_amount
+    @ingredient = Ingredient.new name: params[:name], amount: scraper.per_serving_amount, unit: Unit.find_by_name_or_symbol(scraper.per_serving_unit)
 
     scraper_nutrition_facts.each do |nf|
-      nutrition_fact = NutritionFact.find_or_initialize_by name: nf.name
-      @ingredient.ingredient_nutrition_facts << IngredientNutritionFact.new(amount: nf.amount, nutrition_fact: nutrition_fact)
+      nutrition_fact = NutritionFact.find_by name: nf.name
+      @ingredient.ingredient_nutrition_facts << IngredientNutritionFact.new(amount: nf.amount, nutrition_fact: nutrition_fact, unit: Unit.find_by_name_or_symbol(scraper.per_serving_unit))
     end
 
     render :new
