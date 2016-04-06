@@ -41,6 +41,8 @@ gem 'fuubar'
 # TODO I could not figure out why I should add this here
 # this is needed in scraper gem
 gem 'phantomjs'
+gem 'poltergeist'
+gem 'capybara'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
