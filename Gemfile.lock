@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/aminkrJ/scraper.git
-  revision: 7ac3442e96ad3ff690352b1833b7637e28dfa333
+  revision: e05ca1d323ad27306e1e687f1ffb55ad8bd0fd86
   specs:
     scraper (0.0.1)
 
