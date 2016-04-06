@@ -43,6 +43,7 @@ gem 'fuubar'
 gem 'phantomjs'
 gem 'poltergeist'
 gem 'capybara'
+gem 'pry'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
