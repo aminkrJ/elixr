@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/aminkrJ/scraper.git
-  revision: 3982cb6e7cf202a262eb219da7c9d5c038304016
+  revision: 6e08524a77ffbb8b1485bd6d10503dcf1c946750
   specs:
     scraper (0.0.1)
 
@@ -244,7 +244,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    websocket (1.2.2)
+    websocket (1.2.3)
 
 PLATFORMS
   ruby
