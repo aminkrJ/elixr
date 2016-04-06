@@ -38,6 +38,8 @@ gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
 
+gem 'phantomjs'
+
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do

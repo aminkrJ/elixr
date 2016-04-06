@@ -1,10 +1,9 @@
 GIT
   remote: https://github.com/aminkrJ/scraper.git
-  revision: df8991ea93bc0096eca88f350105d8a6a0c134f1
+  revision: 007f699d5408a05106baf6d87bda3025b0b9e2ce
   specs:
     scraper (0.0.1)
       capybara
-      phantomjs
       poltergeist
       pry
 
@@ -288,6 +287,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  phantomjs
   pry-rails
   rails (= 4.2.1)
   rails_12factor
