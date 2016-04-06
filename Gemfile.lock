@@ -1,8 +1,12 @@
 GIT
   remote: https://github.com/aminkrJ/scraper.git
-  revision: ceda811dc28b76e32c0e2460b9950705848b97b0
+  revision: df8991ea93bc0096eca88f350105d8a6a0c134f1
   specs:
     scraper (0.0.1)
+      capybara
+      phantomjs
+      poltergeist
+      pry
 
 GEM
   remote: https://rubygems.org/
@@ -274,7 +278,6 @@ DEPENDENCIES
   amoeba
   bootstrap-sass
   byebug
-  capybara
   cocoon
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -285,9 +288,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
-  phantomjs
-  poltergeist
-  pry
   pry-rails
   rails (= 4.2.1)
   rails_12factor
