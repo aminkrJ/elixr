@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cooks
+  resources :ingredient_categories
   get 'engine/dashboard'
 
   devise_for :users

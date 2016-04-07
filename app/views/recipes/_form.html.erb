@@ -30,7 +30,20 @@
     <%= f.label :how_to_cook %><br>
     <%= f.text_area :how_to_cook, class: 'form-control' %>
   </div>
-
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :category %><br>
+      <%= f.select :ingredient_category_id, IngredientCategory.all.collect{|u| [u.name, u.id]}, {prompt: 'Select category'}, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :cook %><br>
+      <%= f.select :cook_id, Cook.all.collect{|u| [u.name, u.id]}, {prompt: 'Select cook'}, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :url %><br>
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
+  </div>
   <h3>Ingredients</h3>
   <%= f.fields_for :recipe_ingredients do |fr| %>
     <%= render 'recipe_ingredient_fields', f: fr %>

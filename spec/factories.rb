@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :cook do
+    name "MyString"
+  end
+  factory :ingredient_category do
+    
+  end
   factory :user do
     email 'amin.krj@gmail.com'
     password '12345678'
