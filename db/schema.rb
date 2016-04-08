@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 20160407071550) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ingredient_categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ingredient_nutrition_facts", force: :cascade do |t|
     t.decimal  "amount"
     t.integer  "unit_id"
@@ -53,6 +47,12 @@ ActiveRecord::Schema.define(version: 20160407071550) do
     t.integer  "parent_id"
   end
 
+  create_table "recipe_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipe_ingredients", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 20160407071550) do
     t.text     "description"
     t.text     "how_to_cook"
     t.integer  "difficulty"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "cook_id"
-    t.integer  "ingredient_category_id"
+    t.integer  "recipe_category_id"
     t.string   "url"
   end
 

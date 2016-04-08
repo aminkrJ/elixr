@@ -33,7 +33,7 @@
   <div class="form-inline">
     <div class="form-group">
       <%= f.label :category %><br>
-      <%= f.select :ingredient_category_id, IngredientCategory.all.collect{|u| [u.name, u.id]}, {prompt: 'Select category'}, class: 'form-control' %>
+      <%= f.select :recipe_category_id, RecipeCategory.all.collect{|u| [u.name, u.id]}, {prompt: 'Select category'}, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :cook %><br>
