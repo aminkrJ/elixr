@@ -33,11 +33,11 @@
   <div class="form-inline">
     <div class="form-group">
       <%= f.label :category %><br>
-      <%= f.select :recipe_category_id, RecipeCategory.all.collect{|u| [u.name, u.id]}, {prompt: 'Select category'}, class: 'form-control' %>
+      <%= f.select :recipe_category_id, RecipeCategory.all.collect{|u| [u.name, u.id]}, { prompt: 'Select category', include_blank: true }, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :cook %><br>
-      <%= f.select :cook_id, Cook.all.collect{|u| [u.name, u.id]}, {prompt: 'Select cook'}, class: 'form-control' %>
+      <%= f.select :cook_id, Cook.all.collect{|u| [u.name, u.id]}, { prompt: 'Select cook', include_blank: true }, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :url %><br>
