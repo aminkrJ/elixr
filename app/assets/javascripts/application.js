@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
+//= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
+//= require global
 //= require_tree .
