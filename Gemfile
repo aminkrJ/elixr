@@ -37,6 +37,7 @@ gem 'cocoon'
 gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
+gem 'bower-rails'
 
 gem 'phantomjs'
 
