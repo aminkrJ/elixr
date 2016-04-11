@@ -17,5 +17,4 @@
 //= require turbolinks
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
-//= require global
 //= require_tree .
