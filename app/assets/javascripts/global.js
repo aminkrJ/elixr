@@ -1,4 +1,5 @@
-$(function(){
+var ready;
+ready = function(){
   $('.colorpicker').colorpicker({
     colorSelectors: {
       'a': '#777777',
@@ -9,4 +10,7 @@ $(function(){
       'f': '#d9534f'
     }
   });
-});
+}
+// turbolink and jQuery
+$(document).ready(ready);
+$(document).on('page:load', ready);
