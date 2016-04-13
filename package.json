@@ -5,7 +5,7 @@
     "bower": "latest"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "engines":{
     "node": "4.4.3"
