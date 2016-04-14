@@ -15,10 +15,12 @@ class NutritionFactsController < ApplicationController
   # GET /nutrition_facts/new
   def new
     @nutrition_fact = NutritionFact.new
+    @units = Unit.all
   end
 
   # GET /nutrition_facts/1/edit
   def edit
+    @units = Unit.all
   end
 
   # POST /nutrition_facts
@@ -69,6 +71,6 @@ class NutritionFactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nutrition_fact_params
-      params.require(:nutrition_fact).permit(:name, :parent_id)
+      params.require(:nutrition_fact).permit(:name, :parent_id, intakes_attributes: [:id, :age_from, :age_to, :period, :unit_id, :ingredient_id, :amount, :_destroy])
     end
 end

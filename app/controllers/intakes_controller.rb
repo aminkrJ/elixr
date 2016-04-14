@@ -69,6 +69,6 @@ class IntakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intake_params
-      params.require(:intake).permit(:age_from, :age_to, :amount, :period)
+      params.require(:intake).permit(:age_from, :age_to, :amount, :period, :unit_id)
     end
 end

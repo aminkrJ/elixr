@@ -15,6 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
+  <h3>Intake</h3>
+  <%= f.fields_for :intakes do |i| %>
+    <%= render 'intake_fields', f: i %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'add intake', f, :intakes %>
+  </div>
+
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-default' %>
   </div>
