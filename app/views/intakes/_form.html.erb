@@ -1,0 +1,33 @@
+<%= form_for(@intake) do |f| %>
+  <% if @intake.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@intake.errors.count, "error") %> prohibited this intake from being saved:</h2>
+
+      <ul>
+      <% @intake.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :age_from %><br>
+    <%= f.number_field :age_from %>
+  </div>
+  <div class="field">
+    <%= f.label :age_to %><br>
+    <%= f.number_field :age_to %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.text_field :period %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

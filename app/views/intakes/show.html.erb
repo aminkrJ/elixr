@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Age from:</strong>
+  <%= @intake.age_from %>
+</p>
+
+<p>
+  <strong>Age to:</strong>
+  <%= @intake.age_to %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @intake.amount %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @intake.period %>
+</p>
+
+<%= link_to 'Edit', edit_intake_path(@intake) %> |
+<%= link_to 'Back', intakes_path %>

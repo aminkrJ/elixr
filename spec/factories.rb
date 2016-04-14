@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :intake do
+    age_from 1
+    age_to 3
+    amount 1.5
+    period "Daily"
+  end
   factory :cook do
     name "MyString"
   end
