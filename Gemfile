@@ -38,8 +38,8 @@ gem 'devise'
 gem 'amoeba'
 gem 'fuubar'
 gem 'bower-rails'
-
 gem 'phantomjs'
+gem 'unitwise'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
