@@ -5,5 +5,14 @@
   <%= @ingredient.name %>
 </p>
 
+<h3>Nutrition Facts</h3>
+<table class='table table-hover'>
+<% @ingredient_nutrition_facts.each do |ingredient_nutrition_fact| %>
+  <tr>
+    <td class='col-md-2'><%= ingredient_nutrition_fact.try(:nutrition_fact).try(:name) %></td>
+    <td class='col-md-2'><%= "#{ingredient_nutrition_fact.amount} #{ingredient_nutrition_fact.try(:unit).try(:symbol)}" %></td>
+  </tr>
+<% end %>
+</table>
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>
