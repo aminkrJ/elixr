@@ -8,6 +8,11 @@ FactoryGirl.define do
   factory :cook do
     name "MyString"
   end
+  factory :ingredient_nutrition_fact do
+    ingredient
+    unit
+    amount 10.5
+  end
   factory :recipe_category do
     name "MyString"
   end
