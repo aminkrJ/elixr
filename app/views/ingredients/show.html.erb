@@ -6,13 +6,14 @@
 </p>
 
 <h3>Nutrition Facts</h3>
-<table class='table table-hover'>
+<div class='row'>
 <% @ingredient_nutrition_facts.each do |ingredient_nutrition_fact| %>
-  <tr>
-    <td class='col-md-2'><%= ingredient_nutrition_fact.try(:nutrition_fact).try(:name) %></td>
-    <td class='col-md-2'><%= "#{ingredient_nutrition_fact.amount} #{ingredient_nutrition_fact.try(:unit).try(:symbol)}" %></td>
-  </tr>
+  <div class='col-md-5'>
+    <%= ingredient_nutrition_fact.try(:nutrition_fact).try(:name).capitalize %>
+    <span class='label label-primary'> <%= "#{ingredient_nutrition_fact.amount_mg} milligram" %> </span>&nbsp;
+    <span class='label label-info'> <%= "#{ingredient_nutrition_fact.amount} #{ingredient_nutrition_fact.unit.name}" %> </span>
+  </div>
 <% end %>
-</table>
+</div>
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

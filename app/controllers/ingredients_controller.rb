@@ -11,7 +11,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
-    @ingredient_nutrition_facts = @ingredient.ingredient_nutrition_facts.where("amount > 0").order("amount DESC")
+    @ingredient_nutrition_facts = @ingredient.ingredient_nutrition_facts.order_by_milligram
   end
 
   # GET /ingredients/new
