@@ -46,6 +46,7 @@ gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 group :development do
   gem 'pry-rails'
   gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
 end
@@ -55,6 +56,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  gem "pry-byebug"
 end
 
 group :test do
