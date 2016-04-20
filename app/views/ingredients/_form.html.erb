@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <%= f.label :category %><br>
-      <%= f.select :ingredient_category_id, IngredientCategory.all.collect{|ic| [ic.description, ic.id]}, {prompt: 'Select category'}, class: 'form-control' %>
+      <%= f.select :ingredient_category_id, IngredientCategory.all.collect{|ic| [ic.description, ic.id]}, { include_blank: true }, class: 'form-control' %>
     </div>
 
     <div class="checkbox">
