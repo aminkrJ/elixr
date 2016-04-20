@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+IngredientCategory.create [{description: "grain (cereal) foods", name: 'ic_1'}, {description: "lean meats and poultry", name: 'ic_2'}, {description: "dairy products", name: 'ic_3'}, {description: "vegtables and beans", name: 'ic_4'}, {description: "vegtables", name: 'ic_5'}, {description: "beans and nuts", name: 'ic_6'}, {description: "fruits", name: 'ic_7'}, {description: "super foods", name: 'ic_8'}]

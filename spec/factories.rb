@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :ingredient_category do
+    title "MyString"
+    description "MyString"
+    color "MyString"
+  end
   factory :intake do
     age_from 1
     age_to 3
