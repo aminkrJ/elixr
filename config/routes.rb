@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
+  
+  root 'halo#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
