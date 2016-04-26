@@ -21,11 +21,11 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-    root 'halo#dashboard', as: :user_root
+    root 'halo#dashboard', as: :authenticated_user
   end
 
   authenticated :admin do
-    root 'units#index', as: :admin_root
+    root 'units#index', as: :authenticated_admin
   end
 
   devise_for :admins
