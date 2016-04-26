@@ -1,4 +1,4 @@
-class HaloController < ActionController::Base
+class HaloController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
