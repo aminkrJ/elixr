@@ -15,9 +15,9 @@
       <tr>
         <td><%= cook.name %></td>
         <td>
-          <%= link_to 'Show', cook,  class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_cook_path(cook), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', cook, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, cook],  class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_cook_path(cook), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', [:admin, cook], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Cook', new_cook_path, class: 'btn btn-primary' %>
+<%= link_to 'New Cook', new_admin_cook_path, class: 'btn btn-primary' %>

@@ -15,9 +15,9 @@
       <tr>
         <td><%= recipe.title %></td>
         <td>
-          <%= link_to 'Show', recipe, class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-success' %>
-          <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, recipe], class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_recipe_path(recipe), class: 'btn btn-success' %>
+          <%= link_to 'Destroy', [:admin, recipe], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary' %>
+<%= link_to 'New Recipe', new_admin_recipe_path, class: 'btn btn-primary' %>

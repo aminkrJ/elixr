@@ -15,10 +15,10 @@
       <tr>
         <td><%= ingredient.name %></td>
         <td>
-          <%= link_to 'Show', ingredient, class: 'btn btn-link' %>
-          <%= link_to 'Duplicate', duplicate_ingredient_path(ingredient.id), class: 'btn btn-success' %>
-          <%= link_to 'Edit', edit_ingredient_path(ingredient), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, ingredient], class: 'btn btn-link' %>
+          <%= link_to 'Duplicate', duplicate_admin_ingredient_path(ingredient.id), class: 'btn btn-success' %>
+          <%= link_to 'Edit', edit_admin_ingredient_path(ingredient), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', [:admin, ingredient], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Ingredient', new_ingredient_path, class: 'btn btn-primary' %>
+<%= link_to 'New Ingredient', new_admin_ingredient_path, class: 'btn btn-primary' %>

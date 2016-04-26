@@ -30,7 +30,7 @@ class Admin::NutritionFactsController < AdminController
 
     respond_to do |format|
       if @nutrition_fact.save
-        format.html { redirect_to @nutrition_fact, notice: 'Nutrition fact was successfully created.' }
+        format.html { redirect_to [:admin, @nutrition_fact], notice: 'Nutrition fact was successfully created.' }
         format.json { render :show, status: :created, location: @nutrition_fact }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::NutritionFactsController < AdminController
   def update
     respond_to do |format|
       if @nutrition_fact.update(nutrition_fact_params)
-        format.html { redirect_to @nutrition_fact, notice: 'Nutrition fact was successfully updated.' }
+        format.html { redirect_to [:admin, @nutrition_fact], notice: 'Nutrition fact was successfully updated.' }
         format.json { render :show, status: :ok, location: @nutrition_fact }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::NutritionFactsController < AdminController
   def destroy
     @nutrition_fact.destroy
     respond_to do |format|
-      format.html { redirect_to nutrition_facts_url, notice: 'Nutrition fact was successfully destroyed.' }
+      format.html { redirect_to admin_nutrition_facts_url, notice: 'Nutrition fact was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

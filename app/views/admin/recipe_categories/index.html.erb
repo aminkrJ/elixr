@@ -15,9 +15,9 @@
       <tr>
         <td><%= recipe_category.name %></td>
         <td>
-          <%= link_to 'Show', recipe_category,  class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_recipe_category_path(recipe_category), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', recipe_category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, recipe_category],  class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_recipe_category_path(recipe_category), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', [:admin, recipe_category], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New recipe category', new_recipe_category_path, class: 'btn btn-primary' %>
+<%= link_to 'New recipe category', new_admin_recipe_category_path, class: 'btn btn-primary' %>

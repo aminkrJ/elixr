@@ -4,7 +4,7 @@
   </div>
 
   <div class='panel-body'>
-    <%= form_tag(fetch_ingredients_path) do %>
+    <%= form_tag(fetch_admin_ingredients_path) do %>
       <div class='form-inline'>
         <div class='form-group'>
           <%= text_field_tag 'name', params[:url], class: 'form-control', placeholder: 'Ingredient name' %>

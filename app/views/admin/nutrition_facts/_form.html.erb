@@ -1,4 +1,4 @@
-<%= form_for(@nutrition_fact) do |f| %>
+<%= form_for([:admin, @nutrition_fact]) do |f| %>
   <% if @nutrition_fact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@nutrition_fact.errors.count, "error") %> prohibited this nutrition_fact from being saved:</h2>

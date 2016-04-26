@@ -28,7 +28,7 @@ class Admin::CooksController < AdminController
 
     respond_to do |format|
       if @cook.save
-        format.html { redirect_to @cook, notice: 'Cook was successfully created.' }
+        format.html { redirect_to [:admin, @cook], notice: 'Cook was successfully created.' }
         format.json { render :show, status: :created, location: @cook }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::CooksController < AdminController
   def update
     respond_to do |format|
       if @cook.update(cook_params)
-        format.html { redirect_to @cook, notice: 'Cook was successfully updated.' }
+        format.html { redirect_to [:admin, @cook], notice: 'Cook was successfully updated.' }
         format.json { render :show, status: :ok, location: @cook }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::CooksController < AdminController
   def destroy
     @cook.destroy
     respond_to do |format|
-      format.html { redirect_to cooks_url, notice: 'Cook was successfully destroyed.' }
+      format.html { redirect_to admin_cooks_url, notice: 'Cook was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

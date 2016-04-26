@@ -15,9 +15,9 @@
       <tr>
         <td><%= nutrition_fact.name %></td>
         <td>
-          <%= link_to 'Show', nutrition_fact, class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_nutrition_fact_path(nutrition_fact), class: 'btn btn-primary' %>
-          <%= link_to 'Destroy', nutrition_fact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, nutrition_fact], class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_nutrition_fact_path(nutrition_fact), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', [:admin, nutrition_fact], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Nutrition fact', new_nutrition_fact_path, class: 'btn btn-primary' %>
+<%= link_to 'New Nutrition fact', new_admin_nutrition_fact_path, class: 'btn btn-primary' %>

@@ -1,4 +1,4 @@
-<%= form_for(@cook) do |f| %>
+<%= form_for([:admin, @cook]) do |f| %>
   <% if @cook.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cook.errors.count, "error") %> prohibited this cook from being saved:</h2>
