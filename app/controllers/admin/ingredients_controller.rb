@@ -1,4 +1,4 @@
-class IngredientsController < ApplicationController
+class Admin::IngredientsController < AdminController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
   before_action :set_form_variables, only: [:edit, :new, :duplicate, :update, :fetch]
 

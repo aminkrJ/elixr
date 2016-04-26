@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :admin do
+    
+  end
   factory :ingredient_category do
     title "MyString"
     description "MyString"

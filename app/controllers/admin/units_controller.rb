@@ -1,4 +1,4 @@
-class UnitsController < ApplicationController
+class Admin::UnitsController < AdminController
   before_action :set_unit, only: [:show, :edit, :update, :destroy]
 
   # GET /units

@@ -1,4 +1,4 @@
-class RecipeCategoriesController < ApplicationController
+class Admin::RecipeCategoriesController < AdminController
   before_action :set_recipe_category, only: [:show, :edit, :update, :destroy]
 
   # GET /recipe_categories

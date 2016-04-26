@@ -1,4 +1,4 @@
-class CooksController < ApplicationController
+class Admin::CooksController < AdminController
   before_action :set_cook, only: [:show, :edit, :update, :destroy]
 
   # GET /cooks

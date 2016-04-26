@@ -1,28 +1,35 @@
 Rails.application.routes.draw do
-  resources :intakes
-  resources :cooks
-  resources :recipe_categories
-  get 'engine/dashboard'
 
-  devise_for :users
-  resources :recipes
-  resources :ingredients do
-    member do
-      get 'duplicate'
-    end
+  namespace :admin do
+    resources :intakes
+    resources :cooks
+    resources :recipe_categories
+    get 'engine/dashboard'
 
-    collection do
-      post 'fetch'
+    resources :recipes
+    resources :ingredients do
+      member do
+        get 'duplicate'
+      end
+
+      collection do
+        post 'fetch'
+      end
     end
+    resources :nutrition_facts
+    resources :units
   end
-  resources :nutrition_facts
-  resources :units
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  authenticated :user do
+    root 'halo#dashboard', as: :user_root
+  end
 
-  # You can have the root of your site routed with "root"
-  root 'units#index'
+  authenticated :admin do
+    root 'units#index', as: :admin_root
+  end
+
+  devise_for :admins
+  devise_for :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

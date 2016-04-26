@@ -1,4 +1,4 @@
-class NutritionFactsController < ApplicationController
+class Admin::NutritionFactsController < AdminController
   before_action :set_nutrition_fact, only: [:show, :edit, :update, :destroy]
 
   # GET /nutrition_facts

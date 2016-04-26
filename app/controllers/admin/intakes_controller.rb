@@ -1,4 +1,4 @@
-class IntakesController < ApplicationController
+class Admin::IntakesController < AdminController
   before_action :set_intake, only: [:show, :edit, :update, :destroy]
 
   # GET /intakes
