@@ -15,13 +15,13 @@ class Admin::RecipesController < AdminController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.order(:name).all
     @units = Unit.all
   end
 
   # GET /recipes/1/edit
   def edit
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.order(:name).all
     @units = Unit.all
   end
 
