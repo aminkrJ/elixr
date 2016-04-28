@@ -1,5 +1,4 @@
-var ready;
-ready = function(){
+$(document).on("page:change", function(){
   $('.colorpicker').colorpicker({
     colorSelectors: {
       'a': '#777777',
@@ -10,7 +9,4 @@ ready = function(){
       'f': '#d9534f'
     }
   });
-}
-// turbolink and jQuery
-$(document).ready(ready);
-$(document).on('page:load', ready);
+});
