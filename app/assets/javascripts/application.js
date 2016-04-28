@@ -15,6 +15,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
 //= require_tree .

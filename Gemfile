@@ -40,6 +40,7 @@ gem 'fuubar'
 gem 'bower-rails'
 gem 'phantomjs'
 gem 'unitwise'
+gem 'nprogress-rails'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
