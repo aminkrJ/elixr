@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :admin do
-    root 'units#index', as: :authenticated_admin
+    root 'admin/units#index', as: :authenticated_admin
   end
 
   devise_for :admins
