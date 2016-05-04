@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
+//= require nprogress-ajax
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
 //= require react
