@@ -1,6 +1,7 @@
 {
-  "name": "foo",
+  "name": "Elixir",
   "dependencies": {
     "mjolnic-bootstrap-colorpicker": "https://github.com/mjolnic/bootstrap-colorpicker.git"
+    "classnames": "https://github.com/JedWatson/classnames.git"
   }
 }
