@@ -1,0 +1,6 @@
+.ingredient{
+  cursor: pointer;
+  &.clicked{
+    text-decoration: underline;
+  }
+}

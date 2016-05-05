@@ -23,4 +23,5 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require classnames
 //= require_tree .
