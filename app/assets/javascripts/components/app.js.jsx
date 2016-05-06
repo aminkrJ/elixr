@@ -70,15 +70,14 @@ var RecipeList = React.createClass({
 
 var IngredientList = React.createClass({
   render: function(){
-    var $this = this;
     var ingredientNodes = this.props.data.map(function(data){
       return(
         <Ingredient
           key={data.id}
           data={data}
-          onClick={$this.props.onIngredientClick} />
+          onClick={this.props.onIngredientClick} />
       );
-    });
+    }, this);
     return(
       <div className="IngredientList">
         {ingredientNodes}
