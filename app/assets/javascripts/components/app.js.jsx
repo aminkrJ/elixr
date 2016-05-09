@@ -1,8 +1,16 @@
 "use strict";
 
 var RecipeFilter = React.createClass({
+  ingredientIds: [],
+  updateIngredientIds: function(id){
+    if(_.contains(this.ingredientIds, id)){
+      this.ingredientIds = _.without(this.ingredientIds, id)
+    }else{
+      this.ingredientIds = this.ingredientIds.concat(id)
+    }
+  },
   getInitialState: function () {
-    return { ingredients: [], recipes: [], activeIngredients: [] };
+    return { ingredients: [], recipes: [] };
   },
   componentDidMount: function(){
     this.loadIngredients();
@@ -21,11 +29,12 @@ var RecipeFilter = React.createClass({
       }.bind(this)
     });
   },
-  handleIngredientClick: function(){
+  handleIngredientClick: function(ingredient){
+    this.updateIngredientIds(ingredient.id);
     $.ajax({
       url: this.props.recipes_path,
       dataType: 'json',
-      data: null,
+      data: {ids: this.ingredientIds},
       type: 'GET',
       cache: false,
       success: function(data){
@@ -35,6 +44,8 @@ var RecipeFilter = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+  },
+  handleRecipeClick: function(recipe){
   },
   render: function(){
     return (
@@ -46,7 +57,10 @@ var RecipeFilter = React.createClass({
           />
         </div>
         <div className="col-sm-4 col-md-4">
-          <RecipeList data={this.state.recipes} />
+          <RecipeList
+            data={this.state.recipes}
+            onRecipeClick={this.handleRecipeClick}
+          />
         </div>
       </div>
     );
@@ -57,9 +71,12 @@ var RecipeList = React.createClass({
   render: function(){
     var recipeNodes = this.props.data.map(function(data){
       return(
-        <Recipe key={data.id} data={data} />
+        <Recipe
+          key={data.id}
+          data={data}
+          onClick={this.props.onRecipeClick}/>
       );
-    });
+    }, this);
     return(
       <div className="RecipeList">
         {recipeNodes}
@@ -92,7 +109,7 @@ var Ingredient = React.createClass({
   },
   onClick: function(){
     this.setState({clicked: !this.state.clicked});
-    this.props.onClick();
+    this.props.onClick(this.props.data);
   },
   render: function(){
     return(
@@ -106,9 +123,18 @@ var Ingredient = React.createClass({
 });
 
 var Recipe = React.createClass({
+  getInitialState: function(){
+    return {clicked: false};
+  },
+  onClick: function(){
+    this.setState({clicked: !this.state.clicked});
+    this.props.onClick(this.props.data);
+  },
   render: function(){
     return(
-      <div className="col-sm-5 col-md-5 recipe">
+      <div
+        className={classNames("col-sm-5 col-md-5 recipe", {'clicked': this.state.clicked})}
+        onClick={this.onClick}>
         {this.props.data.title.toLowerCase()}
       </div>
     );
