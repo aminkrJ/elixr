@@ -24,4 +24,5 @@
 //= require react_ujs
 //= require components
 //= require classnames
+//= require underscore
 //= require_tree .
