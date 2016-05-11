@@ -86,6 +86,9 @@ var RecipeList = React.createClass({
 });
 
 var IngredientList = React.createClass({
+  propTypes:{
+    onIngredientClick: React.PropTypes.func
+  },
   render: function(){
     var ingredientNodes = this.props.data.map(function(data){
       return(
@@ -104,6 +107,9 @@ var IngredientList = React.createClass({
 });
 
 var Ingredient = React.createClass({
+  propTypes:{
+    onClick: React.PropTypes.func
+  },
   getInitialState: function(){
     return {clicked: false};
   },
