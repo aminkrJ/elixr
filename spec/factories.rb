@@ -1,6 +1,8 @@
 FactoryGirl.define do
-  factory :admin do
-    
+  factory :admin_ingredient_category, class: 'Admin::IngredientCategory' do
+    title "MyString"
+    color "MyString"
+    description "MyString"
   end
   factory :ingredient_category do
     title "MyString"

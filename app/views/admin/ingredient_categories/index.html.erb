@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Ingredient Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_ingredient_categories.each do |admin_ingredient_category| %>
+      <tr>
+        <td><%= admin_ingredient_category.title %></td>
+        <td><%= admin_ingredient_category.color %></td>
+        <td><%= admin_ingredient_category.description %></td>
+        <td><%= link_to 'Show', admin_ingredient_category %></td>
+        <td><%= link_to 'Edit', edit_admin_ingredient_category_path(admin_ingredient_category) %></td>
+        <td><%= link_to 'Destroy', admin_ingredient_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ingredient category', new_admin_ingredient_category_path %>

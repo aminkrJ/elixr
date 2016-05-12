@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_ingredient_category.title %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @admin_ingredient_category.color %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_ingredient_category.description %>
+</p>
+
+<%= link_to 'Edit', edit_admin_ingredient_category_path(@admin_ingredient_category) %> |
+<%= link_to 'Back', admin_ingredient_categories_path %>

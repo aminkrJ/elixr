@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
   namespace :admin do
     resources :intakes
     resources :cooks
     resources :recipe_categories
+    resources :ingredient_categories
     get 'engine/dashboard'
 
     resources :recipes
