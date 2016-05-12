@@ -50,24 +50,24 @@ var RecipeFilter = React.createClass({
   render: function(){
     return (
       <div className="recipeFilter row">
-        <div className="col-sm-4 col-md-4">
-          <IngredientList
-            data={this.state.ingredients}
-            onIngredientClick={this.handleIngredientClick}
-          />
-        </div>
-        <div className="col-sm-4 col-md-4">
-          <RecipeList
-            data={this.state.recipes}
-            onRecipeClick={this.handleRecipeClick}
-          />
-        </div>
+        <IngredientList
+          data={this.state.ingredients}
+          onIngredientClick={this.handleIngredientClick}
+        />
+        <RecipeList
+          data={this.state.recipes}
+          onRecipeClick={this.handleRecipeClick}
+          visible={this.state.display_recipes}
+        />
       </div>
     );
   }
 });
 
 var RecipeList = React.createClass({
+  propTypes:{
+    visible: React.PropTypes.bool
+  },
   render: function(){
     var recipeNodes = this.props.data.map(function(data){
       return(
@@ -120,7 +120,7 @@ var Ingredient = React.createClass({
   render: function(){
     return(
       <div
-        className={classNames("col-sm-5 col-md-5 ingredient", {'clicked': this.state.clicked})}
+        className={classNames("col-xs-6 col-sm-4 col-md-2 ingredient", {'clicked': this.state.clicked})}
         onClick={this.onClick}>
           {this.props.data.name.toLowerCase()}
       </div>
@@ -139,7 +139,7 @@ var Recipe = React.createClass({
   render: function(){
     return(
       <div
-        className={classNames("col-sm-5 col-md-5 recipe", {'clicked': this.state.clicked})}
+        className={classNames("col-xs-6 col-sm-4 col-md-2 recipe", {'clicked': this.state.clicked})}
         onClick={this.onClick}>
         {this.props.data.title.toLowerCase()}
       </div>
