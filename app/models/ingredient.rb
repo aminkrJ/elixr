@@ -13,4 +13,6 @@ class Ingredient < ActiveRecord::Base
   amoeba do
     include_association :ingredient_nutrition_facts
   end
+
+  scope :with_category, -> { where.not(ingredient_category_id: nil) }
 end

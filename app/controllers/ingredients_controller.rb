@@ -1,6 +1,6 @@
 class IngredientsController < PublicController
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.with_category
 
     respond_to do |format|
       format.json { render json: @ingredients }
