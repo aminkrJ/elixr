@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :ingredients, only: [:index]
+  resources :recipes, only: [:index]
+
   namespace :admin do
     resources :intakes
     resources :cooks
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   
-  root 'halo#dashboard'
+  root 'public#experience'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

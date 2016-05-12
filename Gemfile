@@ -41,6 +41,7 @@ gem 'bower-rails'
 gem 'phantomjs'
 gem 'unitwise'
 gem 'nprogress-rails'
+gem 'react-rails'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
