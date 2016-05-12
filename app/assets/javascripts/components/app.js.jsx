@@ -59,6 +59,8 @@ var RecipeFilter = React.createClass({
           onRecipeClick={this.handleRecipeClick}
           visible={this.state.display_recipes}
         />
+        <div class="col-xs-4 col-sm-4 col-md-4">
+        </div>
       </div>
     );
   }
@@ -78,7 +80,7 @@ var RecipeList = React.createClass({
       );
     }, this);
     return(
-      <div className="RecipeList">
+      <div className="RecipeList col-xs-4 col-sm-4 col-md-4">
         {recipeNodes}
       </div>
     );
@@ -99,7 +101,7 @@ var IngredientList = React.createClass({
       );
     }, this);
     return(
-      <div className="IngredientList">
+      <div className="IngredientList col-xs-4 col-sm-4 col-md-4">
         {ingredientNodes}
       </div>
     );
