@@ -1,29 +1,29 @@
-<%= form_for(@admin_ingredient_category) do |f| %>
-  <% if @admin_ingredient_category.errors.any? %>
+<%= form_for([:admin, @ingredient_category]) do |f| %>
+  <% if @ingredient_category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_ingredient_category.errors.count, "error") %> prohibited this admin_ingredient_category from being saved:</h2>
+      <h2><%= pluralize(@ingredient_category.errors.count, "error") %> prohibited this ingredient_category from being saved:</h2>
 
       <ul>
-      <% @admin_ingredient_category.errors.full_messages.each do |message| %>
+      <% @ingredient_category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :color %><br>
+      <%= f.text_field :color, class: 'form-control colorpicker', data: {format: 'hex'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+    </div>
 <% end %>
