@@ -5,7 +5,7 @@ class Admin::IngredientsController < AdminController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.includes(:category).all
   end
 
   # GET /ingredients/1
