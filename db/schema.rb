@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429011308) do
+ActiveRecord::Schema.define(version: 20160512020604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20160429011308) do
     t.string   "tags"
     t.boolean  "premium",                default: false
     t.integer  "ingredient_category_id"
+    t.integer  "ph"
+    t.boolean  "antioxidant"
   end
 
   create_table "intakes", force: :cascade do |t|
