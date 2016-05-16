@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EngineController, type: :controller do
+RSpec.describe Admin::EngineController, type: :controller do
 
   describe "GET #start" do
     it "returns http success" do
