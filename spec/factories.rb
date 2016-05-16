@@ -1,9 +1,4 @@
 FactoryGirl.define do
-  factory :admin_ingredient_category, class: 'Admin::IngredientCategory' do
-    title "MyString"
-    color "MyString"
-    description "MyString"
-  end
   factory :ingredient_category do
     title "MyString"
     description "MyString"
@@ -26,19 +21,23 @@ FactoryGirl.define do
   factory :recipe_category do
     name "MyString"
   end
-  factory :user do
-    email 'amin.krj@gmail.com'
-    password '12345678'
-  end
-
   factory :unit do
     name 'Gram'
     symbol 'g'
   end
-
   factory :ingredient do
     name 'zucchini'
     amount 100
     unit
+  end
+  factory :user do
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
+  end
+  factory :admin do
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
   end
 end

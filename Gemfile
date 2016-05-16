@@ -42,6 +42,7 @@ gem 'phantomjs'
 gem 'unitwise'
 gem 'nprogress-rails'
 gem 'react-rails'
+gem 'faker'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
@@ -65,5 +66,6 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
