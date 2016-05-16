@@ -13,6 +13,8 @@ RSpec.configure do |config|
 
   config.after do
     Warden.test_reset!
+    Capybara.reset_session!
+    Capybara.use_default_driver
   end
 
   config.expect_with :rspec do |expectations|
