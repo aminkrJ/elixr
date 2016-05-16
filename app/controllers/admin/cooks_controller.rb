@@ -1,28 +1,20 @@
 class Admin::CooksController < AdminController
   before_action :set_cook, only: [:show, :edit, :update, :destroy]
 
-  # GET /cooks
-  # GET /cooks.json
   def index
     @cooks = Cook.all
   end
 
-  # GET /cooks/1
-  # GET /cooks/1.json
   def show
   end
 
-  # GET /cooks/new
   def new
     @cook = Cook.new
   end
 
-  # GET /cooks/1/edit
   def edit
   end
 
-  # POST /cooks
-  # POST /cooks.json
   def create
     @cook = Cook.new(cook_params)
 
@@ -37,8 +29,6 @@ class Admin::CooksController < AdminController
     end
   end
 
-  # PATCH/PUT /cooks/1
-  # PATCH/PUT /cooks/1.json
   def update
     respond_to do |format|
       if @cook.update(cook_params)
@@ -51,8 +41,6 @@ class Admin::CooksController < AdminController
     end
   end
 
-  # DELETE /cooks/1
-  # DELETE /cooks/1.json
   def destroy
     @cook.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class Admin::CooksController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_cook
       @cook = Cook.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def cook_params
       params.require(:cook).permit(:name)
     end
