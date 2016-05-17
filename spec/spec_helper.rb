@@ -1,11 +1,12 @@
 require_relative 'support/controller_helpers'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'devise'
 
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
-Capybara.default_driver = :selenium
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.include ControllerHelpers, type: :controller
