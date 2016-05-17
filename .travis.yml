@@ -12,3 +12,5 @@ before_script:
   - psql -c 'create database trado_test_db' -U postgres
   - npm install bower -g
   - bower install
+before_install:
+  - gem install selenium-webdriver
