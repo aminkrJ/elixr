@@ -50,21 +50,20 @@ var RecipeFilter = React.createClass({
   render: function(){
     return (
       <div className="recipeFilter">
-        <IngredientList
+        <Ingredients
           data={this.state.ingredients}
           onIngredientClick={this.handleIngredientClick}
         />
-        <RecipeList
+        <Recipes
           data={this.state.recipes}
           onRecipeClick={this.handleRecipeClick}
-          visible={this.state.display_recipes}
         />
       </div>
     );
   }
 });
 
-var RecipeList = React.createClass({
+var Recipes = React.createClass({
   propTypes:{
     visible: React.PropTypes.bool
   },
@@ -78,14 +77,14 @@ var RecipeList = React.createClass({
       );
     }, this);
     return(
-      <div className="RecipeList col-md-4">
+      <div className="Recipes col-md-4">
         {recipeNodes}
       </div>
     );
   }
 });
 
-var IngredientList = React.createClass({
+var Ingredients = React.createClass({
   propTypes:{
     onIngredientClick: React.PropTypes.func
   },
@@ -99,7 +98,7 @@ var IngredientList = React.createClass({
       );
     }, this);
     return(
-      <div className="IngredientList col-md-4">
+      <div className="Ingredients col-md-4">
         {ingredientNodes}
       </div>
     );
