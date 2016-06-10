@@ -43,6 +43,7 @@ gem 'unitwise'
 gem 'nprogress-rails'
 gem 'react-rails'
 gem 'faker'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
