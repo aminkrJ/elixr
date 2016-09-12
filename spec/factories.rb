@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :subscriber do
+    email "MyString"
+    full_name "MyString"
+    subscribed_to "MyString"
+  end
   factory :ingredient_category do
     title "MyString"
     description "MyString"

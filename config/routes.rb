@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :ingredients, only: [:index]
   resources :recipes, only: [:index]
+  resources :subscribers, only: [:create]
 
   namespace :admin do
     resources :intakes
+    resources :subscribers
     resources :cooks
     resources :recipe_categories
     resources :ingredient_categories
