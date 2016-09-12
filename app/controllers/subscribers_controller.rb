@@ -1,4 +1,5 @@
 class SubscribersController < PublicController
+  skip_before_filter :verify_authenticity_token, only: [:create]
 
   def create
     @subscriber = Subscriber.new(subscriber_params)
