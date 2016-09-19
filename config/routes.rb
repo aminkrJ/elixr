@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :ingredients, only: [:index]
   resources :recipes, only: [:index]
   resources :subscribers, only: [:create]
+  resources :articles, only: [:index]
 
   namespace :admin do
     resources :intakes
