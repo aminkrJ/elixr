@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :article do
+    title "MyString"
+    description "MyString"
+    category "MyString"
+    content "MyText"
+  end
   factory :subscriber do
     email "MyString"
     full_name "MyString"
