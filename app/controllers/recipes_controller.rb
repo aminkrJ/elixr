@@ -1,8 +1,5 @@
 class RecipesController < PublicController
   def index
-    @recipes = Recipe
-      .joins(:recipe_ingredients)
-      .where(recipe_ingredients: {ingredient_id: params[:ids]})
-      .distinct
+    @recipes = Recipe.includes(ingredients: :unit).order("id DESC").limit(25).all
   end
 end
