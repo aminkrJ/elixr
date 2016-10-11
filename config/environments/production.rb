@@ -78,4 +78,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.react.variant = :production
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: AWS[:s3][:bucket_name],
+      access_key_id: AWS[:access_key_id],
+      secret_access_key: AWS[:secret_access_key],
+      s3_region: AWS[:s3][:region],
+    }
+  }
 end

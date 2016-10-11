@@ -45,6 +45,8 @@ gem 'react-rails'
 gem 'faker'
 gem 'rack-cors', require: 'rack/cors'
 gem 'friendly_id', '~> 5.1.0'
+gem 'paperclip'
+gem 'aws-sdk'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 

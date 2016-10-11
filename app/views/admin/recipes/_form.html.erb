@@ -1,4 +1,4 @@
-<%= form_for([:admin, @recipe]) do |f| %>
+<%= form_for([:admin, @recipe], html: {multipart: true}) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -55,6 +55,10 @@
     <div class="form-group">
       <%= f.label :color %><br>
       <%= f.text_field :color, class: 'form-control colorpicker', data: {format: 'hex'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :photo %><br>
+      <%= f.file_field :photo, class: '' %>
     </div>
   </div>
   <h3>Ingredients</h3>

@@ -13,7 +13,9 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.title %></td>
+        <td>
+          <%= recipe.title %>
+        </td>
         <td>
           <%= link_to 'Show', [:admin, recipe], class: 'btn btn-link' %>
           <%= link_to 'Edit', edit_admin_recipe_path(recipe), class: 'btn btn-success' %>
