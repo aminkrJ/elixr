@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show]
   resources :subscribers, only: [:create]
   resources :articles, only: [:index, :show]
+  resources :products, only: [:index, :show]
 
   namespace :admin do
     resources :intakes
     resources :subscribers
     resources :cooks
     resources :articles
+    resources :products
     resources :recipe_categories
     resources :ingredient_categories
     get 'engine/dashboard'
