@@ -1,6 +1,6 @@
 class ArticlesController < PublicController
   def index
-    @articles = Article.all
+    @articles = Article.select("id, title, description, slug, created_at").order(created_at: :desc).all
   end
 
   def show
