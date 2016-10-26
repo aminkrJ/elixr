@@ -2,6 +2,7 @@ json.array! @recipes do |recipe|
   json.title recipe.title
   json.photo_url recipe.photo.url(:thumb)
   json.slug recipe.slug
+  json.slug recipe.color
   json.ingredients recipe.ingredients do |ingredient|
     json.name ingredient.name
     json.amount ingredient.amount
