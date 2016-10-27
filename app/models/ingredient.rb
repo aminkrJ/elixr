@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
-  has_and_belongs_to_many :recipes
+  has_many :recipe_ingredients
+  has_many :recipes, through: :recipe_ingredients
   has_many :ingredient_nutrition_facts
   has_many :nutrition_facts, through: :ingredient_nutrition_facts
   accepts_nested_attributes_for :ingredient_nutrition_facts, allow_destroy: true, reject_if: :all_blank
