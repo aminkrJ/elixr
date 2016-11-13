@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030222627) do
+ActiveRecord::Schema.define(version: 20161113233658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161030222627) do
     t.string   "slug"
   end
 
+  add_index "articles", ["category"], name: "index_articles_on_category", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "cooks", force: :cascade do |t|
