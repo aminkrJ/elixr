@@ -22,7 +22,6 @@
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
 //= require react
 //= require react_ujs
-//= require components
 //= require classnames
 //= require underscore
 //= require_tree .
