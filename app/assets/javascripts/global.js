@@ -12,4 +12,10 @@ $(document).on("page:change", function(){
       'f': '#d9534f'
     }
   });
+
+  $('.wysihtml5').wysihtml5({
+    toolbar:{
+      "image": false
+    }
+  });
 });

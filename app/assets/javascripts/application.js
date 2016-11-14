@@ -13,15 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require bootstrap
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
 //= require nprogress-ajax
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
-//= require react
-//= require react_ujs
+//= require bootstrap3-wysihtml5/dist/bootstrap3-wysihtml5.all.min
 //= require classnames
 //= require underscore
 //= require_tree .
