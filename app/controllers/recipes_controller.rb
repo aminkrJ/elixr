@@ -1,5 +1,4 @@
 class RecipesController < PublicController
-
   def index
     @recipes = if params[:recipe_category_id]
       recipe_category = RecipeCategory.find params[:recipe_category_id]
@@ -15,4 +14,7 @@ class RecipesController < PublicController
     end
   end
 
+  def show
+    @recipe = Recipe.includes(recipe_ingredients: :ingredient).find_by_slug(params[:id])
+  end
 end
