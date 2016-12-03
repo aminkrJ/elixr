@@ -95,7 +95,7 @@ class Admin::IngredientsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
-      params.require(:ingredient).permit(:ingredient_category_id, :name, :tags, :unit_id, :amount, :ph, :antioxidant, ingredient_nutrition_facts_attributes: [:id, :amount, :unit_id, :_destroy, :nutrition_fact_id])
+      params.require(:ingredient).permit(:ingredient_category_id, :name, :tags, :unit_id, :amount, :ph, :antioxidant, :premium, ingredient_nutrition_facts_attributes: [:id, :amount, :unit_id, :_destroy, :nutrition_fact_id])
     end
 
     def set_form_variables

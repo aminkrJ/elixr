@@ -7,4 +7,5 @@ json.ingredients @recipe.recipe_ingredients do |ri|
   json.name ri.ingredient.name
   json.description ri.description
   json.amount_description ri.amount_description
+  json.premium ri.ingredient.premium
 end
