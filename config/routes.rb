@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :ingredients, only: [:index]
-  resources :recipe_categories, only: [:index] do
-    resources :recipes, only: [:index]
+  namespace :api do
+    namespace :v1 do
+      resources :ingredients, only: [:index]
+      resources :recipe_categories, only: [:index] do
+        resources :recipes, only: [:index]
+      end
+      resources :recipes, only: [:index, :show]
+      resources :subscribers, only: [:create]
+      resources :articles, only: [:index, :show]
+      resources :products, only: [:index, :show]
+    end
   end
-  resources :recipes, only: [:index, :show]
-  resources :subscribers, only: [:create]
-  resources :articles, only: [:index, :show]
-  resources :products, only: [:index, :show]
 
   namespace :admin do
     resources :intakes

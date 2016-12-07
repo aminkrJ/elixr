@@ -1,4 +1,4 @@
-class SubscribersController < PublicController
+class Api::V1::SubscribersController < Api::V1::BaseController
   skip_before_filter :verify_authenticity_token, only: [:create]
 
   def create

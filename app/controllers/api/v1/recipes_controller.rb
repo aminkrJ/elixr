@@ -1,4 +1,4 @@
-class RecipesController < PublicController
+class Api::V1::RecipesController < Api::V1::BaseController
   def index
     @recipes = if params[:recipe_category_id]
       recipe_category = RecipeCategory.find params[:recipe_category_id]
