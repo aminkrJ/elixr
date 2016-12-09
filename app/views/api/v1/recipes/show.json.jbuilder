@@ -4,8 +4,10 @@ json.how_to_cook @recipe.how_to_cook
 json.ingredients @recipe.recipe_ingredients do |ri|
   json.id ri.id
   json.amount ri.amount
-  json.name ri.ingredient.name if user_signed_in?
-  json.description ri.description if user_signed_in?
-  json.amount_description ri.amount_description if user_signed_in?
+  unless ri.ingredient.premium && !user_signed_in?
+    json.name ri.ingredient.name
+    json.description ri.description
+    json.amount_description ri.amount_description
+  end
   json.premium ri.ingredient.premium
 end
