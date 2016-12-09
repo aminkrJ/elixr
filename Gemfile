@@ -47,6 +47,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
+gem 'devise_token_auth'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
