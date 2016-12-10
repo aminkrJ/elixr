@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  include DeviseTokenAuth::Concerns::User
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  include DeviseTokenAuth::Concerns::User
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
