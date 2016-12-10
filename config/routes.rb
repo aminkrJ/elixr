@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
       resources :ingredients, only: [:index]
       resources :recipe_categories, only: [:index] do
         resources :recipes, only: [:index]
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :admins
-  mount_devise_token_auth_for 'User', at: 'auth'
+  devise_for :users
 
   root 'public#experience'
 
