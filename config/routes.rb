@@ -37,10 +37,6 @@ Rails.application.routes.draw do
     resources :units
   end
 
-  authenticated :user do
-    root 'halo#dashboard', as: :authenticated_user
-  end
-
   authenticated :admin do
     root 'admin/units#index', as: :authenticated_admin
   end
