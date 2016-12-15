@@ -27,6 +27,11 @@
     <%= f.label :category %><br>
     <%= f.text_field :category, class: 'form-control' %>
   </div>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :published, class: 'checkbox' %> <%= t('Published') %>
+    </label>
+  </div>
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-default' %>
   </div>

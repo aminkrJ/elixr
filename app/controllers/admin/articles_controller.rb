@@ -69,6 +69,6 @@ class Admin::ArticlesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:article).permit(:id, :title, :description, :content, :category)
+      params.require(:article).permit(:id, :published, :title, :description, :content, :category)
     end
 end
