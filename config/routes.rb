@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :cooks
     resources :articles
     resources :products
+    resources :users
     resources :recipe_categories
     resources :ingredient_categories
     get 'engine/dashboard'
