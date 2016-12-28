@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end
       resources :recipes, only: [:index, :show] do
         collection do
-          get :shopping_list
+          post :shopping_list
         end
       end
       resources :subscribers, only: [:create]
