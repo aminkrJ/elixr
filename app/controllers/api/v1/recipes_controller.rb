@@ -17,4 +17,8 @@ class Api::V1::RecipesController < Api::V1::BaseController
   def show
     @recipe = Recipe.includes(recipe_ingredients: :ingredient).find_by_slug(params[:id])
   end
+
+  def shopping_list
+    @recipe_ingredients = RecipeIngredient.recipes_ingredients params[:recipe_ids]
+  end
 end

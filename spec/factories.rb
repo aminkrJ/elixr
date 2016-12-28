@@ -42,8 +42,16 @@ FactoryGirl.define do
     name 'Gram'
     symbol 'g'
   end
+  factory :recipe_ingredient do
+    recipe
+    ingredient
+    amount 100
+  end
+  factory :recipe do
+    sequence(:title) { |n| "recipe#{n}"}
+  end
   factory :ingredient do
-    name 'zucchini'
+    sequence(:name) { |n| "ingredient#{n}"}
     amount 100
     unit
   end
