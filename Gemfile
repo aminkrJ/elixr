@@ -49,6 +49,9 @@ gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'devise_token_auth'
 
+gem 'sidekiq'
+gem 'devise-async'
+
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do

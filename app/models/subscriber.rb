@@ -7,7 +7,7 @@ class Subscriber < ActiveRecord::Base
 
   def send_email
     if subscribed_to == "program0"
-      SubscriberMailer.download_pdf(self).deliver_later
+      SubscriberMailer.delay.download_pdf(self)
     end
   end
 end
