@@ -1,0 +1,2 @@
+module SubscriberMailerHelper
+end
