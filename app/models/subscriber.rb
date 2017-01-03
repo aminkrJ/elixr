@@ -3,10 +3,10 @@ class Subscriber < ActiveRecord::Base
   validates :email, confirmation: {case_sensitive: false}
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-  after_create :send_email
+  after_save :send_email
 
   def send_email
-    if subscribed_to == "program0"
+    if self.subscribed_to == "program0"
       SubscriberMailer.delay.download_pdf(self)
     end
   end
