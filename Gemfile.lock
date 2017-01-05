@@ -159,6 +159,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     liner (0.2.4)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
@@ -378,6 +382,8 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
+  letter_opener
   nprogress-rails
   omniauth-facebook
   paperclip

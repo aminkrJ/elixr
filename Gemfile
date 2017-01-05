@@ -51,6 +51,8 @@ gem 'devise_token_auth'
 
 gem 'sidekiq'
 gem 'devise-async'
+gem "letter_opener"
+gem "launchy"
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
