@@ -17,8 +17,6 @@
           <%= user.email %>
         </td>
         <td>
-          <%= link_to 'Show', [:admin, user], class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_admin_recipe_path(user), class: 'btn btn-success' %>
           <%= link_to 'Destroy', [:admin, user], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
