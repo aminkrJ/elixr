@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td>
+          <%= link_to 'Show', [:admin, restaurant], class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_restaurant_path(restaurant), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', [:admin, restaurant], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_admin_restaurant_path, class: 'btn btn-primary' %>

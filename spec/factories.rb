@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :restaurant do
+    sequence(:name) { |n| "restaurant#{n}"}
+    address "MyString"
+  end
   factory :product do
     name "MyString"
     description "MyString"
