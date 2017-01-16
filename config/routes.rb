@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :subscribers, only: [:create]
       resources :articles, only: [:index, :show]
       resources :products, only: [:index, :show]
+      resources :meals, only: [:index]
     end
   end
 
