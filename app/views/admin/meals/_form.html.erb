@@ -1,0 +1,53 @@
+<%= form_for([:admin, @meal]) do |f| %>
+  <% if @meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% @meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :light %><br>
+    <%= f.check_box :light, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :vegan %><br>
+    <%= f.check_box :vegan, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :raw %><br>
+    <%= f.check_box :raw, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :gluten_free %><br>
+    <%= f.check_box :gluten_free, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :organic %><br>
+    <%= f.check_box :organic, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="form-group">
+    <%= f.label :restaurant %><br>
+    <%= f.select :restaurant_id, Restaurant.all.collect{|u| [u.name, u.id]}, { prompt: 'Select restaurant', include_blank: true }, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-default' %>
+  </div>
+<% end %>

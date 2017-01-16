@@ -1,4 +1,13 @@
 FactoryGirl.define do
+  factory :admin_meal, class: 'Admin::Meal' do
+    name "MyString"
+    description "MyString"
+    light false
+    vegan false
+    raw false
+    gluten_free false
+    organic false
+  end
   factory :restaurant do
     sequence(:name) { |n| "restaurant#{n}"}
     address "MyString"

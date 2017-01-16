@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Meals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Light</th>
+      <th>Vegan</th>
+      <th>Raw</th>
+      <th>Gluten free</th>
+      <th>Organic</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meals.each do |meal| %>
+      <tr>
+        <td><%= meal.name %></td>
+        <td><%= meal.description %></td>
+        <td><%= meal.light %></td>
+        <td><%= meal.vegan %></td>
+        <td><%= meal.raw %></td>
+        <td><%= meal.gluten_free %></td>
+        <td><%= meal.organic %></td>
+        <td>
+          <%= link_to 'Show', [:admin, meal] %>
+          <%= link_to 'Edit', edit_admin_meal_path(meal) %>
+          <%= link_to 'Destroy', [:admin, meal], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meal', new_admin_meal_path %>

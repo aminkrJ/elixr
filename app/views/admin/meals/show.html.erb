@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+
+<p>
+  <strong>Light:</strong>
+  <%= @meal.light %>
+</p>
+
+<p>
+  <strong>Vegan:</strong>
+  <%= @meal.vegan %>
+</p>
+
+<p>
+  <strong>Raw:</strong>
+  <%= @meal.raw %>
+</p>
+
+<p>
+  <strong>Gluten free:</strong>
+  <%= @meal.gluten_free %>
+</p>
+
+<p>
+  <strong>Organic:</strong>
+  <%= @meal.organic %>
+</p>
+
+<%= link_to 'Edit', edit_admin_meal_path(@meal) %> |
+<%= link_to 'Back', admin_meals_path %>

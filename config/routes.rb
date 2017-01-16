@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :intakes
+    resources :meals
     resources :restaurants
     resources :subscribers
     resources :cooks
