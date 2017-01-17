@@ -8,4 +8,8 @@ json.array!(@meals) do |meal|
   json.gluten_free meal.gluten_free
   json.organic meal.organic
   json.raw meal.raw
+  json.restaurant do
+    json.name meal.restaurant.name
+    json.address meal.restaurant.address
+  end
 end
