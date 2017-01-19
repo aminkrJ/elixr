@@ -40,6 +40,7 @@ class Admin::ArticlesController < AdminController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @article.slug = nil
     respond_to do |format|
       if @article.update(recipe_params)
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }

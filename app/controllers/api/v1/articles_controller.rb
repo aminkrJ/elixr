@@ -15,7 +15,7 @@ class Api::V1::ArticlesController < Api::V1::BaseController
   private
 
   def set_article
-    @article = Article.find_by_slug(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def article_params

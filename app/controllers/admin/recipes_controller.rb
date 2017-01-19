@@ -44,6 +44,7 @@ class Admin::RecipesController < AdminController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    @recipe.slug = nil
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to [:admin, @recipe], notice: 'Recipe was successfully updated.' }
