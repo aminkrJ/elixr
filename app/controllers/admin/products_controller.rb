@@ -40,6 +40,7 @@ class Admin::ProductsController < AdminController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @product.slug = nil
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
@@ -64,7 +65,7 @@ class Admin::ProductsController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
