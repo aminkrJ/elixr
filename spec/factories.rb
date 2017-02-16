@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :cart do
+    total "9.99"
+  end
   factory :admin_meal, class: 'Admin::Meal' do
     name "MyString"
     description "MyString"
