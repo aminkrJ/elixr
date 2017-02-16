@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :history]
 
   scope :primary, -> {where(primary: true)}
+
+  has_many :carts, through: :carts_product
+  has_many :carts_product
 end

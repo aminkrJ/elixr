@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :carts_product do
+    cart
+    product
+    count 1
+  end
   factory :cart do
     total "9.99"
   end
