@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :order do
+    cart 
+    stripe_token "MyString"
+  end
   factory :carts_product do
     cart
     product
