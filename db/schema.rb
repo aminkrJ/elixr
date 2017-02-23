@@ -145,15 +145,6 @@ ActiveRecord::Schema.define(version: 20170216050028) do
     t.integer  "parent_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "cart_id"
-    t.string   "stripe_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
-
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
