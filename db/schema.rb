@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216050028) do
+ActiveRecord::Schema.define(version: 20170223051343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 20170216050028) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "stripe_customer_id"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "address_city"
+    t.string   "address_country"
+    t.string   "address_zip"
+    t.string   "address_state"
+    t.string   "name_on_card"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -144,6 +157,15 @@ ActiveRecord::Schema.define(version: 20170216050028) do
     t.datetime "updated_at", null: false
     t.integer  "parent_id"
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.string   "stripe_token"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

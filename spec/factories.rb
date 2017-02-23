@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :customer do
+    stripe_customer_id "MyString"
+    address_line1 "MyString"
+    address_line2 "MyString"
+    address_city "MyString"
+    address_country "MyString"
+    address_zip "MyString"
+    address_state "MyString"
+    name_on_card "MyString"
+  end
   factory :order do
     cart 
     stripe_token "MyString"
