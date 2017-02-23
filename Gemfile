@@ -53,6 +53,7 @@ gem 'sidekiq'
 gem 'devise-async'
 gem "letter_opener"
 gem "launchy"
+gem "stripe"
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
