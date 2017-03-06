@@ -1,13 +1,7 @@
-class Api::V1::OrdersController < Api::V1::BaseController
+class Api::V1::CartsController < Api::V1::BaseController
 
   def create
-    # verifying products
-    # adding products to a cart
-    # create a customer
-    # persist the cart
-    # charge the customer
-    # change the state of the order
-
+    #just persist a customer with status
 
     @amount = 500 # in cents
 
