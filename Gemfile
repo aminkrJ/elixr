@@ -79,5 +79,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'stripe-ruby-mock', '~> 2.2.4', :require => 'stripe_mock'
+  gem 'rspec-collection_matchers'
 end
 
