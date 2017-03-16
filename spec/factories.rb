@@ -1,16 +1,13 @@
 FactoryGirl.define do
   factory :customer do
-    stripe_customer_id "MyString"
+    stripe_customer_id "abcdefgh"
     address "30 Albany"
     city "Sydney"
     country "Australia"
     zip "2065"
     state "NSW"
+    email "test@email.com"
     name_on_card "Amin Karaji"
-  end
-  factory :order do
-    cart
-    stripe_token "MyString"
   end
   factory :carts_product do
     cart
@@ -19,6 +16,8 @@ FactoryGirl.define do
   end
   factory :cart do
     total "9.99"
+    status "created"
+    customer
   end
   factory :admin_meal, class: 'Admin::Meal' do
     name "MyString"
