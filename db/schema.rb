@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 20170316045050) do
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "carts", force: :cascade do |t|
+    t.decimal  "price"
     t.decimal  "total"
+    t.integer  "quantity"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "reference_number"
@@ -75,7 +77,8 @@ ActiveRecord::Schema.define(version: 20170316045050) do
     t.string   "address"
     t.string   "city"
     t.string   "country"
-    t.string   "zip"
+    t.string   "postcode"
+    t.string   "suburb"
     t.string   "state"
     t.string   "name_on_card"
     t.datetime "created_at",         null: false

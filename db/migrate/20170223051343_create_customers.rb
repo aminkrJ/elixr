@@ -5,7 +5,8 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :address
       t.string :city
       t.string :country
-      t.string :zip
+      t.string :postcode
+      t.string :suburb
       t.string :state
       t.string :name_on_card
 
