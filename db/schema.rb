@@ -69,12 +69,11 @@ ActiveRecord::Schema.define(version: 20170306035414) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "stripe_customer_id"
-    t.string   "address_line1"
-    t.string   "address_line2"
-    t.string   "address_city"
-    t.string   "address_country"
-    t.string   "address_zip"
-    t.string   "address_state"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "state"
     t.string   "name_on_card"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -163,15 +162,6 @@ ActiveRecord::Schema.define(version: 20170306035414) do
     t.datetime "updated_at", null: false
     t.integer  "parent_id"
   end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "cart_id"
-    t.string   "stripe_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -275,5 +265,4 @@ ActiveRecord::Schema.define(version: 20170306035414) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "meals", "restaurants"
-  add_foreign_key "orders", "carts"
 end
