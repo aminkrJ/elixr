@@ -78,5 +78,6 @@ group :test do
   gem 'timecop'
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'stripe-ruby-mock', '~> 2.2.4', :require => 'stripe_mock'
 end
 
