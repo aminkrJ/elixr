@@ -10,6 +10,7 @@ class Cart < ActiveRecord::Base
   before_create :set_total
 
   CREATED = 'created'
+  PAID = 'paid'
 
   private
 
