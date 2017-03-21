@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
   let(:stripe_helper) { StripeMock.create_test_helper }
-  before { StripeMock.start }
-  after { StripeMock.stop }
 
   it "creates a stripe customer and charge" do
     StripeMock.start

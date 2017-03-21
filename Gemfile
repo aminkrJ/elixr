@@ -53,7 +53,12 @@ gem 'sidekiq'
 gem 'devise-async'
 gem "letter_opener"
 gem "launchy"
+
 gem "stripe"
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-heroku'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
