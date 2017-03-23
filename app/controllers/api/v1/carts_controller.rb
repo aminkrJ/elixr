@@ -33,7 +33,7 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart.invoice = File.open pdf_path
     @cart.save!
 
-    # send email with pdf attachment
+    CartMailer.delay.dispatch_invoice @cart
 
     render :show
 
