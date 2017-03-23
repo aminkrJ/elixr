@@ -23,16 +23,17 @@ class Api::V1::CartsController < Api::V1::BaseController
       currency: 'aud'
     )
 
-    @cart.update status: Cart::PAID
-
-    pdf = render_to_string template: "admin/carts/invoice.html.erb", locale: {cart: @cart}, pdf: "#{@cart.reference_number}", encoding: "UTF-8", layout: false
-    saved_folder = "tmp/invoices"
-    saved_path = Rails.root.join(saved_folder, "#{@cart.reference_number}.pdf")
-    FileUtils.mkdir_p(saved_folder) unless File.exist?(saved_folder)
-
-    File.open(saved_path, 'wb') do |file|
-      file << pdf
+    @cart.status = Cart::PAID
+    pdf_html = render_to_string template: "admin/carts/invoice.html.erb", locale: {cart: @cart}, layout: false
+    doc_pdf = WickedPdf.new.pdf_from_string pdf_html
+    pdf_path = Rails.root.join('tmp/invoices', "#{@cart.reference_number}.pdf")
+    File.open(pdf_path, 'wb') do |file|
+      file << doc_pdf
     end
+    @cart.invoice = File.open pdf_path
+    @cart.save!
+
+    # send email with pdf attachment
 
     render :show
 

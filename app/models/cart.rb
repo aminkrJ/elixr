@@ -1,4 +1,7 @@
 class Cart < ActiveRecord::Base
+  has_attached_file :invoice
+  do_not_validate_attachment_file_type :invoice
+
   belongs_to :customer, validate: true
 
   accepts_nested_attributes_for :customer
