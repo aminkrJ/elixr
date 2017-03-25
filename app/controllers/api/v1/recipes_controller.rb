@@ -10,7 +10,7 @@ class Api::V1::RecipesController < Api::V1::BaseController
         .limit(25)
         .all
     else
-      Recipe.includes(:ingredients).order("id DESC").limit(25).all
+      Recipe.where(tag: params[:tag]).includes(:ingredients).order("id DESC").limit(25).all
     end
   end
 
