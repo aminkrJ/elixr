@@ -1,1 +1,35 @@
-<%= @cart.reference_number %>
+<h2>Order confirmation</h2>
+<p>
+  <b>Invoice ref.</b>
+  <span><%= @cart.reference_number %></span> <br/>
+  <span><b>Printed on </b><%= @cart.created_at.strftime("%m/%d/%Y") %></span>
+</p>
+
+<p>
+  <b>Invoice/deliver to</b>
+  <p>
+    <%= @cart.customer.fullname %>
+    <div>
+      <%= @cart.customer.address %>
+      <br />
+      <%= @cart.customer.suburb %>, <%= @cart.customer.state.upcase %>, <%= @cart.customer.city %>, <%= @cart.customer.postcode %>, <%= @cart.customer.country %>
+    </div>
+  </p>
+</p>
+
+<div>
+  <table style='width: 100%'>
+    <tr style='border-bottom: 2px solid black'>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Unit price</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td style='padding: 5px 0'>Vitality Pack</td>
+      <td><%= @cart.quantity %></td>
+      <td>30$</td>
+      <td><%= @cart.total %>$</td>
+    </tr>
+  </table>
+</div>

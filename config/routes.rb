@@ -11,12 +11,6 @@ Rails.application.routes.draw do
           post :shopping_list
         end
       end
-      resources :carts, only: [:index, :show] do
-        collection do
-          post :invoice
-        end
-      end
-      resources :subscribers, only: [:create]
       resources :articles, only: [:index, :show]
       resources :products, only: [:index, :show]
       resources :meals, only: [:index]
@@ -38,6 +32,11 @@ Rails.application.routes.draw do
     get 'engine/dashboard'
 
     resources :recipes
+    resources :carts do
+      member do
+        get :invoice
+      end
+    end
     resources :ingredients do
       member do
         get 'duplicate'
