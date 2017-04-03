@@ -7,10 +7,11 @@ json.photo @recipe.photo.url(:medium)
 json.ingredients @recipe.recipe_ingredients do |ri|
   json.id ri.id
   json.amount ri.amount
-  unless ri.ingredient.premium && !user_signed_in?
-    json.name ri.ingredient.name
-    json.description ri.description
-    json.amount_description ri.amount_description
-  end
+  # TODO will be added when we introduced login and subscribe
+  #unless ri.ingredient.premium && !user_signed_in?
+  json.name ri.ingredient.name
+  json.description ri.description
+  json.amount_description ri.amount_description
+  #end
   json.premium ri.ingredient.premium
 end
