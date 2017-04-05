@@ -5,7 +5,7 @@ class CartMailer < ApplicationMailer
       response = Net::HTTP.start(uri.host, uri.port) do |http|
         http.get uri.path
       end
-      attachments["Invocie-#{cart.reference_number}-#{cart.created_at.strftime("%F")}"] = response.body
+      attachments["Invocie-#{cart.reference_number}-#{cart.created_at.strftime("%F")}.pdf"] = response.body
     end
 
     mail(to: cart.customer.email, subject: "Life Elixir Invoice ##{cart.reference_number}")
