@@ -27,11 +27,9 @@ class Api::V1::CartsController < Api::V1::BaseController
     pdf_html = render_to_string template: "admin/carts/invoice.html.erb", locale: {cart: @cart}, layout: false
     doc_pdf = WickedPdf.new.pdf_from_string pdf_html
 
-    Dir.mkdir(Rails.root.join('tmp')) unless File.exists?(Rails.root.join('tmp'))
+    Dir.mkdir(Rails.root.join('tmp/invoices')) unless File.exists?(Rails.root.join('tmp/invoices'))
 
     pdf_path = Rails.root.join('tmp/invoices', "#{@cart.reference_number}.pdf")
-
-    Dir.mkdir(pdf_path) unless File.exists?(pdf_path)
 
     File.open(pdf_path, 'wb') do |file|
       file << doc_pdf
