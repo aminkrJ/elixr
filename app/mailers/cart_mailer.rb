@@ -8,6 +8,10 @@ class CartMailer < ApplicationMailer
       attachments["Invocie-#{cart.reference_number}-#{cart.created_at.strftime("%F")}.pdf"] = response.body
     end
 
-    mail(to: cart.customer.email, subject: "Life Elixir Invoice ##{cart.reference_number}", from: "Life Elixir <support@lifelixir.com.au>")
+    mail(
+      to: cart.customer.email,
+      subject: "Invoice ##{cart.reference_number}",
+      from: "Life Elixir <support@lifelixir.com.au>",
+      bcc: "amin.krj@gmail.com")
   end
 end
