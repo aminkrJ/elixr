@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325011408) do
+ActiveRecord::Schema.define(version: 20170411003628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,10 @@ ActiveRecord::Schema.define(version: 20170325011408) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "slug"
+    t.integer  "weight"
+    t.text     "serving_idea"
+    t.text     "nutrition_fact"
+    t.string   "ingredients"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", using: :btree

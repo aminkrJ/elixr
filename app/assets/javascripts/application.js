@@ -11,15 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require nprogress-turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require nprogress
-//= require nprogress-turbolinks
 //= require nprogress-ajax
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
 //= require bootstrap3-wysihtml5/dist/bootstrap3-wysihtml5.all.min
 //= require classnames
 //= require underscore
+//= require turbolinks
 //= require_tree .
