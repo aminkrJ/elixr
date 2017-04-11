@@ -60,6 +60,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf-heroku'
 
+gem 'jquery-turbolinks'
+
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do

@@ -1,4 +1,4 @@
-$(document).on("page:change", function(){
+$(document).on("turbolinks:load", function(){
   // TODO via data attributes should be enough to toggle the dropdown
   $('.dropdown-toggle').dropdown();
 
