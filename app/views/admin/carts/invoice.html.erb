@@ -23,13 +23,25 @@
       <th style='text-align: left'>Item</th>
       <th style='text-align: left'>Qty</th>
       <th style='text-align: left'>Unit price</th>
-      <th style='text-align: left'>Total</th>
+      <th style='text-align: right'>Total</th>
     </tr>
     <tr>
       <td style='padding: 5px 0'>Vitality Pack</td>
       <td><%= @cart.quantity %></td>
-      <td>30$</td>
-      <td><%= @cart.total %>$</td>
+      <td><%= @cart.price %>$</td>
+      <td style='text-align: right'><%= @cart.quantity * @cart.price %>$</td>
+    </tr>
+    <tr>
+      <td style='padding: 5px 0'></td>
+      <td></td>
+      <td>Shipping</td>
+      <td style='text-align: right'><%= Cart::SHIPPING_FEE %>$</td>
+    </tr>
+    <tr>
+      <td style='padding: 5px 0'></td>
+      <td></td>
+      <td><b>Order total</b></td>
+      <td style='text-align: right'><b><%= @cart.total %>$</b></td>
     </tr>
   </table>
 </div>

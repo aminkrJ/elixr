@@ -14,6 +14,7 @@ class Cart < ActiveRecord::Base
 
   CREATED = 'created'
   PAID = 'paid'
+  SHIPPING_FEE = 8.57
 
   private
 
@@ -22,7 +23,7 @@ class Cart < ActiveRecord::Base
   end
 
   def set_total
-    self.total = self.quantity * self.price
+    self.total = (self.quantity * self.price) + SHIPPING_FEE
   end
 
   def set_reference_number
