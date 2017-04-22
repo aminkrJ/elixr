@@ -23,7 +23,7 @@ class Cart < ActiveRecord::Base
   end
 
   def set_total
-    self.total = (self.quantity * self.price) + SHIPPING_FEE
+    self.total = ((self.quantity * self.price) + SHIPPING_FEE).round(2)
   end
 
   def set_reference_number
