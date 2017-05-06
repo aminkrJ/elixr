@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Carts</h1>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Customer name</th>
+      <th>Title</th>
+      <th>Created at</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.customer.fullname %></td>
+        <td><%= cart.status %></td>
+        <td><%= time_ago_in_words(cart.created_at) %></td>
+        <td>
+          <%= link_to 'View Invoice', invoice_admin_cart_path(cart),  class: 'btn btn-link', target: '_blank' %>
+          <%= link_to 'Destroy', [:admin, cart], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
