@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :coupon do
+    name "MyString"
+    amount 1
+    active true
+  end
   factory :customer do
     stripe_customer_id "abcdefgh"
     address "30 Albany"

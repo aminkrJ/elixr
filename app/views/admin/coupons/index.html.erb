@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Coupons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coupons.each do |coupon| %>
+      <tr>
+        <td><%= coupon.name %></td>
+        <td><%= coupon.amount %></td>
+        <td><%= coupon.active %></td>
+        <td>
+          <%= link_to 'Show', [:admin, coupon] %>
+          <%= link_to 'Edit', edit_admin_coupon_path(coupon) %>
+          <%= link_to 'Destroy', [:admin, coupon], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coupon', new_admin_coupon_path %>

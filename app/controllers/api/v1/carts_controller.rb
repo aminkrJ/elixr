@@ -50,6 +50,9 @@ class Api::V1::CartsController < Api::V1::BaseController
   private
 
   def cart_params
-    params.require(:cart).permit(:quantity, :price, :stripe_token, customer_attributes: [:country, :city, :state, :suburb, :address, :postcode, :email, :fullname])
+    params.require(:cart).permit(:quantity, :price, :stripe_token,
+                                 customer_attributes: [:country, :city, :state, :suburb, :address, :postcode, :email, :fullname],
+                                 coupon_attributes: [:code]
+                                )
   end
 end

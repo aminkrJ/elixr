@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :coupons
     resources :intakes
     resources :meals
     resources :restaurants

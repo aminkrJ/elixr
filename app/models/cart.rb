@@ -3,6 +3,7 @@ class Cart < ActiveRecord::Base
   do_not_validate_attachment_file_type :invoice
 
   belongs_to :customer, validate: true
+  has_one :coupon
 
   accepts_nested_attributes_for :customer
 
@@ -16,14 +17,30 @@ class Cart < ActiveRecord::Base
   PAID = 'paid'
   SHIPPING_FEE = 8.57
 
+  def has_coupon?
+    !coupon.nil?
+  end
+
   private
 
   def set_status
     self.status = Cart::CREATED
   end
 
+  def total_after_discount
+    total_before_discount * (self.coupon.amount / 100)
+  end
+
+  def total_before_discount
+    self.quantity * self.price
+  end
+
   def set_total
-    self.total = ((self.quantity * self.price) + SHIPPING_FEE).round(2)
+    self.total = if has_coupon?
+                   (total_after_discount + SHIPPING_FEE).round(2)
+                 else
+                   (total_before_discount + SHIPPING_FEE).round(2)
+                 end
   end
 
   def set_reference_number
