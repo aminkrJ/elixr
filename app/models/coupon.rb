@@ -13,18 +13,15 @@ class Coupon < ActiveRecord::Base
     (price + gst) * quantity
   end
 
-  def redeem
-    if rule == 'DFQM2' # delivery free quantity more than 2
-      self.shipping_fee = 0 if quantity > 2
-    end
-  end
-
   def redeemable?
     true
   end
 
   def apply(options)
     self.shipping_fee, self.price, self.quantity = options[:shipping_fee], options[:price], options[:quantity]
+    case rule
+    when 'DFQM2'
+      self.shipping_fee = 0 if quantity > 2
+    end
   end
-
 end
