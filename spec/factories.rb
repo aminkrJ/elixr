@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :coupon do
-    name "MyString"
+    code "SF1"
     amount 1
+    rule 'rule1'
     active true
   end
   factory :customer do

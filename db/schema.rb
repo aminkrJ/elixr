@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411003628) do
+ActiveRecord::Schema.define(version: 20170515110308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,15 +47,18 @@ ActiveRecord::Schema.define(version: 20170411003628) do
     t.decimal  "price"
     t.decimal  "total"
     t.integer  "quantity"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "reference_number"
     t.string   "stripe_token"
     t.string   "status"
     t.integer  "customer_id"
     t.string   "invoice_file_name"
+    t.integer  "coupon_id"
+    t.decimal  "shipping_fee",      precision: 10, scale: 2
   end
 
+  add_index "carts", ["coupon_id"], name: "index_carts_on_coupon_id", using: :btree
   add_index "carts", ["customer_id"], name: "index_carts_on_customer_id", using: :btree
 
   create_table "carts_products", id: false, force: :cascade do |t|
@@ -71,6 +74,17 @@ ActiveRecord::Schema.define(version: 20170411003628) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "amount"
+    t.boolean  "active"
+    t.string   "description"
+    t.integer  "redemption_limit"
+    t.string   "rule"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -276,6 +290,7 @@ ActiveRecord::Schema.define(version: 20170411003628) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "carts", "coupons"
   add_foreign_key "carts", "customers"
   add_foreign_key "meals", "restaurants"
 end

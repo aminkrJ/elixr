@@ -3,7 +3,7 @@ class Cart < ActiveRecord::Base
   do_not_validate_attachment_file_type :invoice
 
   belongs_to :customer, validate: true
-  has_one :coupon
+  belongs_to :coupon
 
   accepts_nested_attributes_for :customer
 
@@ -12,6 +12,7 @@ class Cart < ActiveRecord::Base
   before_create :set_reference_number
   before_create :set_status
   before_create :set_total
+  before_create :set_shipping_fee
 
   CREATED = 'created'
   PAID = 'paid'
@@ -27,12 +28,12 @@ class Cart < ActiveRecord::Base
     self.status = Cart::CREATED
   end
 
-  def total_after_discount
-    total_before_discount * (self.coupon.amount / 100)
+  def gst
+    0
   end
 
-  def total_before_discount
-    self.quantity * self.price
+  def subtotal
+    (self.price + gst) * quantity
   end
 
   def set_total
