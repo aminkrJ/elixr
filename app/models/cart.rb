@@ -36,11 +36,11 @@ class Cart < ActiveRecord::Base
   end
 
   def set_total
-    self.total = if has_coupon?
-                   (total_after_discount + SHIPPING_FEE).round(2)
-                 else
-                   (total_before_discount + SHIPPING_FEE).round(2)
-                 end
+    self.total = subtotal + SHIPPING_FEE
+  end
+
+  def set_shipping_fee
+    self.shipping_fee = SHIPPING_FEE
   end
 
   def set_reference_number
