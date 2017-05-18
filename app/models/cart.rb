@@ -6,6 +6,7 @@ class Cart < ActiveRecord::Base
   belongs_to :coupon
 
   accepts_nested_attributes_for :customer
+  accepts_nested_attributes_for :coupon
 
   validates_presence_of :customer
 

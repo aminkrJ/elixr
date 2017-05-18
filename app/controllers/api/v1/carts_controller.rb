@@ -7,6 +7,7 @@ class Api::V1::CartsController < Api::V1::BaseController
       render json: {errors: @cart.errors.messages}, status: :unprocessable_entity and return
     end
 
+    @cart.shipping_fee = Cart::SHIPPING_FEE
     @cart.save
 
     stripe_customer = Stripe::Customer.create(
@@ -47,10 +48,21 @@ class Api::V1::CartsController < Api::V1::BaseController
     render json: {errors: e.message}
   end
 
+  def coupon
+    @cart = Cart.new cart_params
+    @cart.coupon = Coupon.find_by! code: @cart.coupon.code
+    @cart.shipping_fee = Cart::SHIPPING_FEE
+    @cart.coupon.apply({ shipping_fee: @cart.shipping_fee, quantity: @cart.quantity, price: @cart.price }) if @cart.has_coupon?
+
+    render :show
+  rescue ActiveRecord::RecordNotFound => e
+    render json: {errors: e.message}, status: :unprocessable_entity
+  end
+
   private
 
   def cart_params
-    params.require(:cart).permit(:quantity, :price, :stripe_token,
+    params.require(:cart).permit(:quantity, :price, :stripe_token, :shipping_fee,
                                  customer_attributes: [:country, :city, :state, :suburb, :address, :postcode, :email, :fullname],
                                  coupon_attributes: [:code]
                                 )
