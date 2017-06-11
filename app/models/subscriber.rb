@@ -5,6 +5,10 @@ class Subscriber < ActiveRecord::Base
 
   after_save :send_email
 
+  #program-1 is the general subscription
+  #program0 is the 7 day diet challenge
+  #people with higher program can access the lower program emails
+
   def send_email
     if self.subscribed_to == "program0"
       SubscriberMailer.delay.download_pdf(self)
