@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706103928) do
+ActiveRecord::Schema.define(version: 20170706104644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 20170706103928) do
 
   add_index "articles", ["category"], name: "index_articles_on_category", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.decimal  "unit_price"
+    t.decimal  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "cart_products", ["cart_id"], name: "index_cart_products_on_cart_id", using: :btree
+  add_index "cart_products", ["product_id"], name: "index_cart_products_on_product_id", using: :btree
 
   create_table "carts", force: :cascade do |t|
     t.decimal  "total"
@@ -304,6 +317,8 @@ ActiveRecord::Schema.define(version: 20170706103928) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cart_products", "carts"
+  add_foreign_key "cart_products", "products"
   add_foreign_key "carts", "coupons"
   add_foreign_key "carts", "customers"
   add_foreign_key "meals", "restaurants"

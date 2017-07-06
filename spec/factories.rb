@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :cart_product do
+    cart
+    product
+    quantity 1
+    unit_price "9.99"
+    total_price "9.99"
+  end
   factory :product_ingredient do
     product
     ingredient

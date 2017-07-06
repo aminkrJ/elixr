@@ -5,6 +5,9 @@ class Cart < ActiveRecord::Base
   belongs_to :customer, validate: true
   belongs_to :coupon
 
+  has_many :products, through: :cart_products
+  has_many :cart_products
+
   accepts_nested_attributes_for :customer
   accepts_nested_attributes_for :coupon
 
