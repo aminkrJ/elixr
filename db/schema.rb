@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706102310) do
+ActiveRecord::Schema.define(version: 20170706103928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,7 @@ ActiveRecord::Schema.define(version: 20170706102310) do
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "carts", force: :cascade do |t|
-    t.decimal  "price"
     t.decimal  "total"
-    t.integer  "quantity"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "reference_number"
@@ -56,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170706102310) do
     t.string   "invoice_file_name"
     t.integer  "coupon_id"
     t.decimal  "shipping_fee",      precision: 10, scale: 2
+    t.decimal  "subtotal",          precision: 8,  scale: 2
   end
 
   add_index "carts", ["coupon_id"], name: "index_carts_on_coupon_id", using: :btree
