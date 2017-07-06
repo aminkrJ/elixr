@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515110308) do
+ActiveRecord::Schema.define(version: 20170706101622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -184,6 +184,20 @@ ActiveRecord::Schema.define(version: 20170515110308) do
     t.integer  "parent_id"
   end
 
+  create_table "product_ingredients", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "ingredient_id"
+    t.integer  "percentage"
+    t.integer  "weight"
+    t.integer  "max_percentage"
+    t.integer  "min_percentage"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "product_ingredients", ["ingredient_id"], name: "index_product_ingredients_on_ingredient_id", using: :btree
+  add_index "product_ingredients", ["product_id"], name: "index_product_ingredients_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -293,4 +307,6 @@ ActiveRecord::Schema.define(version: 20170515110308) do
   add_foreign_key "carts", "coupons"
   add_foreign_key "carts", "customers"
   add_foreign_key "meals", "restaurants"
+  add_foreign_key "product_ingredients", "ingredients"
+  add_foreign_key "product_ingredients", "products"
 end

@@ -9,4 +9,7 @@ class Product < ActiveRecord::Base
 
   has_many :carts, through: :carts_product
   has_many :carts_product
+
+  has_many :ingredients, through: :product_ingredients
+  has_many :product_ingredients
 end

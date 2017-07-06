@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :product_ingredient do
+    product
+    ingredient
+    percentage 10
+    weight 10
+    max_percentage 90
+    min_percentage 10
+  end
   factory :coupon do
     code "SF1"
     amount 1
