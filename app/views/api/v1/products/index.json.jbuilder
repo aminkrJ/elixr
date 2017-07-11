@@ -9,5 +9,8 @@ json.array! @products do |product|
    json.thumb product.photo.url(:thumb)
    json.medium product.photo.url(:medium)
  end
- json.created_at product.created_at
+ json.ingredients product.ingredients do |ingredient|
+   json.name ingredient.name
+ end
+ json.created_at product.created_at.to_i
 end
