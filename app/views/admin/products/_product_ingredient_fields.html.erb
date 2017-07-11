@@ -1,6 +1,8 @@
 <div class="nested-fields form-inline">
   <div class="form-group">
     <%= f.select :ingredient_id, @ingredients.collect{|u| [u.name, u.id]}, {prompt: 'Select ingredient'}, class: 'form-control' %>
+    <%= f.number_field :weight, class: 'form-control', placeholder: 'weight' %>
+    <%= f.number_field :percentage, class: 'form-control', placeholder: 'percentage', step: :any %>
   </div>
 
   <%= link_to_remove_association "remove ingredient", f %>
