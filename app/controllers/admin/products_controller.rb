@@ -1,5 +1,6 @@
 class Admin::ProductsController < AdminController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_form_variables, only: [:edit, :new, :update]
 
   # GET /products
   # GET /products.json
@@ -70,6 +71,10 @@ class Admin::ProductsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:id, :photo, :name, :description, :price, :primary, :weight, :ingredients, :nutrition_fact, :serving_idea)
+      params.require(:product).permit(:id, :photo, :name, :description, :price, :primary, :weight, :nutrition_fact, :serving_idea, product_ingredients_attributes: [:ingredient_id, :_destroy, :id])
+    end
+
+    def set_form_variables
+      @ingredients = Ingredient.all
     end
 end

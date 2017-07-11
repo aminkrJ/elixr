@@ -12,4 +12,6 @@ class Product < ActiveRecord::Base
 
   has_many :ingredients, through: :product_ingredients
   has_many :product_ingredients
+
+  accepts_nested_attributes_for :product_ingredients, allow_destroy: true, reject_if: :all_blank
 end

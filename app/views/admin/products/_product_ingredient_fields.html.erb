@@ -1,0 +1,7 @@
+<div class="nested-fields form-inline">
+  <div class="form-group">
+    <%= f.select :ingredient_id, @ingredients.collect{|u| [u.name, u.id]}, {prompt: 'Select ingredient'}, class: 'form-control' %>
+  </div>
+
+  <%= link_to_remove_association "remove ingredient", f %>
+</div>
