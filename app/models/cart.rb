@@ -5,6 +5,7 @@ class Cart < ActiveRecord::Base
   belongs_to :customer, validate: true
   belongs_to :coupon
 
+  has_many :transitions, class_name: "CartTransition", autosave: false
   has_many :products, through: :cart_products
   has_many :cart_products
 
@@ -13,10 +14,16 @@ class Cart < ActiveRecord::Base
 
   validates_presence_of :customer
 
-  before_create :set_reference_number
-  before_create :set_status
-  before_create :set_total
-  before_create :set_shipping_fee
+  #before_create :set_reference_number
+  #before_create :set_status
+  #before_create :set_total
+  #before_create :set_shipping_fee
+
+  def state_machine
+    @state_machine ||= CartStateMachine.new(self, transition_class: CartTransition, association_name: :transitions)
+  end
+
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state, to: :state_machine
 
   CREATED = 'created'
   PAID = 'paid'
@@ -24,6 +31,14 @@ class Cart < ActiveRecord::Base
 
   def has_coupon?
     !coupon.nil?
+  end
+
+  def self.transition_class
+    CartTransition
+  end
+
+  def self.initial_state
+    :pending
   end
 
   private

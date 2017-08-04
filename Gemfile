@@ -62,6 +62,8 @@ gem 'wkhtmltopdf-heroku'
 
 gem 'jquery-turbolinks'
 
+gem 'statesman'
+
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 group :development do

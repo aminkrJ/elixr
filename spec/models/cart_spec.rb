@@ -15,8 +15,11 @@ RSpec.describe Cart, type: :model do
     expect(create(:cart).reference_number).not_to be_empty
   end
 
-  it "sets status" do
-    expect(create(:cart).status).to eq(Cart::CREATED)
+  describe "#state_machine" do
+    it "default state is pending" do
+      binding.pry
+      expect(create(:cart).state_machine.current_state).to eq("pending")
+    end
   end
 
   it "sets total" do

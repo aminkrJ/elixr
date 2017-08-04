@@ -349,6 +349,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    statesman (3.0.0)
     stripe (1.41.0)
       rest-client (~> 1.4)
     stripe-ruby-mock (2.2.4)
@@ -438,6 +439,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq
   spring
+  statesman
   stripe
   stripe-ruby-mock (~> 2.2.4)
   timecop

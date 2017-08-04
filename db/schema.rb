@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706110038) do
+ActiveRecord::Schema.define(version: 20170804050308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(version: 20170706110038) do
 
   add_index "cart_products", ["cart_id"], name: "index_cart_products_on_cart_id", using: :btree
   add_index "cart_products", ["product_id"], name: "index_cart_products_on_product_id", using: :btree
+
+  create_table "cart_transitions", force: :cascade do |t|
+    t.string   "to_state",                 null: false
+    t.json     "metadata",    default: {}
+    t.integer  "sort_key",                 null: false
+    t.integer  "cart_id",                  null: false
+    t.boolean  "most_recent",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "cart_transitions", ["cart_id", "most_recent"], name: "index_cart_transitions_parent_most_recent", unique: true, where: "most_recent", using: :btree
+  add_index "cart_transitions", ["cart_id", "sort_key"], name: "index_cart_transitions_parent_sort", unique: true, using: :btree
 
   create_table "carts", force: :cascade do |t|
     t.decimal  "total"
@@ -325,6 +338,7 @@ ActiveRecord::Schema.define(version: 20170706110038) do
   add_foreign_key "cart_product_ingredients", "ingredients"
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
+  add_foreign_key "cart_transitions", "carts"
   add_foreign_key "carts", "coupons"
   add_foreign_key "carts", "customers"
   add_foreign_key "meals", "restaurants"

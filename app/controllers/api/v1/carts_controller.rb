@@ -48,6 +48,9 @@ class Api::V1::CartsController < Api::V1::BaseController
     render json: {errors: e.message}
   end
 
+  def update
+  end
+
   def coupon
     @cart = Cart.new cart_params
     @cart.coupon = Coupon.find_by! code: @cart.coupon.code
