@@ -24,7 +24,7 @@ class Admin::ArticlesController < AdminController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(recipe_params)
+    @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -42,7 +42,7 @@ class Admin::ArticlesController < AdminController
   def update
     @article.slug = nil
     respond_to do |format|
-      if @article.update(recipe_params)
+      if @article.update(article_params)
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -69,7 +69,7 @@ class Admin::ArticlesController < AdminController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def recipe_params
-      params.require(:article).permit(:id, :published, :title, :description, :content, :category)
+    def article_params
+      params.require(:article).permit(:id, :published, :title, :description, :content, :category, :photo)
     end
 end
