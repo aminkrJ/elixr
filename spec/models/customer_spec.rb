@@ -3,6 +3,11 @@ require 'rails_helper'
 RSpec.describe Customer, type: :model do
   let(:stripe_helper) { StripeMock.create_test_helper }
 
+  it "email must be present" do
+    customer = build :customer, email: nil
+    expect(customer.valid?).to be_falsey
+  end
+
   it "creates a stripe customer and charge" do
     StripeMock.start
     customer = Stripe::Customer.create({

@@ -28,15 +28,7 @@ FactoryGirl.define do
     active true
   end
   factory :customer do
-    stripe_customer_id "abcdefgh"
-    address "30 Albany"
-    suburb "ST Leonards"
-    city "Sydney"
-    country "Australia"
-    postcode "2065"
-    state "NSW"
     email "test@email.com"
-    name_on_card "Amin Karaji"
   end
   factory :carts_product do
     cart
@@ -44,9 +36,6 @@ FactoryGirl.define do
     count 1
   end
   factory :cart do
-    total "9.99"
-    price "9.99"
-    quantity 1
     customer
   end
   factory :admin_meal, class: 'Admin::Meal' do
