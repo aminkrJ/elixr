@@ -1,5 +1,5 @@
 class Coupon < ActiveRecord::Base
-  attr_accessor :shipping_fee, :price, :quantity
+  attr_accessor :shipping_fee, :total, :quantity
 
   def gst
     0

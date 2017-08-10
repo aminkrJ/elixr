@@ -6,6 +6,22 @@ RSpec.describe Cart, type: :model do
     expect(cart.save).to be_truthy
   end
 
+  describe "#has_a_shipping_address" do
+    let(:customer) { create :customer }
+
+    it "return true when there is an address" do
+      allow(customer).to receive(:addresses).and_return([double(:address)])
+
+      cart = build :cart, customer: customer
+      expect(cart.has_a_shipping_address?).to be_truthy
+    end
+
+    it "return false when there is no address" do
+      cart = build :cart, customer: customer
+      expect(cart.has_a_shipping_address?).to be_falsey
+    end
+  end
+
   describe "#customer" do
     it "returns error without customer" do
       cart = build :cart, customer: nil
