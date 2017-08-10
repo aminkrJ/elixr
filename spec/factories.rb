@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :address do
+    street_address "MyString"
+    suite_apt "MyString"
+    city "MyString"
+    state "MyString"
+    country "MyString"
+    zip "MyString"
+  end
   factory :cart_product_ingredient do
     cart_product
     ingredient

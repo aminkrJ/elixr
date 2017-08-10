@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807013825) do
+ActiveRecord::Schema.define(version: 20170810000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address"
+    t.string   "suite_apt"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -92,7 +103,6 @@ ActiveRecord::Schema.define(version: 20170807013825) do
     t.datetime "updated_at",                                 null: false
     t.string   "reference_number"
     t.string   "stripe_token"
-    t.string   "status"
     t.integer  "customer_id"
     t.string   "invoice_file_name"
     t.integer  "coupon_id"
@@ -121,19 +131,10 @@ ActiveRecord::Schema.define(version: 20170807013825) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "stripe_customer_id"
-    t.string   "address"
-    t.string   "city"
-    t.string   "country"
-    t.string   "postcode"
-    t.string   "suburb"
-    t.string   "state"
-    t.string   "name_on_card"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "fullname"
     t.string   "email"
-    t.string   "status"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
