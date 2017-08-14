@@ -18,39 +18,16 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart = Cart.find params[:id]
     @cart.attributes = cart_params
 
-    # Do the payment
-    stripe_customer = Stripe::Customer.create(
-      email: @cart.customer.email,
-      source: @cart.stripe_token
-    )
+    @cart.pay
 
-    charge = Stripe::Charge.create(
-      customer: stripe_customer.id,
-      amount: (@cart.total.to_r*100).to_i, #Stripe accepts cents
-      description: @cart.reference_number,
-      currency: 'aud'
-    )
-
-    # create a invoice pdf and upload to s3
-    pdf_html = render_to_string template: "admin/carts/invoice.html.erb", locale: {cart: @cart}, layout: false
-    doc_pdf = WickedPdf.new.pdf_from_string pdf_html
-
-    Dir.mkdir(Rails.root.join('tmp/invoices')) unless File.exists?(Rails.root.join('tmp/invoices'))
-
-    pdf_path = Rails.root.join('tmp/invoices', "#{@cart.reference_number}.pdf")
-
-    File.open(pdf_path, 'wb') do |file|
-      file << doc_pdf
-    end
+    pdf_path = @cart.generate_invoice
     @cart.invoice = File.open pdf_path
 
-    # Do the transition and save the cart shipping address
     @cart.save!
 
-    File.delete(pdf_path) if File.exist?(pdf_path)
+    @cart.dispatch_invoice
 
-    # send email notifications
-    CartMailer.delay.dispatch_invoice @cart
+    File.delete(pdf_path) if File.exist?(pdf_path)
 
     render :show
   rescue ActiveRecord::RecordNotFound => e
