@@ -6,6 +6,28 @@ RSpec.describe Cart, type: :model do
     expect(cart.save).to be_truthy
   end
 
+  describe "#pay" do
+    let(:cart) { build :cart, total: 10 }
+
+    let(:stripe_helper) { StripeMock.create_test_helper }
+    before { StripeMock.start }
+    after { StripeMock.stop }
+
+    it "returns Stripe charge" do
+      expect(cart.pay.paid).to be_truthy
+    end
+
+    it "raises error when card is declined" do
+      StripeMock.prepare_card_error(:card_declined)
+
+      expect { Stripe::Charge.create(amount: 1, currency: 'usd') }.to raise_error {|e|
+        expect(e).to be_a Stripe::CardError
+        expect(e.http_status).to eq(402)
+        expect(e.code).to eq('card_declined')
+      }
+    end
+  end
+
   describe "#has_a_shipping_address" do
     let(:customer) { create :customer }
 

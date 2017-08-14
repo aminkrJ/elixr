@@ -29,9 +29,13 @@ class Api::V1::CartsController < Api::V1::BaseController
 
     File.delete(pdf_path) if File.exist?(pdf_path)
 
+    self.transition_to! :purchased
+
     render :show
   rescue ActiveRecord::RecordNotFound => e
     render json: {errors: e.message}, status: :unprocessable_entity
+  rescue StandardError => e
+    render json: {errors: e.message}
   end
 
   def coupon

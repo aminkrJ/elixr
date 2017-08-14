@@ -28,7 +28,22 @@ describe Api::V1::CartsController do
     }
   }
 
-  before do
+  describe "POST checkout" do
+    let(:stripe_helper) { StripeMock.create_test_helper }
+
+    it "raises error while paying" do
+      post :create, {cart: cart, format: :json}
+      # TODO pay method raises an error and see what would happen here
+    end
+
+    it "create an invoice pdf" do
+      StripeMock.start
+
+      post :create, {cart: cart, format: :json}
+
+      StripeMock.stop
+    end
+
   end
 
   describe "POST create" do
@@ -38,14 +53,6 @@ describe Api::V1::CartsController do
       data = JSON.parse(response.body)
 
       expect(response).to have_http_status(200)
-    end
-
-    it "create an invoice pdf" do
-      StripeMock.start
-
-      post :create, {cart: cart, format: :json}
-
-      StripeMock.stop
     end
   end
 end
