@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :address do
+    street_address "my string"
+    suite_apt "my string"
+    city "my string"
+    state "my string"
+    country "my string"
+    zip "my string"
+  end
   factory :cart_product_ingredient do
     cart_product
     ingredient
@@ -28,15 +36,7 @@ FactoryGirl.define do
     active true
   end
   factory :customer do
-    stripe_customer_id "abcdefgh"
-    address "30 Albany"
-    suburb "ST Leonards"
-    city "Sydney"
-    country "Australia"
-    postcode "2065"
-    state "NSW"
     email "test@email.com"
-    name_on_card "Amin Karaji"
   end
   factory :carts_product do
     cart
@@ -44,14 +44,11 @@ FactoryGirl.define do
     count 1
   end
   factory :cart do
-    total "9.99"
-    price "9.99"
-    quantity 1
     customer
   end
   factory :admin_meal, class: 'Admin::Meal' do
-    name "MyString"
-    description "MyString"
+    name "my string"
+    description "my string"
     light false
     vegan false
     raw false
@@ -60,29 +57,29 @@ FactoryGirl.define do
   end
   factory :restaurant do
     sequence(:name) { |n| "restaurant#{n}"}
-    address "MyString"
+    address "my string"
   end
   factory :product do
-    name "MyString"
-    description "MyString"
+    name "my string"
+    description "my string"
     price "9.99"
     primary false
   end
   factory :article do
-    title "MyString"
-    description "MyString"
-    category "MyString"
+    title "my string"
+    description "my string"
+    category "my string"
     content "MyText"
   end
   factory :subscriber do
-    email "MyString"
-    full_name "MyString"
-    subscribed_to "MyString"
+    email "my string"
+    full_name "my string"
+    subscribed_to "my string"
   end
   factory :ingredient_category do
-    title "MyString"
-    description "MyString"
-    color "MyString"
+    title "my string"
+    description "my string"
+    color "my string"
   end
   factory :intake do
     age_from 1
@@ -91,7 +88,7 @@ FactoryGirl.define do
     period "Daily"
   end
   factory :cook do
-    name "MyString"
+    name "my string"
   end
   factory :ingredient_nutrition_fact do
     ingredient
@@ -99,7 +96,7 @@ FactoryGirl.define do
     amount 10.5
   end
   factory :recipe_category do
-    name "MyString"
+    name "my string"
   end
   factory :unit do
     name 'Gram'

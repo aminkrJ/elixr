@@ -11,57 +11,28 @@ class Cart < ActiveRecord::Base
 
   accepts_nested_attributes_for :customer
   accepts_nested_attributes_for :coupon
+  accepts_nested_attributes_for :cart_products
 
   validates_presence_of :customer
+  validates_presence_of :cart_products
 
-  #before_create :set_reference_number
-  #before_create :set_status
-  #before_create :set_total
-  #before_create :set_shipping_fee
+  before_create :set_reference_number
 
-  def state_machine
-    @state_machine ||= CartStateMachine.new(self, transition_class: CartTransition, association_name: :transitions)
+  def state
+    @state ||= CartStateMachine.new(self, transition_class: CartTransition, association_name: :transitions)
   end
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state, to: :state
 
-  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state, to: :state_machine
 
-  CREATED = 'created'
-  PAID = 'paid'
-  SHIPPING_FEE = 8.57
+  def has_a_shipping_address?
+    self.customer.addresses.first
+  end
 
   def has_coupon?
     !coupon.nil?
   end
 
-  def self.transition_class
-    CartTransition
-  end
-
-  def self.initial_state
-    :pending
-  end
-
   private
-
-  def set_status
-    self.status = Cart::CREATED
-  end
-
-  def gst
-    0
-  end
-
-  def subtotal
-    (self.price + gst) * quantity
-  end
-
-  def set_total
-    self.total = subtotal + SHIPPING_FEE
-  end
-
-  def set_shipping_fee
-    self.shipping_fee = SHIPPING_FEE
-  end
 
   def set_reference_number
     self.reference_number = loop do

@@ -6,6 +6,35 @@ RSpec.describe Cart, type: :model do
     expect(cart.save).to be_truthy
   end
 
+  describe "#has_a_shipping_address" do
+    let(:customer) { create :customer }
+
+    it "return true when there is an address" do
+      allow(customer).to receive(:addresses).and_return([double(:address)])
+
+      cart = build :cart, customer: customer
+      expect(cart.has_a_shipping_address?).to be_truthy
+    end
+
+    it "return false when there is no address" do
+      cart = build :cart, customer: customer
+      expect(cart.has_a_shipping_address?).to be_falsey
+    end
+  end
+
+  describe "#customer" do
+    it "returns error without customer" do
+      cart = build :cart, customer: nil
+      expect(cart).to have(1).errors_on(:customer)
+    end
+
+    it "return error with invalid customer" do
+      cart = build :cart, customer: build(:customer, email: nil)
+      expect(cart.customer).to have(1).errors_on(:email)
+      expect(cart).to_not be_valid
+    end
+  end
+
   it "returns error without customer" do
     cart = build :cart, customer: nil
     expect(cart).to have(1).errors_on(:customer)
@@ -17,8 +46,7 @@ RSpec.describe Cart, type: :model do
 
   describe "#state_machine" do
     it "default state is pending" do
-      binding.pry
-      expect(create(:cart).state_machine.current_state).to eq("pending")
+      expect(create(:cart).state.current_state).to eq("pending")
     end
   end
 

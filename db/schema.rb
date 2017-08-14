@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807013825) do
+ActiveRecord::Schema.define(version: 20170810002833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address"
+    t.string   "suite_apt"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "customer_id"
+  end
+
+  add_index "addresses", ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -92,7 +106,6 @@ ActiveRecord::Schema.define(version: 20170807013825) do
     t.datetime "updated_at",                                 null: false
     t.string   "reference_number"
     t.string   "stripe_token"
-    t.string   "status"
     t.integer  "customer_id"
     t.string   "invoice_file_name"
     t.integer  "coupon_id"
@@ -121,19 +134,10 @@ ActiveRecord::Schema.define(version: 20170807013825) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "stripe_customer_id"
-    t.string   "address"
-    t.string   "city"
-    t.string   "country"
-    t.string   "postcode"
-    t.string   "suburb"
-    t.string   "state"
-    t.string   "name_on_card"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "fullname"
     t.string   "email"
-    t.string   "status"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -338,6 +342,7 @@ ActiveRecord::Schema.define(version: 20170807013825) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "addresses", "customers"
   add_foreign_key "cart_product_ingredients", "cart_products"
   add_foreign_key "cart_product_ingredients", "ingredients"
   add_foreign_key "cart_products", "carts"
