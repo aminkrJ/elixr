@@ -25,23 +25,34 @@
       <th style='text-align: left'>Unit price</th>
       <th style='text-align: right'>Total</th>
     </tr>
+    <% cart.cart_products.each do |cp| %>
+      <tr>
+        <td style='padding: 5px 0'><%= cp.product.name %></td>
+        <td><%= cp.quantity %></td>
+        <td><%= cp.unit_price %>$</td>
+        <td style='text-align: right'><%= cp.total_price %>$</td>
+      </tr>
+    <% end %>
     <tr>
-      <td style='padding: 5px 0'><%= 0 %></td>
-      <td><%= 0 %></td>
-      <td><%= 0 %>$</td>
-      <td style='text-align: right'><%= 0 %>$</td>
+      <td style='padding: 5px 0'></td>
+      <td></td>
+      <td>Subtotal</td>
+      <td style='text-align: right'><%= cart.subtotal %>$</td>
     </tr>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td>Shipping</td>
-      <td style='text-align: right'><%= 0 %>$</td>
+      <td style='text-align: right'><%= cart.shipping_fee %>$</td>
     </tr>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td><b>Order total</b></td>
-      <td style='text-align: right'><b><%= 0 %>$</b></td>
+      <td style='text-align: right'><b><%= cart.total %>$</b></td>
     </tr>
   </table>
+  <% if cart.has_coupon? %>
+    <p><%= cart.coupon.name %> has applied. <br/> <%= cart.coupon.description %> </p>
+  <% end %>
 </div>
