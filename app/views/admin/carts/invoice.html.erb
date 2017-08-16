@@ -10,9 +10,9 @@
   <p>
     <%= @cart.customer.fullname %>
     <div>
-      <%= @cart.customer.address %>
+      <%= @address.street_address %>
       <br />
-      <%= @cart.customer.suburb %>, <%= @cart.customer.state.upcase %>, <%= @cart.customer.city %>, <%= @cart.customer.postcode %>, <%= @cart.customer.country %>
+      <%= @address.suburb %>, <%= @address.state.upcase %>, <%= @address.city %>, <%= @address.zip %>, <%= @address.country %>
     </div>
   </p>
 </p>
@@ -26,22 +26,22 @@
       <th style='text-align: right'>Total</th>
     </tr>
     <tr>
-      <td style='padding: 5px 0'>Power Pack</td>
-      <td><%= @cart.quantity %></td>
-      <td><%= @cart.price %>$</td>
-      <td style='text-align: right'><%= @cart.quantity * @cart.price %>$</td>
+      <td style='padding: 5px 0'><%= 0 %></td>
+      <td><%= 0 %></td>
+      <td><%= 0 %>$</td>
+      <td style='text-align: right'><%= 0 %>$</td>
     </tr>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td>Shipping</td>
-      <td style='text-align: right'><%= Cart::SHIPPING_FEE %>$</td>
+      <td style='text-align: right'><%= 0 %>$</td>
     </tr>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td><b>Order total</b></td>
-      <td style='text-align: right'><b><%= @cart.total %>$</b></td>
+      <td style='text-align: right'><b><%= 0 %>$</b></td>
     </tr>
   </table>
 </div>
