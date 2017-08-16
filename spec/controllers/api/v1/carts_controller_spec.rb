@@ -5,8 +5,11 @@ describe Api::V1::CartsController do
 
   let(:stripe_helper) { StripeMock.create_test_helper }
   let(:product_ingredient) { create :product_ingredient }
+  let(:cart_product) { create :cart_product }
+  let(:address_attribute) {
+  }
 
-  let(:cart) {
+  let(:cart_attributes) {
     {
       total: 110,
       shipping_fee: 10,
@@ -31,15 +34,11 @@ describe Api::V1::CartsController do
 
   describe "POST checkout" do
     let(:stripe_helper) { StripeMock.create_test_helper }
-
-    before :each do
-      cart_product = create :cart_product
-      @cart = cart_product.cart
-
-      @cart_attribute = {
+    let(:existing_cart_attributes) {
+      {
         total: 120,
         customer_attributes: {
-          id: @cart.customer.id,
+        id: cart_product.cart.customer.id,
           addresses_attributes: [
             {
               street_address: "327/38 Albany",
@@ -50,21 +49,40 @@ describe Api::V1::CartsController do
           ]
         }
       }
+    }
+
+    before :each do
+      StripeMock.start
     end
 
-    it "raises error while paying" do
-      StripeMock.start
+    after :each do
+      StripeMock.stop
+    end
+
+    it "raises error while paying with incorrect card" do
       StripeMock.prepare_card_error(:card_declined)
 
-      post :checkout, { id: @cart.id, cart: @cart_attribute, format: :json }
+      post :checkout, { id: cart_product.cart.id, cart: existing_cart_attributes, format: :json }
 
-      StripeMock.stop
+      expect(response).to have_http_status(500)
+    end
+
+    describe "checkout" do
+      before { post :checkout, { id: cart_product.cart.id, cart: existing_cart_attributes, format: :json }
+}
+      it "saves the customer info" do
+        expect(assigns(:cart).customer.addresses.first.street_address).to eq("327/38 Albany")
+      end
+
+      it "flags cart as being purchased" do
+        expect(assigns(:cart).state.current_state).to eq("purchased")
+      end
     end
   end
 
   describe "POST create" do
     it "create a pending cart with its customer" do
-      post :create, { cart: cart, format: :josn }
+      post :create, { cart: cart_attributes, format: :josn }
 
       data = JSON.parse(response.body)
 

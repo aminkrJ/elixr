@@ -19,19 +19,21 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart.attributes = cart_params
 
     @cart.save!
-
     if @cart.pay
-      self.transition_to! :purchased
+      @cart.transition_to! :purchased
 
-      pdf_path = @cart.generate_invoice(render_to_string(template: "admin/carts/invoice.html.erb", locale: {cart: @cart, address: @cart.addresses.first }, layout: false))
+      pdf_path = @cart.generate_invoice(render_to_string(template: "admin/carts/invoice.html.erb", locals: { cart: @cart, address: @cart.customer.addresses.first }, layout: false))
       @cart.invoice = File.open pdf_path
 
       @cart.dispatch_invoice
 
       File.delete(pdf_path) if File.exist?(pdf_path)
+
+      render :show
+    else
+      render json: { errors: @cart.errors.messages }, status: :internal_server_error
     end
 
-    render :show
   rescue ActiveRecord::RecordNotFound => e
     render json: {errors: e.message}, status: :unprocessable_entity
   end

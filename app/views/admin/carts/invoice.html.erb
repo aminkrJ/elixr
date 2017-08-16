@@ -1,18 +1,18 @@
 <h2>Order confirmation</h2>
 <p>
   <b>Invoice ref.</b>
-  <span><%= @cart.reference_number %></span> <br/>
-  <span><b>Printed on </b><%= @cart.created_at.strftime("%m/%d/%Y") %></span>
+  <span><%= cart.reference_number %></span> <br/>
+  <span><b>Printed on </b><%= cart.created_at.strftime("%m/%d/%Y") %></span>
 </p>
 
 <p>
   <b>Invoice/deliver to</b>
   <p>
-    <%= @cart.customer.fullname %>
+    <%= cart.customer.fullname %>
     <div>
-      <%= @address.street_address %>
+      <%= address.street_address %>
       <br />
-      <%= @address.suburb %>, <%= @address.state.upcase %>, <%= @address.city %>, <%= @address.zip %>, <%= @address.country %>
+      <%= address.suburb %>, <%= address.state.upcase %>, <%= address.city %>, <%= address.zip %>, <%= address.country %>
     </div>
   </p>
 </p>

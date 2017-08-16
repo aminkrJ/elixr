@@ -5,7 +5,7 @@ class Cart < ActiveRecord::Base
   belongs_to :customer, validate: true
   belongs_to :coupon
 
-  has_many :transitions, class_name: "CartTransition", autosave: false
+  has_many :cart_transitions, autosave: false
   has_many :products, through: :cart_products
   has_many :cart_products
 
@@ -19,7 +19,7 @@ class Cart < ActiveRecord::Base
   before_create :set_reference_number
 
   def state
-    @state ||= CartStateMachine.new(self, transition_class: CartTransition, association_name: :transitions)
+    @state ||= CartStateMachine.new(self, transition_class: CartTransition)
   end
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state, to: :state
 
@@ -65,20 +65,27 @@ class Cart < ActiveRecord::Base
 
     charge.paid
 
-    rescue Stripe::CardError => e
-      # Since it's a decline, Stripe::CardError will be caught
-    rescue Stripe::RateLimitError => e
-      # Too many requests made to the API too quickly
-    rescue Stripe::InvalidRequestError => e
-      # Invalid parameters were supplied to Stripe's API
-    rescue Stripe::AuthenticationError => e
-      # Authentication with Stripe's API failed
-    rescue Stripe::APIConnectionError => e
-      # Network communication with Stripe failed
-    rescue Stripe::StripeError => e
-      # Display a very generic error to the user, and maybe send yourself an email
-    rescue => e
-      # Something else happened, completely unrelated to Stripe
+  rescue Stripe::CardError => e
+    # Since it's a decline, Stripe::CardError will be caught
+    false
+  rescue Stripe::RateLimitError => e
+    # Too many requests made to the API too quickly
+    false
+  rescue Stripe::InvalidRequestError => e
+    # Invalid parameters were supplied to Stripe's API
+    false
+  rescue Stripe::AuthenticationError => e
+    # Authentication with Stripe's API failed
+    false
+  rescue Stripe::APIConnectionError => e
+    # Network communication with Stripe failed
+    false
+  rescue Stripe::StripeError => e
+    # Display a very generic error to the user, and maybe send yourself an email
+    false
+  rescue => e
+    # Something else happened, completely unrelated to Stripe
+    false
   end
 
   private
