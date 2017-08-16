@@ -5,6 +5,7 @@ describe Api::V1::CartsController do
 
   let(:stripe_helper) { StripeMock.create_test_helper }
   let(:product_ingredient) { create :product_ingredient }
+
   let(:cart) {
     {
       total: 110,
@@ -31,19 +32,34 @@ describe Api::V1::CartsController do
   describe "POST checkout" do
     let(:stripe_helper) { StripeMock.create_test_helper }
 
-    it "raises error while paying" do
-      post :create, {cart: cart, format: :json}
-      # TODO pay method raises an error and see what would happen here
+    before :each do
+      cart_product = create :cart_product
+      @cart = cart_product.cart
+
+      @cart_attribute = {
+        total: 120,
+        customer_attributes: {
+          id: @cart.customer.id,
+          addresses_attributes: [
+            {
+              street_address: "327/38 Albany",
+              city: "Sydney",
+              state: "NSW",
+              zip: "2056"
+            }
+          ]
+        }
+      }
     end
 
-    it "create an invoice pdf" do
+    it "raises error while paying" do
       StripeMock.start
+      StripeMock.prepare_card_error(:card_declined)
 
-      post :create, {cart: cart, format: :json}
+      post :checkout, { id: @cart.id, cart: @cart_attribute, format: :json }
 
       StripeMock.stop
     end
-
   end
 
   describe "POST create" do
