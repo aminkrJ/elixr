@@ -19,6 +19,7 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart.attributes = cart_params
 
     @cart.save!
+
     if @cart.pay
       @cart.transition_to! :purchased
 
