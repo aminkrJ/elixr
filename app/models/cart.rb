@@ -14,7 +14,7 @@ class Cart < ActiveRecord::Base
   accepts_nested_attributes_for :cart_products
 
   validates_presence_of :customer
-  validates_presence_of :cart_products
+  validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
 
   before_create :set_reference_number
 
@@ -36,8 +36,7 @@ class Cart < ActiveRecord::Base
     CartMailer.delay.dispatch_invoice self
   end
 
-  def generate_invoice
-    pdf_html = render_to_string template: "admin/carts/invoice.html.erb", locale: {cart: self}, layout: false
+  def generate_invoice(pdf_html)
     doc_pdf = WickedPdf.new.pdf_from_string pdf_html
 
     Dir.mkdir(Rails.root.join('tmp/invoices')) unless File.exists?(Rails.root.join('tmp/invoices'))
@@ -57,12 +56,14 @@ class Cart < ActiveRecord::Base
       source: self.stripe_token
     )
 
-    Stripe::Charge.create(
+    charge = Stripe::Charge.create(
       customer: stripe_customer.id,
       amount: (self.total.to_r*100).to_i,
       description: self.reference_number,
       currency: 'aud'
     )
+
+    charge.paid
 
     rescue Stripe::CardError => e
       # Since it's a decline, Stripe::CardError will be caught

@@ -18,24 +18,22 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart = Cart.find params[:id]
     @cart.attributes = cart_params
 
-    @cart.pay
-
-    pdf_path = @cart.generate_invoice
-    @cart.invoice = File.open pdf_path
-
     @cart.save!
 
-    @cart.dispatch_invoice
+    if @cart.pay
+      self.transition_to! :purchased
 
-    File.delete(pdf_path) if File.exist?(pdf_path)
+      pdf_path = @cart.generate_invoice(render_to_string(template: "admin/carts/invoice.html.erb", locale: {cart: @cart, address: @cart.addresses.first }, layout: false))
+      @cart.invoice = File.open pdf_path
 
-    self.transition_to! :purchased
+      @cart.dispatch_invoice
+
+      File.delete(pdf_path) if File.exist?(pdf_path)
+    end
 
     render :show
   rescue ActiveRecord::RecordNotFound => e
     render json: {errors: e.message}, status: :unprocessable_entity
-  rescue StandardError => e
-    render json: {errors: e.message}
   end
 
   def coupon
