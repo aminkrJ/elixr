@@ -6,6 +6,16 @@ RSpec.describe Cart, type: :model do
     expect(cart.save).to be_truthy
   end
 
+  describe "#dispatch_invoice" do
+    subject { create(:cart_product).cart }
+
+    it "sends cart invoice" do
+      expect {
+        subject.dispatch_invoice
+      }.to change { Sidekiq::Worker.jobs.size }.by(1)
+    end
+  end
+
   describe "#pay" do
     let(:cart) { build :cart, total: 10 }
 
