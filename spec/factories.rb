@@ -45,6 +45,7 @@ FactoryGirl.define do
   end
   factory :cart do
     customer
+    invoice { File.new("#{Rails.root}/spec/support/fixtures/invoice.pdf") }
   end
   factory :admin_meal, class: 'Admin::Meal' do
     name "my string"

@@ -18,6 +18,7 @@ RSpec.configure do |config|
     Warden.test_reset!
     Capybara.reset_session!
     Capybara.use_default_driver
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
   end
 
   config.expect_with :rspec do |expectations|
