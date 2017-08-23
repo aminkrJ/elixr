@@ -71,7 +71,7 @@ class Admin::ProductsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:id, :photo, :name, :description, :price, :primary, :weight, :nutrition_fact, :serving_idea, product_ingredients_attributes: [:ingredient_id, :_destroy, :id, :weight, :percentage])
+      params.require(:product).permit(:id, :photo, :name, :short_description, :description, :price, :primary, :weight, :nutrition_fact, :serving_idea, product_ingredients_attributes: [:ingredient_id, :_destroy, :id, :weight, :percentage])
     end
 
     def set_form_variables
