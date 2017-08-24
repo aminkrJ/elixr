@@ -22,6 +22,10 @@
         <%= f.text_field :amount, class: 'form-control' %>
       </div>
       <div class="form-group">
+        <%= f.label :price_per_gram %><br>
+        <%= f.text_field :price_per_gram, class: 'form-control' %>
+      </div>
+      <div class="form-group">
         <%= f.label :unit %><br>
         <%= f.select :unit_id, Unit.all.collect{|u| [u.name, u.id]}, {prompt: 'Select unit'}, class: 'form-control' %>
       </div>
