@@ -66,6 +66,8 @@ gem 'statesman'
 
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
+gem 'apartment'
+
 group :development do
   gem 'pry-rails'
   gem 'guard'

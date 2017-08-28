@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :tenant do
+    domain "MyString"
+    uuid "MyString"
+  end
   factory :address do
     street_address "my string"
     suite_apt "my string"
