@@ -20,5 +20,4 @@ class Api::V1::SubscribersController < Api::V1::BaseController
   def set_subscriber
     @subscriber = Subscriber.find params[:id]
   end
-
 end
