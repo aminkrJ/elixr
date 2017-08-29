@@ -24,7 +24,7 @@ RSpec.describe Cart, type: :model do
     after { StripeMock.stop }
 
     it "returns Stripe charge" do
-      expect(cart.pay.paid).to be_truthy
+      expect(cart.pay).to be_truthy
     end
 
     it "raises error when card is declined" do
@@ -80,9 +80,5 @@ RSpec.describe Cart, type: :model do
     it "default state is pending" do
       expect(create(:cart).state.current_state).to eq("pending")
     end
-  end
-
-  it "sets total" do
-    expect(create(:cart, quantity: 2).total).to eq(19.98)
   end
 end
