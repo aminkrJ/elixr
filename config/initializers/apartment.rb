@@ -3,8 +3,8 @@
 # Require whichever Elevator you're using below or none if you have a custom one.
 #
 # require 'apartment/elevators/generic'
-require 'apartment/elevators/domain'
-# require 'apartment/elevators/subdomain'
+# require 'apartment/elevators/domain'
+require 'apartment/elevators/subdomain'
 # require 'apartment/elevators/first_subdomain'
 
 #
@@ -92,6 +92,6 @@ end
 #   request.host.split('.').first
 # }
 
-Rails.application.config.middleware.use Apartment::Elevators::Domain
-# Rails.application.config.middleware.use Apartment::Elevators::Subdomain
+# Rails.application.config.middleware.use Apartment::Elevators::Domain
+Rails.application.config.middleware.use Apartment::Elevators::Subdomain
 # Rails.application.config.middleware.use Apartment::Elevators::FirstSubdomain
