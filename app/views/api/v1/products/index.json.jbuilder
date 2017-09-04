@@ -18,6 +18,7 @@ json.array! @products do |product|
    json.weight pi.weight
    json.percentage pi.percentage
    json.price pi.ingredient.price_per_gram
+   json.external_link pi.ingredient.external_link
  end
  json.created_at product.created_at.to_i
 end

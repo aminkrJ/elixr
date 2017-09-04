@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828044418) do
+ActiveRecord::Schema.define(version: 20170904235158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170828044418) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "external_link"
   end
 
   add_index "articles", ["category"], name: "index_articles_on_category", using: :btree
@@ -184,6 +185,7 @@ ActiveRecord::Schema.define(version: 20170828044418) do
     t.integer  "ph"
     t.boolean  "antioxidant"
     t.decimal  "price_per_gram",         precision: 6, scale: 4
+    t.string   "external_link"
   end
 
   create_table "intakes", force: :cascade do |t|

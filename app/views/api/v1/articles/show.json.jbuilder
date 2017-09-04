@@ -1,2 +1,2 @@
-json.(@article, :id, :title, :description, :category, :content)
+json.(@article, :id, :title, :description, :category, :content, :external_link)
 
