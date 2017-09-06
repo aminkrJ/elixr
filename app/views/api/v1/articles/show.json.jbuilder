@@ -5,6 +5,7 @@ json.array! @articles do |article|
  json.slug article.slug
  json.category article.category
  json.content article.content
+ json.author article.author
  json.photo do
    json.thumb article.photo.url(:thumb)
    json.medium article.photo.url(:medium)
