@@ -10,6 +10,6 @@ json.array! @articles do |article|
    json.medium article.photo.url(:medium)
    json.original article.photo.url
  end
- json.created_at article.created_at.to_i
+ json.created_at article.created_at
 end
 
