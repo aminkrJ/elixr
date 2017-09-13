@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906071003) do
+ActiveRecord::Schema.define(version: 20170913091534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,17 @@ ActiveRecord::Schema.define(version: 20170906071003) do
 
   add_index "product_ingredients", ["ingredient_id"], name: "index_product_ingredients_on_ingredient_id", using: :btree
   add_index "product_ingredients", ["product_id"], name: "index_product_ingredients_on_product_id", using: :btree
+
+  create_table "product_photos", force: :cascade do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo_type"
+    t.json     "photo_meta"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

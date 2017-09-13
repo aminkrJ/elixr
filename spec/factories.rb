@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :product_photo do
+    photo_type "mystring"
+  end
   factory :tenant do
     domain "MyString"
     uuid "MyString"

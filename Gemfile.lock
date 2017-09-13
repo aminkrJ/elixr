@@ -231,6 +231,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-meta (3.0.0)
+      paperclip (~> 5.0)
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
     pg (0.20.0)
@@ -429,6 +431,7 @@ DEPENDENCIES
   nprogress-rails
   omniauth-facebook
   paperclip
+  paperclip-meta
   pg
   phantomjs
   pry-byebug
@@ -457,4 +460,4 @@ DEPENDENCIES
   wkhtmltopdf-heroku
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
