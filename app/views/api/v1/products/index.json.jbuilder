@@ -1,5 +1,5 @@
- json.id product.id
 json.array! @products do |product|
+ json.id product.id
  json.name product.name
  json.description product.description
  json.short_description product.short_description
@@ -19,6 +19,7 @@ json.array! @products do |product|
    json.original pp.photo.url
    json.width pp.photo.width
    json.height pp.photo.height
+   json.image_size pp.photo.image_size
  end
  json.ingredients product.product_ingredients do |pi|
    json.id pi.id
