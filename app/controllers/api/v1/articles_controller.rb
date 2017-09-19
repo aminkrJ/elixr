@@ -3,9 +3,9 @@ class Api::V1::ArticlesController < Api::V1::BaseController
 
   def index
     @articles = if params[:category]
-      Article.published.where(category: params[:category]).select("id, title, description, slug, created_at, category, author").order(created_at: :desc).all
+      Article.published.where(category: params[:category]).order(created_at: :desc).all
     else
-      Article.published.select("id, title, description, slug, created_at, category, author").order(created_at: :desc).all
+      Article.published.order(created_at: :desc).all
     end
   end
 
