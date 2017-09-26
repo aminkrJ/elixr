@@ -11,7 +11,7 @@ class CampaignMailer < ApplicationMailer
     mail(
       to: subscriber.email,
       subject: "#{campaign.pdf_title}",
-      from: "Life Elixir <support@lifelixir.com.au>",
+      from: "#{Tenant.current.app_name} <#{Tenant.current.smtp_username}>",
       bcc: "amin.krj@gmail.com")
   end
 end
