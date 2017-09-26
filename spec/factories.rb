@@ -88,7 +88,7 @@ FactoryGirl.define do
     content "MyText"
   end
   factory :subscriber do
-    email "my string"
+    email "test@test.com"
     full_name "my string"
     subscribed_to "my string"
   end
