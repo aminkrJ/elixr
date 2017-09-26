@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914092443) do
+ActiveRecord::Schema.define(version: 20170926101329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,27 @@ ActiveRecord::Schema.define(version: 20170914092443) do
 
   add_index "articles", ["category"], name: "index_articles_on_category", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "campaign_subscribers", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.integer  "subscriber_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "campaign_subscribers", ["campaign_id"], name: "index_campaign_subscribers_on_campaign_id", using: :btree
+  add_index "campaign_subscribers", ["subscriber_id"], name: "index_campaign_subscribers_on_subscriber_id", using: :btree
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.string   "pdf_title"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "cart_product_ingredients", force: :cascade do |t|
     t.integer  "cart_product_id"
