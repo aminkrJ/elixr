@@ -406,6 +406,7 @@ DEPENDENCIES
   amoeba
   apartment
   aws-sdk
+  bcrypt
   better_errors
   bootstrap-sass
   bower-rails

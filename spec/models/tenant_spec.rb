@@ -14,5 +14,14 @@ RSpec.describe Tenant, type: :model do
     create :product
     expect(Product.count).to eq(1)
   end
+
+  it "stores encrypted smtp password" do
+    tenant = create :tenant, domain: "domain", smtp_username: "test@test.com", smtp_password: "testPassword"
+
+    tenant_password = BCrypt::Password.new(tenant.smtp_password_digest)
+    expect(tenant_password).to eq("testPassword")
+  end
 end
+
+
 

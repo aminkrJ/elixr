@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926114802) do
+ActiveRecord::Schema.define(version: 20170926115526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -356,8 +356,10 @@ ActiveRecord::Schema.define(version: 20170926114802) do
   create_table "tenants", force: :cascade do |t|
     t.string   "domain"
     t.string   "uuid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "smtp_username"
+    t.string   "smtp_password_digest"
   end
 
   create_table "units", force: :cascade do |t|
