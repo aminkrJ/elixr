@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :campaign_subscriber do
+    campaign
+    subscriber
+  end
+  factory :campaign do
+    name "MyString"
+    pdf ""
+  end
   factory :product_photo do
     photo_type "mystring"
   end
