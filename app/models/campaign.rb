@@ -7,6 +7,13 @@ class Campaign < ActiveRecord::Base
   has_many :subscribers, through: :campaign_subscribers
   has_many :campaign_subscribers
 
-  def launch
+  def launch(subscriber)
+    strategy(subscriber).launch
+  end
+
+  private
+
+  def strategy(subscriber)
+    Object.const_get("CampaignStrategy::" + name).new(self, subscriber)
   end
 end
