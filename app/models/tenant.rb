@@ -14,6 +14,10 @@ class Tenant < ActiveRecord::Base
     self.smtp_password_digest = @smtp_password
   end
 
+  def self.current
+    Tenant.find_by domain: Apartment::Tenant.current
+  end
+
   private
 
   def create_tenant
