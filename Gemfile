@@ -65,8 +65,6 @@ gem 'jquery-turbolinks'
 
 gem 'statesman'
 
-gem 'bcrypt'
-
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 gem 'apartment'
