@@ -6,7 +6,7 @@ class Tenant < ActiveRecord::Base
   end
 
   def smtp_password
-    encryptor.decrypt_and_verify(self.smtp_password_digest)
+    encryptor.decrypt_and_verify(self.smtp_password_digest) if self.smtp_password_digest
   end
 
   def smtp_password=(smtp_password_phrase)
