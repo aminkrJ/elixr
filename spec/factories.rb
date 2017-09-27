@@ -90,7 +90,6 @@ FactoryGirl.define do
   factory :subscriber do
     email "test@test.com"
     full_name "my string"
-    subscribed_to "my string"
   end
   factory :ingredient_category do
     title "my string"
