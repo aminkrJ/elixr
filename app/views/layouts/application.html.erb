@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Elixr</title>
+  <title>Personalised Nutrition</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,6 @@
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" aria-expanded="false" data-toggle="collapse" data-target="#mainmenu">
           <span class="sr-only">Toggle navigation</span>
@@ -19,74 +18,58 @@
         </button>
         <a class="navbar-brand" href="#">Logo</a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
+
       <div class="collapse navbar-collapse" id="mainmenu">
         <ul class="nav navbar-nav">
-          <li>
-            <%= link_to t('engine'), admin_engine_dashboard_path %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Spider<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('engine'), admin_engine_dashboard_path %></li>
+            </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Elixirs<span class="caret"></span>
-            </a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Elixir<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li>
-                <%= link_to t('units'), admin_units_path %>
-              </li>
-              <li>
-                <%= link_to t('nutrition_facts'), admin_nutrition_facts_path %>
-              </li>
-              <li>
-                <%= link_to t('ingredients'), admin_ingredients_path %>
-              </li>
-              <li>
-                <%= link_to t('recipes'), admin_recipes_path %>
-              </li>
-              <li>
-                <%= link_to t('recipe_category'), admin_recipe_categories_path %>
-              </li>
-              <li>
-                <%= link_to t('ingredient_category'), admin_ingredient_categories_path %>
-              </li>
-              <li>
-                <%= link_to t('cook'), admin_cooks_path %>
-              </li>
+              <li><%= link_to t('units'), admin_units_path %></li>
+              <li><%= link_to t('nutrition_facts'), admin_nutrition_facts_path %></li>
+              <li><%= link_to t('ingredients'), admin_ingredients_path %></li>
+              <li><%= link_to t('recipes'), admin_recipes_path %></li>
+              <li><%= link_to t('recipe_category'), admin_recipe_categories_path %></li>
+              <li><%= link_to t('ingredient_category'), admin_ingredient_categories_path %></li>
+              <li><%= link_to t('cook'), admin_cooks_path %></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Market<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <%= link_to t('products'), admin_products_path %>
-              </li>
-              <li>
-                <%= link_to t('cart'), admin_carts_path %>
-              </li>
-              <li>
-                <%= link_to t('coupons'), admin_coupons_path %>
-              </li>
+              <li><%= link_to t('products'), admin_products_path %></li>
+              <li><%= link_to t('cart'), admin_carts_path %></li>
+              <li><%= link_to t('coupons'), admin_coupons_path %></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eat out<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <%= link_to 'Restaurants', admin_restaurants_path %>
-              </li>
-              <li>
-                <%= link_to 'Meals', admin_meals_path %>
-              </li>
+              <li><%= link_to 'Restaurants', admin_restaurants_path %></li>
+              <li><%= link_to 'Meals', admin_meals_path %></li>
             </ul>
           </li>
-          <li>
-            <%= link_to t('Subscribers'), admin_subscribers_path %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Campaign Mgt<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('Campaigns'), admin_campaings_path %></li>
+              <li><%= link_to t('Subscribers'), admin_subscribers_path %></li>
+            </ul>
           </li>
           <li>
             <%= link_to t('Articles'), admin_articles_path %>
           </li>
-          <li>
-            <%= link_to t('Users'), admin_users_path %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Mgt<span class="caret"></span></a>
+            <li><%= link_to t('Users'), admin_users_path %></li>
+            <li><%= link_to t('Tenants'), admin_tenants_path %></li>
           </li>
         </ul>
 
@@ -109,9 +92,7 @@
           </li>
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
   </nav>
 
   <%= yield %>

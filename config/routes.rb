@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     resources :cooks
     resources :articles
     resources :products
+    resources :campaigns
+    resources :tenants
     resources :users
     resources :recipe_categories
     resources :ingredient_categories
