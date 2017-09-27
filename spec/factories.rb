@@ -11,8 +11,10 @@ FactoryGirl.define do
     photo_type "mystring"
   end
   factory :tenant do
-    domain "MyString"
-    uuid "MyString"
+    domain "mystring"
+    uuid "mystring"
+    smtp_username "username@test.com"
+    app_name "test"
   end
   factory :address do
     street_address "my string"
