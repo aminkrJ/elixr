@@ -1,0 +1,32 @@
+<%= form_for([:admin, @campaign], html: {multipart: true}) do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% @campaign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pdf_title %><br>
+      <%= f.text_field :pdf_title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pdf %><br>
+      <%= f.file_field :pdf %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-default' %>
+  </div>
+<% end %>

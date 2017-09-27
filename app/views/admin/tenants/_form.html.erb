@@ -1,0 +1,36 @@
+<%= form_for([:admin, @tenant], html: {multipart: true}) do |f| %>
+  <% if @tenant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+      <ul>
+      <% @tenant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :app_name %><br>
+      <%= f.text_field :app_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :smtp_username %><br>
+      <%= f.text_field :smtp_username, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :smtp_password %><br>
+      <%= f.text_field :smtp_password, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-default' %>
+  </div>
+<% end %>
