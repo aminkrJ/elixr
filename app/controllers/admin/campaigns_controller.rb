@@ -30,7 +30,6 @@ class Admin::CampaignsController < AdminController
   end
 
   def update
-    @campaign.slug = nil
     respond_to do |format|
       if @campaign.update(campaign_params)
         format.html { redirect_to [:admin, @campaign], notice: 'Campaign was successfully updated.' }

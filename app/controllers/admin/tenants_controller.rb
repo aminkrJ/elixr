@@ -30,7 +30,6 @@ class Admin::TenantsController < AdminController
   end
 
   def update
-    @tenant.slug = nil
     respond_to do |format|
       if @tenant.update(tenant_params)
         format.html { redirect_to [:admin, @tenant], notice: 'Tenant was successfully updated.' }

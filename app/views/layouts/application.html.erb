@@ -57,9 +57,9 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Campaign Mgt<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Campaign<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to t('Campaigns'), admin_campaings_path %></li>
+              <li><%= link_to t('Campaigns'), admin_campaigns_path %></li>
               <li><%= link_to t('Subscribers'), admin_subscribers_path %></li>
             </ul>
           </li>
@@ -67,9 +67,11 @@
             <%= link_to t('Articles'), admin_articles_path %>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Mgt<span class="caret"></span></a>
-            <li><%= link_to t('Users'), admin_users_path %></li>
-            <li><%= link_to t('Tenants'), admin_tenants_path %></li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('Users'), admin_users_path %></li>
+              <li><%= link_to t('Tenants'), admin_tenants_path %></li>
+            </ul>
           </li>
         </ul>
 

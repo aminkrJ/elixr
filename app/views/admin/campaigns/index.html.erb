@@ -13,8 +13,8 @@
   <tbody>
     <% @campaigns.each do |campaign| %>
       <tr>
-        <td><%= campaign.domain %></td>
-        <td><%= campaign.app_name %></td>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.pdf_title %></td>
         <td>
           <%= link_to 'Show', [:admin, campaign], class: 'btn btn-link' %>
           <%= link_to 'Edit', edit_admin_campaign_path(campaign), class: 'btn btn-default' %>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Tenant', new_admin_campaign_path, class: 'btn btn-primary' %>
+<%= link_to 'New Campaign', new_admin_campaign_path, class: 'btn btn-primary' %>
