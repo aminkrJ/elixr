@@ -1,5 +1,6 @@
 class Campaign < ActiveRecord::Base
   validates_presence_of :name
+  validates_presence_of :strategy
 
   has_attached_file :pdf
   do_not_validate_attachment_file_type :pdf
@@ -8,12 +9,12 @@ class Campaign < ActiveRecord::Base
   has_many :campaign_subscribers
 
   def launch(subscriber)
-    strategy(subscriber).launch
+    campaign_strategy(subscriber).launch
   end
 
   private
 
-  def strategy(subscriber)
-    Object.const_get("CampaignStrategy::" + name).new(self, subscriber)
+  def campaign_strategy(subscriber)
+    Object.const_get("CampaignStrategy::" + strategy).new(self, subscriber)
   end
 end
