@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926121754) do
+ActiveRecord::Schema.define(version: 20171024234505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,8 +81,9 @@ ActiveRecord::Schema.define(version: 20170926121754) do
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
     t.string   "pdf_title"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "campaign_subscribers_count", default: 0
   end
 
   create_table "cart_product_ingredients", force: :cascade do |t|

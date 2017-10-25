@@ -1,6 +1,6 @@
 class CampaignSubscriber < ActiveRecord::Base
   belongs_to :campaign
-  belongs_to :subscriber
+  belongs_to :subscriber, counter_cache: true
 
   after_create :launch_campaign
 
