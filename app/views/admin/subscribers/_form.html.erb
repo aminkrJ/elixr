@@ -1,4 +1,4 @@
-<%= form_for([:admin, @subscriber], html: {multipart: true}) do |f| %>
+<%= form_for([:admin, @campaign, @subscriber], html: {multipart: true}) do |f| %>
   <% if @subscriber.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@subscriber.errors.count, "error") %> prohibited this subscriber from being saved:</h2>
@@ -21,8 +21,6 @@
       <%= f.text_field :full_name, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :subscribed_to %><br>
-      <%= f.text_field :subscribed_to, class: 'form-control' %>
     </div>
   </div>
 

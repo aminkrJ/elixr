@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Subscribers</h1>
+<div>Subscribers for <b><%= @campaign.name %></b></div>
 
 <table class='table table-striped'>
   <thead>
     <tr>
       <th>Fullname</th>
       <th>Email</th>
-      <th>Subscribed to</th>
       <th></th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= subscriber.full_name %></td>
         <td><%= subscriber.email %></td>
-        <td><%= subscriber.subscribed_to %></td>
         <td>
           <%= link_to 'Show', [:admin, subscriber],  class: 'btn btn-link' %>
           <%= link_to 'Edit', edit_admin_subscriber_path(subscriber), class: 'btn btn-default' %>
@@ -28,6 +26,5 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Subscriber', new_admin_subscriber_path, class: 'btn btn-primary' %>
+<%= link_to 'New Subscriber', new_admin_campaign_subscriber_path(@campaign), class: 'btn btn-primary' %>

@@ -1,12 +1,13 @@
 class Admin::SubscribersController < AdminController
-  before_action :set_subscriber, only: [:destroy, :edit, :edit, :show, :update]
+  before_action :set_campaign
+  before_action :set_subscriber, only: [:edit, :show]
 
   def index
-    @subscribers = Subscriber.all
+    @subscribers = @campaign.subscribers
   end
 
   def new
-    @subscriber = Subscriber.new
+    @subscriber = @campaign.subscribers.new
   end
 
   def show
@@ -16,9 +17,10 @@ class Admin::SubscribersController < AdminController
   end
 
   def update
+    @subscriber = @campaing.subscribers.find(params[:id]).update(subscriber_params)
     respond_to do |format|
-      if @subscriber.update(subscriber_params)
-        format.html { redirect_to [:admin, @subscriber], notice: 'Subscriber was successfully updated.' }
+      if @subscriber
+        format.html { redirect_to [:admin, @campaign, @subscriber], notice: 'Subscriber was successfully updated.' }
         format.json { render :show, status: :ok, location: @subscriber }
       else
         format.html { render :edit }
@@ -28,11 +30,11 @@ class Admin::SubscribersController < AdminController
   end
 
   def create
-    @subscriber = Subscriber.new(subscriber_params)
+    @subscriber = @campaign.subscribers.new(subscriber_params)
 
     respond_to do |format|
-      if @subscriber.save
-        format.html { redirect_to [:admin, @subscriber], notice: 'Subscriber was successfully created.' }
+      if @campaign.save
+        format.html { redirect_to [:admin, @campaign, @subscriber], notice: 'Subscriber was successfully created.' }
         format.json { render :show, status: :created, location: @subscriber }
       else
         format.html { render :new }
@@ -42,17 +44,21 @@ class Admin::SubscribersController < AdminController
   end
 
   def destroy
-    @subscriber.destroy
+    @campaing.subscribers.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to admin_subscribers_url, notice: 'Subscriber was successfully destroyed.' }
+      format.html { redirect_to admin_campaign_subscribers_url(@campaign), notice: 'Subscriber was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
+  def set_campaign
+    @campaign = Campaign.find params[:campaign_id]
+  end
+
   def set_subscriber
-    @subscriber = Subscriber.find(params[:id])
+    @subscriber = @campaign.subscribers.find params[:id]
   end
 
   def subscriber_params

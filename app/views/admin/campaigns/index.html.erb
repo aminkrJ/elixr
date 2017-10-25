@@ -19,6 +19,7 @@
           <%= link_to 'Show', [:admin, campaign], class: 'btn btn-link' %>
           <%= link_to 'Edit', edit_admin_campaign_path(campaign), class: 'btn btn-default' %>
           <%= link_to 'Destroy', [:admin, campaign], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'View Subscribers', admin_campaign_subscribers_path(campaign), class: 'btn btn-default' %>
         </td>
       </tr>
     <% end %>

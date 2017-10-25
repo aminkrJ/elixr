@@ -34,11 +34,12 @@ Rails.application.routes.draw do
     resources :intakes
     resources :meals
     resources :restaurants
-    resources :subscribers
     resources :cooks
     resources :articles
     resources :products
-    resources :campaigns
+    resources :campaigns do
+      resources :subscribers
+    end
     resources :tenants
     resources :users
     resources :recipe_categories
