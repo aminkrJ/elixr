@@ -5,7 +5,7 @@ class Api::V1::SubscribersController < Api::V1::BaseController
     campaign = Campaign.find params[:campaign_id]
     @subscriber = campaign.subscribers.new(subscriber_params)
 
-    if @subscriber.save
+    if campaign.save
       render json: @subscriber
     else
       render json: @subscriber.errors, status: :unprocessable_entity
