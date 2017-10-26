@@ -17,7 +17,7 @@ class Admin::SubscribersController < AdminController
   end
 
   def update
-    @subscriber = @campaing.subscribers.find(params[:id]).update(subscriber_params)
+    @subscriber = @campaign.subscribers.find(params[:id]).update(subscriber_params)
     respond_to do |format|
       if @subscriber
         format.html { redirect_to [:admin, @campaign, @subscriber], notice: 'Subscriber was successfully updated.' }
@@ -44,7 +44,7 @@ class Admin::SubscribersController < AdminController
   end
 
   def destroy
-    @campaing.subscribers.find(params[:id]).destroy
+    @campaign.subscribers.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to admin_campaign_subscribers_url(@campaign), notice: 'Subscriber was successfully destroyed.' }
       format.json { head :no_content }
