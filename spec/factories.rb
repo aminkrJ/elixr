@@ -4,7 +4,8 @@ FactoryGirl.define do
     subscriber
   end
   factory :campaign do
-    name "SendPdf" # this name is a name of actual class that defines the campaign strategy
+    strategy "WelcomePack" # this name is a name of actual class that defines the campaign strategy
+    name "mystring"
     pdf ""
     pdf_title "mystring"
   end
