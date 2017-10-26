@@ -44,6 +44,7 @@ class Admin::SubscribersController < AdminController
   end
 
   def destroy
+    #TODO at this stage we destroy the subscriber itself but we don't need to destroy the subscriber we just need to kill the association
     @campaign.subscribers.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to admin_campaign_subscribers_url(@campaign), notice: 'Subscriber was successfully destroyed.' }
