@@ -17,9 +17,9 @@
         <td><%= subscriber.full_name %></td>
         <td><%= subscriber.email %></td>
         <td>
-          <%= link_to 'Show', [:admin, subscriber],  class: 'btn btn-link' %>
-          <%= link_to 'Edit', edit_admin_subscriber_path(subscriber), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', [:admin, subscriber], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', [:admin, @campaign, subscriber],  class: 'btn btn-link' %>
+          <%= link_to 'Edit', edit_admin_campaign_subscriber_path(subscriber, @campaign), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', [:admin, @campaign, subscriber], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
