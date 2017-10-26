@@ -15,7 +15,7 @@ class Api::V1::SubscribersController < Api::V1::BaseController
   private
 
   def subscriber_params
-    params.require(:subscriber).permit(:id, :full_name, :subscribed_to, :email)
+    params.require(:subscriber).permit(:id, :full_name, :email)
   end
 
   def set_subscriber
