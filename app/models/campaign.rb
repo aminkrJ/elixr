@@ -1,11 +1,17 @@
 class Campaign < ActiveRecord::Base
-  has_attached_file :photo, styles: { medium: "240x150>", thumb: "160x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :photo,
+    styles: { medium: "240x150>", thumb: "160x100>" },
+    default_url: "/images/:style/missing.png",
+    url: "/system/:tenant_name/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   validates_presence_of :name
   validates_presence_of :strategy
 
-  has_attached_file :pdf
+  has_attached_file :pdf,
+    url: "/system/:tenant_name/:class/:attachment/:id_partition/:style/:filename"
+
+
   do_not_validate_attachment_file_type :pdf
 
   has_many :subscribers, through: :campaign_subscribers
