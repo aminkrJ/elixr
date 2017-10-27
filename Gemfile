@@ -51,6 +51,7 @@ gem 'omniauth-facebook'
 gem 'devise_token_auth'
 
 gem 'sidekiq'
+gem 'apartment-sidekiq'
 gem 'devise-async'
 gem "letter_opener"
 gem "launchy"
