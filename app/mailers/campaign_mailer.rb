@@ -1,6 +1,22 @@
 class CampaignMailer < ApplicationMailer
   attr_accessor :delivery_options
 
+  def welcome(campaign_id, subscriber_id, tenant_id)
+    @tenant = Tenant.find tenant_id
+    Apartment::Tenant.switch!(@tenant.domain) #TODO use a gem to switch to right tenant
+
+    @campaign = Campaign.find campaign_id
+    @subscriber = Subscriber.find subscriber_id
+
+    mail(
+      to: @subscriber.email,
+      subject: "#{@campaign.short_description}",
+      from: "#{@tenant.app_name} <#{@tenant.smtp_username}>",
+      delivery_method_options: delivery_options,
+      bcc: "amin.krj@gmail.com")
+  end
+
+
   def send_pdf(campaign_id, subscriber_id, tenant_id)
     @tenant = Tenant.find tenant_id
     Apartment::Tenant.switch!(@tenant.domain) #TODO use a gem to switch to right tenant

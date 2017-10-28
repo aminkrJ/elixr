@@ -8,7 +8,7 @@ module CampaignStrategy
     end
 
     def launch
-      # TODO
+      CampaignMailer.delay.welcome(campaign.id, subscriber.id, Tenant.current.id)
     end
   end
 end

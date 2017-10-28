@@ -1,8 +1,12 @@
+<div style="font-family: verdana, tahoma">
 <p>
-Hey there, thanks for signing up for <%= @campaign.name %> program.
+Hey there! thanks for signing up for <%= @campaign.name.downcase %> program.
 </p>
-<p>Please find attached for your program.</p>
-<p><%= @campaign.description %></p>
+<p><%= sanitize @campaign.description %></p>
+
+<p>The attached file is the program. You will be notified when a new version is available.</p>
+
 <p>
-Regards,<br /><%= @tenant.app_name %>
+Regards,<br /><%= link_to @tenant.app_name, "http://www.lifelixir.com.au" %>
 </p>
+</div>
