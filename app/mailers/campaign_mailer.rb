@@ -3,7 +3,7 @@ class CampaignMailer < ApplicationMailer
 
   def send_pdf(campaign_id, subscriber_id, tenant_id)
     @tenant = Tenant.find tenant_id
-    Apartment::Tenant.switch!(@Tenant.domain) #TODO use a gem to switch to right tenant
+    Apartment::Tenant.switch!(@tenant.domain) #TODO use a gem to switch to right tenant
 
     @campaign = Campaign.find campaign_id
     @subscriber = Subscriber.find subscriber_id
