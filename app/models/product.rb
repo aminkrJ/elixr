@@ -15,5 +15,9 @@ class Product < ActiveRecord::Base
 
   has_many :product_photos
 
+  has_many :recipes, through: :product_recipes
+  has_many :product_recipes
+
   accepts_nested_attributes_for :product_ingredients, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :product_recipes, allow_destroy: true, reject_if: :all_blank
 end

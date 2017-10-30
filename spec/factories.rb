@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :product_recipe do
+    product nil
+    recipe nil
+    order 1
+  end
   factory :campaign_subscriber do
     campaign
     subscriber

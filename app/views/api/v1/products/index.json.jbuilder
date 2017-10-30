@@ -29,5 +29,16 @@ json.array! @products do |product|
    json.price pi.ingredient.price_per_gram
    json.external_link pi.ingredient.external_link
  end
+ json.recipes product.product_recipes do |pr|
+   json.id pr.id
+   json.order pr.order
+   json.title pr.recipe.title
+   json.photo do
+     json.thumb pr.recipe.photo.url(:thumb)
+     json.medium pr.recipe.photo.url(:medium)
+     json.original pr.recipe.photo.url
+   end
+   json.description pr.recipe.description
+ end
  json.created_at product.created_at.to_i
 end

@@ -48,6 +48,15 @@
       <%= link_to_add_association 'Add ingredient', f, :product_ingredients %>
     </div>
   </div>
+  <div>
+    <h3>Recipes</h3>
+    <%= f.fields_for :product_recipes do |pr| %>
+      <%= render 'product_recipe_fields', f: pr %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add recipe', f, :product_recipes %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.check_box :primary, class: 'checkbox' %> <%= f.label :primary %><br>
   </div>
