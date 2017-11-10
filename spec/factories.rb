@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :product_category do
+    name "MyString"
+    short_description "MyString"
+    description "MyText"
+    active false
+  end
   factory :product_recipe do
     product nil
     recipe nil

@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :cooks
     resources :articles
     resources :products
+    resources :product_categories
     resources :campaigns do
       resources :subscribers
     end
