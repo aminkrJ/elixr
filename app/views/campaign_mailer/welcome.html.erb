@@ -1,9 +1,16 @@
 <div style="font-family: verdana, tahoma">
 <p>
-Hey there! thanks for subscribing to <%= @campaign.name.downcase %> program.
+Hey there!
 </p>
 
-<p>We are working hard to prepare a good content for this subject. Stay tuned we will come back to you soon.</p>
+<p>
+First off, we’d like to extend a warm welcome and thank you for subscribing to our newsletter. I recognize that your time is valuable and I’m seriously flattered that you chose to join us.
+</p>
+
+<p>In <%= @tenant.app_name %>, <%= @campaign.description %>.</p>
+
+<p>We will be in contact with you shortly.
+</p>
 
 <p>
 Regards,<br /><%= link_to @tenant.app_name, "http://www.lifelixir.com.au" %>
