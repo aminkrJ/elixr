@@ -3,6 +3,7 @@ json.id @product.id
 json.name @product.name
 json.description @product.description
 json.slug @product.slug
+json.category @product.category
 json.photo do
  json.thumb @product.photo.url(:thumb)
  json.medium @product.photo.url(:medium)
