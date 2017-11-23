@@ -13,7 +13,7 @@ class Cart < ActiveRecord::Base
   accepts_nested_attributes_for :coupon
   accepts_nested_attributes_for :cart_products
 
-  validates_presence_of :customer
+  #validates_presence_of :customer
   validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
 
   before_create :set_reference_number

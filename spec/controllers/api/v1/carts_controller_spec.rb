@@ -9,6 +9,20 @@ describe Api::V1::CartsController do
   let(:address_attribute) {
   }
 
+  let(:cart_initial_attributes) {
+    {
+      total: 110,
+      shipping_fee: 10,
+      subtotal: 100,
+      cart_products_attributes: [
+        {
+          product_id: product_ingredient.product.id,
+          quantity: 1
+        }
+      ]
+    }
+  }
+
   let(:cart_attributes) {
     {
       total: 110,
@@ -81,6 +95,15 @@ describe Api::V1::CartsController do
   end
 
   describe "POST create" do
+    it "create a card without a customer" do
+      post :create, { cart: cart_initial_attributes, format: :josn }
+
+      data = JSON.parse(response.body)
+
+      expect(response).to have_http_status(200)
+      expect(assigns(:cart).state.current_state).to eq("pending")
+    end
+
     it "create a pending cart with its customer" do
       post :create, { cart: cart_attributes, format: :josn }
 
