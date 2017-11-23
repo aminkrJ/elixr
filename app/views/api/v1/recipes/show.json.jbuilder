@@ -1,5 +1,6 @@
 json.(@recipe, :id, :title, :color, :slug)
 json.description @recipe.description
+json.tag @recipe.tag
 json.how_to_cook @recipe.how_to_cook
 json.difficulty @recipe.difficulty
 json.serving @recipe.serving
