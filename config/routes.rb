@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :articles, only: [:index, :show]
       resources :products, only: [:index, :show]
       resources :meals, only: [:index]
-      resources :carts, only: [:create] do
+      resources :carts, only: [:create, :show] do
         member do
           post :checkout
         end

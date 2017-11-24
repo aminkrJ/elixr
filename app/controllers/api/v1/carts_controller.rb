@@ -1,5 +1,12 @@
 class Api::V1::CartsController < Api::V1::BaseController
 
+  def show
+    @cart = Cart.find_by_reference_number(params[:id])
+    render :show
+  rescue Stripe::CardError => e
+    render json: {errors: e.message}
+  end
+
   def create
     @cart = Cart.new cart_params
 
@@ -15,7 +22,8 @@ class Api::V1::CartsController < Api::V1::BaseController
   end
 
   def checkout
-    @cart = Cart.find params[:id]
+    @cart = Cart.find_by_reference_number params[:id]
+    binding.pry
     @cart.attributes = cart_params
 
     @cart.save!
@@ -54,7 +62,7 @@ class Api::V1::CartsController < Api::V1::BaseController
 
   def cart_params
     params.require(:cart).permit(
-      :total, :stripe_token, :shipping_fee, :subtotal, :total,
+      :total, :delivery_at, :stripe_token, :shipping_fee, :subtotal, :total,
       customer_attributes: [:id, :email, :fullname, addresses_attributes: [:street_address, :suite_apt, :city, :state, :country, :zip]],
       coupon_attributes: [:code],
       cart_products_attributes: [:product_id, :quantity, cart_product_ingredients_attributes: [:product_id, :ingredient_id, :weight, :price, :percentage]]

@@ -7,6 +7,7 @@
     <tr>
       <th>Customer name</th>
       <th>Title</th>
+      <th>Delivery at</th>
       <th>Created at</th>
       <th></th>
     </tr>
@@ -15,8 +16,9 @@
   <tbody>
     <% @carts.each do |cart| %>
       <tr>
-        <td><%= cart.customer.fullname %></td>
-        <td><%= cart.status %></td>
+        <td><%= cart.customer.fullname if cart.customer %></td>
+        <td><%= cart.state.current_state %></td>
+        <td><%= cart.delivery_at %></td>
         <td><%= time_ago_in_words(cart.created_at) %></td>
         <td>
           <%= link_to 'View Invoice', invoice_admin_cart_path(cart),  class: 'btn btn-link', target: '_blank' %>

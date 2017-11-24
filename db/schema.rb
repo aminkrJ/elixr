@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123052341) do
+ActiveRecord::Schema.define(version: 20171123065901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20171123052341) do
     t.integer  "coupon_id"
     t.decimal  "shipping_fee",      precision: 10, scale: 2
     t.decimal  "subtotal",          precision: 8,  scale: 2
+    t.datetime "delivery_at"
   end
 
   add_index "carts", ["coupon_id"], name: "index_carts_on_coupon_id", using: :btree

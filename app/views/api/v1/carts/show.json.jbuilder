@@ -1,4 +1,9 @@
-json.extract! @cart, :id, :reference_number
+json.extract! @cart, :id, :delivery_at, :reference_number, :subtotal, :total, :shipping_fee
+
+json.cart_products @cart.cart_products do |cp|
+  json.name cp.product.name
+  json.quantity cp.quantity
+end
 
 if @cart.coupon
   json.coupon do
