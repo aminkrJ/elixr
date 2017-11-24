@@ -4,7 +4,11 @@ json.tag @recipe.tag
 json.how_to_cook @recipe.how_to_cook
 json.difficulty @recipe.difficulty
 json.serving @recipe.serving
-json.photo @recipe.photo.url(:medium)
+json.photo do
+   json.thumb @recipe.photo.url(:thumb)
+   json.medium @recipe.photo.url(:medium)
+   json.original @recipe.photo.url
+ end
 json.ingredients @recipe.recipe_ingredients do |ri|
   json.id ri.id
   json.amount ri.amount
