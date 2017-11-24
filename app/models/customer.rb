@@ -5,4 +5,8 @@ class Customer < ActiveRecord::Base
   accepts_nested_attributes_for :addresses
 
   validates :email, presence: true
+
+  def fullname
+    "#{firstname} #{lastname}"
+  end
 end
