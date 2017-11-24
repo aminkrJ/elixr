@@ -40,7 +40,6 @@ json.array! @products do |product|
      json.medium pr.recipe.photo.url(:medium)
      json.original pr.recipe.photo.url
    end
-   json.description pr.recipe.description
  end
  json.created_at product.created_at.to_i
 end
