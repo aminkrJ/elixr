@@ -35,6 +35,7 @@ json.array! @products do |product|
    json.order pr.order
    json.description pr.description
    json.title pr.recipe.title
+   json.slug pr.recipe.slug
    json.photo do
      json.thumb pr.recipe.photo.url(:thumb)
      json.medium pr.recipe.photo.url(:medium)
