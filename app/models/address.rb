@@ -1,5 +1,5 @@
 class Address < ActiveRecord::Base
-  ACCEPTED_POSTCODES = ["2072", "2042"]
+  ACCEPTED_POSTCODES = ["2072", "2042", "2000"]
 
   belongs_to :address
 
