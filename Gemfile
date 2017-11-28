@@ -49,6 +49,7 @@ gem 'paperclip-meta'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'devise_token_auth'
+gem 'validates_timeliness'
 
 gem 'sidekiq'
 # TODO It does not work as it expected
