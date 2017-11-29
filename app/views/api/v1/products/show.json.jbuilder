@@ -17,5 +17,17 @@ json.photos @product.product_photos do |pp|
  json.width pp.photo.width
  json.height pp.photo.height
 end
+ json.recipes @product.product_recipes do |pr|
+   json.id pr.id
+   json.order pr.order
+   json.description pr.description
+   json.title pr.recipe.title
+   json.slug pr.recipe.slug
+   json.photo do
+     json.thumb pr.recipe.photo.url(:thumb)
+     json.medium pr.recipe.photo.url(:medium)
+     json.original pr.recipe.photo.url
+   end
+ end
 json.created_at @product.created_at
 

@@ -4,6 +4,6 @@ class Api::V1::ProductsController < Api::V1::BaseController
   end
 
   def show
-    @product = Product.friendly.find(params[:id])
+    @product = Product.includes(:recipes).friendly.find(params[:id])
   end
 end
