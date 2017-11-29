@@ -40,7 +40,6 @@ class Admin::ProductCategoriesController < ApplicationController
   # PATCH/PUT /product_category/1
   # PATCH/PUT /product_category/1.json
   def update
-    @product_category.slug = nil
     respond_to do |format|
       if @product_category.update(product_category_params)
         format.html { redirect_to [:admin, @product_category], notice: 'ProductCategory was successfully updated.' }
@@ -70,6 +69,6 @@ class Admin::ProductCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_category_params
-      params.require(:product_category).permit(:id, :short_description, :description, :active)
+      params.require(:product_category).permit(:id, :name, :short_description, :description, :active)
     end
 end
