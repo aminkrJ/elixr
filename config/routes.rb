@@ -15,7 +15,12 @@ Rails.application.routes.draw do
         end
       end
       resources :articles, only: [:index, :show]
-      resources :products, only: [:index, :show]
+      resources :products, only: [:index, :show] do
+        collection do
+          get :bundles
+          get :menu
+        end
+      end
       resources :meals, only: [:index]
       resources :carts, only: [:create, :show] do
         member do
