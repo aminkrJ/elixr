@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205035052) do
+ActiveRecord::Schema.define(version: 20171205221225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -370,6 +370,7 @@ ActiveRecord::Schema.define(version: 20171205035052) do
     t.string   "tag"
     t.string   "short_description"
     t.text     "nutrition_info"
+    t.text     "health_benefits"
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", using: :btree
