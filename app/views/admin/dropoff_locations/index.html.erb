@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Title</th>
       <th>Address</th>
       <th>Suburb</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @dropoff_locations.each do |dropoff_location| %>
       <tr>
+        <td><%= dropoff_location.title %></td>
         <td><%= dropoff_location.address %></td>
         <td><%= dropoff_location.suburb %></td>
         <td><%= link_to 'Show', [:admin, dropoff_location], class: 'btn btn-link' %></td>

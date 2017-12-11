@@ -69,6 +69,6 @@ class Admin::DropoffLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dropoff_location_params
-      params.require(:dropoff_location).permit(:address, :suburb)
+      params.require(:dropoff_location).permit(:address, :suburb, :title)
     end
 end
