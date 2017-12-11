@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :dropoff_locations
     resources :coupons
     resources :intakes
     resources :meals

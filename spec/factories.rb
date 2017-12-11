@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :dropoff_location do
+    address "address"
+    suburb "suburb"
+  end
   factory :product_category do
     name "MyString"
     short_description "MyString"

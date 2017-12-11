@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205221225) do
+ActiveRecord::Schema.define(version: 20171211044730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,15 @@ ActiveRecord::Schema.define(version: 20171205221225) do
     t.string   "firstname"
     t.string   "lastname"
   end
+
+  create_table "dropoff_locations", force: :cascade do |t|
+    t.string   "address"
+    t.string   "suburb"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dropoff_locations", ["suburb"], name: "index_dropoff_locations_on_suburb", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
