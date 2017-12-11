@@ -22,6 +22,11 @@ Rails.application.routes.draw do
         end
       end
       resources :meals, only: [:index]
+      resources :dropoff_locations, only: [:index] do
+        collection do
+          get :search
+        end
+      end
       resources :carts, only: [:create, :show] do
         member do
           post :checkout
