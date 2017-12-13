@@ -12,6 +12,22 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :capacity_per_day %><br>
+    <%= f.text_field :capacity_per_day, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :short_description %><br>
+    <%= f.text_field :short_description, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'wysihtml5 form-control' %>
+  </div>
+  <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
