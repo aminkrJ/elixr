@@ -7,6 +7,10 @@ json.how_to_cook @recipe.how_to_cook
 json.nutrition_info @recipe.nutrition_info
 json.difficulty @recipe.difficulty
 json.serving @recipe.serving
+json.recipe_category do
+  json.name @recipe.recipe_category.name
+  json.id @recipe.recipe_category.id
+end
 json.photo do
    json.thumb @recipe.photo.url(:thumb)
    json.medium @recipe.photo.url(:medium)

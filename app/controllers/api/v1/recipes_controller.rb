@@ -5,12 +5,12 @@ class Api::V1::RecipesController < Api::V1::BaseController
 
       recipe_category
         .recipes
-        .includes(:ingredients)
+        .includes(:ingredients, :recipe_category)
         .order("id DESC")
         .limit(25)
         .all
     else
-      Recipe.includes(:ingredients).order("id DESC").limit(25).all
+      Recipe.includes(:ingredients, :recipe_category).order("id DESC").limit(25).all
     end
   end
 

@@ -4,6 +4,7 @@ json.array! @recipes do |recipe|
  json.description recipe.description
  json.short_description recipe.short_description
  json.tag recipe.tag
+ json.category recipe.recipe_category.name
  json.slug recipe.slug
  json.photo do
    json.thumb recipe.photo.url(:thumb)
