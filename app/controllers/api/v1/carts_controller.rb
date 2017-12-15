@@ -25,6 +25,8 @@ class Api::V1::CartsController < Api::V1::BaseController
     @cart = Cart.find_by_reference_number params[:id]
     @cart.attributes = cart_params
 
+    Postcode.delivery @cart.customer.addresses.first.try(:zip) if @cart.customer.addresses.first.try(:zip)
+
     @cart.save!
 
     if @cart.pay
