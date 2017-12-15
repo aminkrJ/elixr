@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :postcode do
+    postcode "MyString"
+    delivery_option "MyString"
+    count 1
+  end
   factory :dropoff_location do
     address "address"
     suburb "suburb"
