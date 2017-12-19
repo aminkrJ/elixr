@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Postcodes</h1>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>postcode</th>
+      <th>delivery_option</th>
+      <th>count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postcodes.each do |postcode| %>
+      <tr>
+        <td><%= postcode.postcode %></td>
+        <td><%= postcode.delivery_option %></td>
+        <td><%= postcode.count %></td>
+        <td>
+          <%= link_to 'Show', [:admin, postcode],  class: 'btn btn-link' %>
+          <%= link_to 'Destroy', [:admin, postcode], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
