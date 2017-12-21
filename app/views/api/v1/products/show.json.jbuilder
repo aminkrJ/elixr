@@ -4,6 +4,7 @@ json.name @product.name
 json.description @product.description
 json.slug @product.slug
 json.category @product.category
+json.nutrition_fact @product.nutrition_fact
 json.photo do
  json.thumb @product.photo.url(:thumb)
  json.medium @product.photo.url(:medium)
