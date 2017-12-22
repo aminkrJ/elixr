@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215042326) do
+ActiveRecord::Schema.define(version: 20171222010305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(version: 20171215042326) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal  "total"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
     t.string   "reference_number"
     t.string   "stripe_token"
     t.integer  "customer_id"
@@ -145,6 +145,9 @@ ActiveRecord::Schema.define(version: 20171215042326) do
     t.decimal  "shipping_fee",      precision: 10, scale: 2
     t.decimal  "subtotal",          precision: 8,  scale: 2
     t.datetime "delivery_at"
+    t.boolean  "organic",                                    default: false
+    t.boolean  "activated_nuts",                             default: false
+    t.boolean  "vegan",                                      default: false
   end
 
   add_index "carts", ["coupon_id"], name: "index_carts_on_coupon_id", using: :btree

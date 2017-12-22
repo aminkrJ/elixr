@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>Customer name</th>
-      <th>Title</th>
+      <th>State</th>
+      <th>Vegan/Activated/Organic</th>
+      <th>Total</th>
       <th>Delivery at</th>
       <th>Created at</th>
       <th></th>
@@ -18,6 +20,8 @@
       <tr>
         <td><%= cart.customer.fullname if cart.customer %></td>
         <td><%= cart.state.current_state %></td>
+        <td><%= cart.vegan %>, <%= cart.activated_nuts %>, <%= cart.organic %></td>
+        <td><%= cart.total %></td>
         <td><%= cart.delivery_at %></td>
         <td><%= time_ago_in_words(cart.created_at) %></td>
         <td>
