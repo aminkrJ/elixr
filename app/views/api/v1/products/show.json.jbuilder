@@ -2,6 +2,7 @@ json.(@product, :id, :name, :description, :price, :primary, :weight, :nutrition_
 json.id @product.id
 json.name @product.name
 json.description @product.description
+json.short_description @product.short_description
 json.slug @product.slug
 json.category @product.category
 json.nutrition_fact @product.nutrition_fact
