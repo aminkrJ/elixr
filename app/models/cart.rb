@@ -13,7 +13,7 @@ class Cart < ActiveRecord::Base
   accepts_nested_attributes_for :coupon
   accepts_nested_attributes_for :cart_products
 
-  #validates_presence_of :customer
+  validates_presence_of :customer
   validates_date :delivery_at, after: lambda { Date.today }, if: lambda { |cart| !cart.delivery_at.nil? }
   validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
   validates_presence_of :delivery_at, if: Proc.new { |cart| cart.state.current_state != "pending" }

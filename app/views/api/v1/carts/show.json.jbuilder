@@ -5,6 +5,10 @@ json.cart_products @cart.cart_products do |cp|
   json.quantity cp.quantity
 end
 
+json.customer do
+  json.email @cart.customer.email
+end
+
 if @cart.coupon
   json.coupon do
     json.code @cart.coupon.code
