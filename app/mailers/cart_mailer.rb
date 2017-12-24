@@ -1,6 +1,6 @@
 class CartMailer < ApplicationMailer
-  def dispatch_invoice(cart)
-    @cart = cart
+  def dispatch_invoice(cart_id)
+    @cart = Cart.find cart_id
     if @cart.invoice.exists?
       uri = URI.parse @cart.invoice.url
       response = Net::HTTP.start(uri.host, uri.port) do |http|
