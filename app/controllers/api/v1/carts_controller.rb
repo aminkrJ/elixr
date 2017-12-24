@@ -67,9 +67,9 @@ class Api::V1::CartsController < Api::V1::BaseController
 
   def cart_params
     params.require(:cart).permit(
-      :total, :delivery_at, :stripe_token, :shipping_fee, :subtotal, :total, :vegan, :activated_nuts, :organic,
+      :discount, :total, :delivery_at, :stripe_token, :shipping_fee, :subtotal, :total, :vegan, :activated_nuts, :organic,
       customer_attributes: [:id, :email, :firstname, :lastname, addresses_attributes: [:street_address, :suburb, :suite_apt, :city, :state, :country, :zip]],
-      coupon_attributes: [:code],
+      coupon_attributes: [:code, :id],
       cart_products_attributes: [:product_id, :quantity, cart_product_ingredients_attributes: [:product_id, :ingredient_id, :weight, :price, :percentage]]
       )
   end

@@ -7,10 +7,12 @@ end
 
 json.customer do
   json.email @cart.customer.email
+  json.id @cart.customer.id
 end
 
 if @cart.coupon
   json.coupon do
+    json.id @cart.coupon.id
     json.code @cart.coupon.code
     json.description @cart.coupon.description
     json.shipping_fee @cart.coupon.shipping_fee
