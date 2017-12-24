@@ -36,7 +36,7 @@ class Cart < ActiveRecord::Base
   end
 
   def dispatch_invoice
-    CartMailer.delay.dispatch_invoice self.id
+    CartMailer.delay.dispatch_invoice self.id, Tenant.current.id
   end
 
   def generate_invoice(pdf_html)

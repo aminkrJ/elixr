@@ -1,5 +1,7 @@
 class CartMailer < ApplicationMailer
-  def dispatch_invoice(cart_id)
+  def dispatch_invoice(cart_id, tenant_id)
+    @tenant = Tenant.find tenant_id
+    Apartment::Tenant.switch!(@tenant.domain) #TODO use a gem to switch to right tenant
     @cart = Cart.find cart_id
     if @cart.invoice.exists?
       uri = URI.parse @cart.invoice.url
