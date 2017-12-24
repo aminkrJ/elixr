@@ -1,18 +1,32 @@
 class Coupon < ActiveRecord::Base
-  attr_accessor :shipping_fee, :total, :quantity
+  attr_accessor :shipping_fee, :total, :subtotal
   attr_reader :discount
 
-  def redeemable?
-    (rule == 'DFQM2' && quantity > 2) ? true : false
-  end
 
-  def apply(options)
-    self.shipping_fee, self.total, self.quantity = options[:shipping_fee], options[:total], options[:quantity]
+  def apply!(options)
+    self.shipping_fee, self.total, self.subtotal = options[:shipping_fee], options[:total], options[:subtotal]
+
+    redeemable?
+
     case rule
-    when 'DFQM2'
-      if redeemable?
+    when '10OFF'
+      @discount = (self.subtotal * 0.1).round 2
+      self.subtotal -= @discount
+      self.total -= @discount
+    when 'FDO50DF0'
+        # for orders over $50 delivery fee is 0
         @discount = self.shipping_fee
         self.shipping_fee = 0
+        self.total -= @discount
+    end
+  end
+
+  private
+  def redeemable?
+    case rule
+    when 'FD50DF0'
+      if self.subtotal < 50
+        raise "Cannot be applied. The order subtotal must be over $50"
       end
     end
   end

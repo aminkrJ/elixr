@@ -51,13 +51,15 @@ class Api::V1::CartsController < Api::V1::BaseController
   end
 
   def coupon
-    @cart = Cart.new cart_params
+    @cart = Cart.find_by_reference_number params[:id]
+    @cart.attributes = cart_params
+
     @cart.coupon = Coupon.find_by! code: @cart.coupon.code
-    @cart.shipping_fee = Cart::SHIPPING_FEE
-    @cart.coupon.apply({ shipping_fee: @cart.shipping_fee, quantity: @cart.quantity, total: @cart.total }) if @cart.has_coupon?
+
+    @cart.coupon.apply!({ shipping_fee: @cart.shipping_fee, subtotal: @cart.subtotal, total: @cart.total })
 
     render :show
-  rescue ActiveRecord::RecordNotFound => e
+  rescue => e
     render json: {errors: e.message}, status: :unprocessable_entity
   end
 

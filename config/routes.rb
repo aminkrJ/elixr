@@ -30,9 +30,6 @@ Rails.application.routes.draw do
       resources :carts, only: [:create, :show] do
         member do
           post :checkout
-        end
-
-        collection do
           post :coupon
         end
       end

@@ -16,6 +16,6 @@ if @cart.coupon
     json.shipping_fee @cart.coupon.shipping_fee
     json.subtotal @cart.coupon.subtotal
     json.total @cart.coupon.total
-    json.redeemable @cart.coupon.redeemable?
+    json.discount @cart.coupon.discount
   end
 end
