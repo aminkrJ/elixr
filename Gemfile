@@ -55,7 +55,6 @@ gem 'sidekiq'
 # TODO It does not work as it expected
 #gem 'apartment-sidekiq'
 gem 'devise-async'
-gem "letter_opener"
 gem "launchy"
 
 gem "stripe"
@@ -73,6 +72,7 @@ gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 gem 'apartment'
 
 group :development do
+  gem "letter_opener"
   gem 'pry-rails'
   gem 'guard'
   gem 'guard-rspec', require: false
