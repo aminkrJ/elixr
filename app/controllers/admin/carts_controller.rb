@@ -3,6 +3,9 @@ class Admin::CartsController < AdminController
 
   def invoice
     @cart = Cart.find params[:id]
+    @address = @cart.customer.addresses.first
+
+    render "invoice", locals: {cart: @cart, address: @address}
   end
 
   def index
