@@ -22,7 +22,7 @@
         <td><%= cart.state.current_state %></td>
         <td><%= cart.vegan %>, <%= cart.activated_nuts %>, <%= cart.organic %></td>
         <td><%= cart.total %></td>
-        <td><%= cart.delivery_at %></td>
+        <td><%= cart.delivery_at.in_time_zone("Sydney") if cart.delivery_at%></td>
         <td><%= time_ago_in_words(cart.created_at) %></td>
         <td>
           <%= link_to 'View Invoice', invoice_admin_cart_path(cart),  class: 'btn btn-link', target: '_blank' %>

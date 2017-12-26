@@ -15,7 +15,10 @@ class Cart < ActiveRecord::Base
 
   validates_presence_of :customer
 
-  validates_date :delivery_at, after: lambda { Date.today }, if: lambda { |cart| !cart.delivery_at.nil? }
+  #TODO for validation we have to convert to Sydney time
+  #validates_date :delivery_at, after: :today, if: lambda { |cart| !cart.delivery_at.nil? }
+  #validates_time :delivery_at, between: ['9:00am', '5:00pm'], if: lambda { |cart| !cart.delivery_at.nil? }
+
   validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
   validates_presence_of :delivery_at, if: Proc.new { |cart| cart.state.current_state != "pending" }
 
