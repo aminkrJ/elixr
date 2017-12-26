@@ -1,8 +1,7 @@
-<h2>Order confirmation</h2>
+<h4>Order confirmation</h4>
 <p>
   <b>Invoice ref.</b>
-  <span><%= cart.reference_number %></span> <br/>
-  <span><b>Printed on </b><%= cart.created_at.strftime("%m/%d/%Y") %></span>
+  <span><%= cart.reference_number %></span>
 </p>
 
 <p>
@@ -29,30 +28,38 @@
       <tr>
         <td style='padding: 5px 0'><%= cp.product.name %></td>
         <td><%= cp.quantity %></td>
-        <td><%= cp.unit_price %>$</td>
-        <td style='text-align: right'><%= cp.total_price %>$</td>
+        <td>$<%= cp.unit_price %></td>
+        <td style='text-align: right'>$<%= cp.total_price %></td>
       </tr>
     <% end %>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td>Subtotal</td>
-      <td style='text-align: right'><%= cart.subtotal %>$</td>
+      <td style='text-align: right'>$<%= cart.subtotal %></td>
     </tr>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td>Shipping</td>
-      <td style='text-align: right'><%= cart.shipping_fee %>$</td>
+      <td style='text-align: right'>$<%= cart.shipping_fee %></td>
     </tr>
+    <% if cart.has_coupon? %>
+    <tr class="text-danger">
+      <td style='padding: 5px 0'></td>
+      <td></td>
+      <td><b>Discount</b></td>
+      <td style='text-align: right'><b>-$<%= cart.discount %></b></td>
+    </tr>
+    <% end %>
     <tr>
       <td style='padding: 5px 0'></td>
       <td></td>
       <td><b>Order total</b></td>
-      <td style='text-align: right'><b><%= cart.total %>$</b></td>
+      <td style='text-align: right'><b>$<%= cart.total %></b></td>
     </tr>
   </table>
   <% if cart.has_coupon? %>
-    <p><%= cart.coupon.name %> has applied. <br/> <%= cart.coupon.description %> </p>
+    <p><%= cart.coupon.code %> has applied. <br/> <%= cart.coupon.description %> </p>
   <% end %>
 </div>

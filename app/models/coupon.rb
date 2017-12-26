@@ -2,6 +2,9 @@ class Coupon < ActiveRecord::Base
   attr_accessor :shipping_fee, :total, :subtotal
   attr_reader :discount
 
+  validates_presence_of :code
+
+  has_many :carts
 
   def apply!(options)
     self.shipping_fee, self.total, self.subtotal = options[:shipping_fee], options[:total], options[:subtotal]

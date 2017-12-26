@@ -1,5 +1,6 @@
 <p>Dear Sir or Madam,</p>
 <p>Please find attached invoice for your purchase.</p>
+<%= render template: "admin/carts/invoice.html.erb", locals: {cart: @cart, address: @cart.customer.addresses.first}, layout: false %>
 <p>
 Regards,<br />Life Elixir
 </p>
