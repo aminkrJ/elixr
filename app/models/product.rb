@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 
   scope :primary, -> {where(primary: true)}
 
+  belongs_to :product_category
+
   has_many :carts, through: :carts_product
   has_many :carts_product
 

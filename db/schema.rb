@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171224030206) do
+ActiveRecord::Schema.define(version: 20171228083844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -336,10 +336,10 @@ ActiveRecord::Schema.define(version: 20171224030206) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",              precision: 8, scale: 2
+    t.decimal  "price",               precision: 8, scale: 2
     t.boolean  "primary"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -351,6 +351,7 @@ ActiveRecord::Schema.define(version: 20171224030206) do
     t.string   "ingredients"
     t.string   "short_description"
     t.string   "category"
+    t.integer  "product_category_id"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
@@ -468,4 +469,5 @@ ActiveRecord::Schema.define(version: 20171224030206) do
   add_foreign_key "product_ingredients", "products"
   add_foreign_key "product_recipes", "products"
   add_foreign_key "product_recipes", "recipes"
+  add_foreign_key "products", "product_categories"
 end

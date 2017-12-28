@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         resources :subscribers, only: [:create]
       end
       resources :ingredients, only: [:index]
+      resources :product_categories, only: [:index]
       resources :recipe_categories, only: [:index] do
         resources :recipes, only: [:index]
       end

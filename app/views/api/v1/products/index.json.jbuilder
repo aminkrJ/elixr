@@ -4,7 +4,7 @@ json.array! @products do |product|
  json.description product.description
  json.short_description product.short_description
  json.price product.price
- json.category product.category
+ json.category product.product_category.try(:name)
  json.weight product.price
  json.primary product.primary
  json.slug product.slug
