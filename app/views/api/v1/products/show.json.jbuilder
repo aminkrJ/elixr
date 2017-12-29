@@ -4,7 +4,7 @@ json.name @product.name
 json.description @product.description
 json.short_description @product.short_description
 json.slug @product.slug
-json.category @product.product_category.name
+json.category @product.product_category.try(:name)
 json.nutrition_fact @product.nutrition_fact
 json.photo do
  json.thumb @product.photo.url(:thumb)

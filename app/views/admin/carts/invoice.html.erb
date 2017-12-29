@@ -9,7 +9,7 @@
   <p>
     <%= cart.customer.fullname %>
     <div>
-      <%= address.street_address %>
+      <%= "#{address.suite_apt}, " %><%= address.street_address %>
       <br />
       <%= address.suburb %>, <%= address.state.upcase %>, <%= address.city %>, <%= address.zip %>, <%= address.country %>
     </div>

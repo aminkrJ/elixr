@@ -13,7 +13,7 @@ class Cart < ActiveRecord::Base
   accepts_nested_attributes_for :coupon
   accepts_nested_attributes_for :cart_products
 
-  validates_presence_of :customer
+  #validates_presence_of :customer
 
   #TODO for validation we have to convert to Sydney time
   #validates_date :delivery_at, after: :today, if: lambda { |cart| !cart.delivery_at.nil? }
