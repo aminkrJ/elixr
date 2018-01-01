@@ -73,6 +73,7 @@ class Cart < ActiveRecord::Base
 
   rescue Stripe::CardError => e
     # Since it's a decline, Stripe::CardError will be caught
+    errors.add :stripe, e.message
     false
   rescue Stripe::RateLimitError => e
     # Too many requests made to the API too quickly
@@ -82,6 +83,7 @@ class Cart < ActiveRecord::Base
     false
   rescue Stripe::AuthenticationError => e
     # Authentication with Stripe's API failed
+    errors.add :stripe, e.message
     false
   rescue Stripe::APIConnectionError => e
     # Network communication with Stripe failed
