@@ -88,6 +88,7 @@ class Cart < ActiveRecord::Base
     false
   rescue Stripe::StripeError => e
     # Display a very generic error to the user, and maybe send yourself an email
+    errors.add :stripe, e.message
     false
   rescue => e
     # Something else happened, completely unrelated to Stripe
