@@ -70,6 +70,7 @@ gem 'statesman'
 gem 'scraper', git: "https://github.com/aminkrJ/scraper.git"
 
 gem 'apartment'
+gem 'rollbar'
 
 group :development do
   gem "letter_opener"
