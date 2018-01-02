@@ -20,7 +20,8 @@ class Cart < ActiveRecord::Base
   #validates_time :delivery_at, between: ['9:00am', '5:00pm'], if: lambda { |cart| !cart.delivery_at.nil? }
 
   validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
-  validates_presence_of :delivery_at, if: Proc.new { |cart| cart.state.current_state != "pending" }
+  validates_presence_of :delivery_at, on: :update
+  validates_presence_of :delivery_time, allow_blank: false, on: :update
 
   before_create :set_reference_number
 
