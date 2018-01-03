@@ -27,9 +27,9 @@ class Coupon < ActiveRecord::Base
   private
   def redeemable?
     case rule
-    when 'FD50DF0'
+    when 'FDO50DF0'
       if self.subtotal < 50
-        raise "Cannot be applied. The order subtotal must be over $50"
+        raise "Cannot be applied. The order subtotal must be over $50."
       end
     end
   end
