@@ -7,23 +7,8 @@ class Api::V1::CartsController < Api::V1::BaseController
     render json: {errors: e.message}
   end
 
-  def create
-    @cart = Cart.new cart_params
-
-    unless @cart.valid?
-      render json: {errors: @cart.errors.messages}, status: :unprocessable_entity and return
-    end
-
-    @cart.save
-
-    render :show
-  rescue Stripe::CardError => e
-    render json: {errors: e.message}
-  end
-
   def checkout
-    @cart = Cart.find_by_reference_number params[:id]
-    @cart.attributes = cart_params
+    @cart = Cart.new cart_params
 
     Postcode.delivery @cart.customer.addresses.first.try(:zip) if @cart.customer.addresses.first.try(:zip)
 
@@ -51,7 +36,7 @@ class Api::V1::CartsController < Api::V1::BaseController
   end
 
   def coupon
-    @cart = Cart.find_by_reference_number params[:id]
+    @cart = Cart.new
     @cart.attributes = cart_params
 
     @cart.coupon = Coupon.find_by! code: @cart.coupon.code

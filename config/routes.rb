@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         end
       end
       resources :carts, only: [:create, :show] do
-        member do
+        collection do
           post :checkout
           post :coupon
         end
