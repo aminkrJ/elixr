@@ -4,10 +4,14 @@ json.array! @products do |product|
  json.description product.description
  json.short_description product.short_description
  json.price product.price
- json.category product.product_category.try(:name)
  json.weight product.price
  json.primary product.primary
  json.slug product.slug
+ json.category do |c|
+   json.id product.product_category.try(:id)
+   json.name product.product_category.try(:name)
+   json.short_description product.product_category.try(:short_description)
+ end
  json.photo do
    json.thumb product.photo.url(:thumb)
    json.medium product.photo.url(:medium)
@@ -29,6 +33,11 @@ json.array! @products do |product|
    json.percentage pi.percentage
    json.price pi.ingredient.price_per_gram
    json.external_link pi.ingredient.external_link
+ end
+ json.tags product.tags do |t|
+   json.id t.id
+   json.name t.name
+   json.short_description t.short_description
  end
  json.recipes product.product_recipes do |pr|
    json.id pr.id

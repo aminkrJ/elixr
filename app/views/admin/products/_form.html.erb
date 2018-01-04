@@ -48,6 +48,15 @@
     <%= f.select :product_category_id, ProductCategory.all.collect{|u| [u.name, u.id]}, { prompt: 'Select category', include_blank: true }, class: 'form-control' %>
   </div>
   <div>
+    <h3>Tags</h3>
+    <%= f.fields_for :product_tags do |pt| %>
+      <%= render 'product_tag_fields', f: pt %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add tag', f, :product_tags %>
+    </div>
+  </div>
+  <div>
     <h3>Ingredients</h3>
     <%= f.fields_for :product_ingredients do |pi| %>
       <%= render 'product_ingredient_fields', f: pi %>

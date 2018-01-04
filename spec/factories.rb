@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :product_tag do
+    tag ""
+    product ""
+  end
+  factory :tag do
+    name "MyString"
+    short_description "MyString"
+  end
   factory :postcode do
     postcode "MyString"
     delivery_option "MyString"

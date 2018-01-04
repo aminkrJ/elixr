@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102012539) do
+ActiveRecord::Schema.define(version: 20180104083015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -334,6 +334,13 @@ ActiveRecord::Schema.define(version: 20180102012539) do
   add_index "product_recipes", ["product_id"], name: "index_product_recipes_on_product_id", using: :btree
   add_index "product_recipes", ["recipe_id"], name: "index_product_recipes_on_recipe_id", using: :btree
 
+  create_table "product_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -419,6 +426,13 @@ ActiveRecord::Schema.define(version: 20180102012539) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "tenants", force: :cascade do |t|
     t.string   "domain"
     t.string   "uuid"
@@ -470,5 +484,7 @@ ActiveRecord::Schema.define(version: 20180102012539) do
   add_foreign_key "product_ingredients", "products"
   add_foreign_key "product_recipes", "products"
   add_foreign_key "product_recipes", "recipes"
+  add_foreign_key "product_tags", "products"
+  add_foreign_key "product_tags", "tags"
   add_foreign_key "products", "product_categories"
 end
