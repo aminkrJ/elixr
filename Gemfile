@@ -31,7 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 gem 'pg'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'acts_as_tree'
 gem 'cocoon'
 gem 'devise'

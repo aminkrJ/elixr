@@ -10,15 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
+//= require popover
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
 //= require jquery_ujs
+//= require bootstrap
 //= require nprogress
 //= require nprogress-ajax
-//= require cocoon
-//= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
-//= require bootstrap3-wysihtml5/dist/bootstrap3-wysihtml5.all.min
 //= require classnames
 //= require underscore
 //= require turbolinks

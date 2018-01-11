@@ -92,6 +92,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'users/dashboard', to: 'user#dashboard'
+  get 'users/profile', to: 'user#profile', as: 'user_profile'
 
   root 'public#experience'
 end
