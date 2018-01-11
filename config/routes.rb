@@ -77,6 +77,9 @@ Rails.application.routes.draw do
     resources :units
   end
 
+  namespace :user do
+  end
+
   authenticated :admin do
     root 'admin/carts#index', as: :authenticated_admin
   end
@@ -87,6 +90,8 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
+
+  get 'users/dashboard', to: 'user#dashboard'
 
   root 'public#experience'
 end
