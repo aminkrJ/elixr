@@ -13,9 +13,6 @@ $(document).on("turbolinks:load", function(){
     }
   });
 
-  $('.wysihtml5').wysihtml5({
-    toolbar:{
-      "image": false
-    }
+  $('.wysihtml5').summernote({
   });
 });

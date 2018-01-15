@@ -4,7 +4,8 @@
     "mjolnic-bootstrap-colorpicker": "https://github.com/mjolnic/bootstrap-colorpicker.git",
     "classnames": "https://github.com/JedWatson/classnames.git",
     "underscore": "https://github.com/jashkenas/underscore.git",
-    "bootstrap3-wysihtml5": "https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg.git",
-    "popover": "https://github.com/FezVrasta/popper.js.git"
+    "summernote": "https://github.com/summernote/summernote.git",
+    "popover": "https://github.com/FezVrasta/popper.js.git",
+    "bootstrap": "4.0.0-beta.3"
   }
 }

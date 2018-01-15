@@ -15,6 +15,7 @@
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
 //= require jquery_ujs
+//= require summernote/dist/summernote-bs4.js
 //= require bootstrap
 //= require nprogress
 //= require nprogress-ajax

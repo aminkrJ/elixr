@@ -11,16 +11,16 @@
 // about supported directives.
 //
 //= require jquery3
-//= require bootstrap
+//= require jquery_ujs
+//= require bootstrap/dist/js/bootstrap
 //= require popover
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
-//= require jquery_ujs
 //= require nprogress
 //= require nprogress-ajax
 //= require cocoon
 //= require mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker
-//= require bootstrap3-wysihtml5/dist/bootstrap3-wysihtml5.all.min
+//= require summernote/dist/summernote-bs4.js
 //= require classnames
 //= require underscore
 //= require turbolinks
