@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116014004) do
+ActiveRecord::Schema.define(version: 20180116051130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -467,9 +467,17 @@ ActiveRecord::Schema.define(version: 20180116014004) do
     t.string   "phone"
     t.string   "short_description"
     t.text     "description"
+    t.integer  "user_id"
+    t.string   "opening_hours"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "status"
   end
 
   add_index "venues", ["suburb"], name: "index_venues_on_suburb", using: :btree
+  add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
 
   add_foreign_key "addresses", "customers"
   add_foreign_key "cart_product_ingredients", "cart_products"

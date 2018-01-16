@@ -78,6 +78,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
+    resources :venues
   end
 
   authenticated :admin do
@@ -91,7 +92,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  get 'users/dashboard', to: 'user#dashboard'
+  get 'users/dashboard', to: 'user#dashboard', as: 'user_dashboard'
   get 'users/profile', to: 'user#profile', as: 'user_profile'
 
   root 'public#experience'

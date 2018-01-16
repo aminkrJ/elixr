@@ -10,7 +10,7 @@
   <header class="navbar navbar-sticky">
     <div class="site-branding">
       <div class="inner">
-        <a class="site-logo" href="#">Life Elixir Business</a>
+        <a class="site-logo" href=<%= user_dashboard_path %>>Life Elixir Business</a>
       </div>
     </div>
     <nav class="site-menu">
@@ -34,6 +34,9 @@
           <li>
             <%= link_to('Profile', user_profile_path) %>
           </li>
+          <li>
+            <%= link_to('Venues', user_venues_path) %>
+          </li>
           <li class="sub-menu-separator"></li>
           <li>
             <%= link_to(raw("<i class='icon-unlock'></i> Logout"), destroy_user_session_path, :method => :delete) %>
@@ -44,7 +47,8 @@
       </div>
     </div>
   </header>
-
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

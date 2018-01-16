@@ -1,0 +1,9 @@
+<% if current_user.venues.length > 0 %>
+  <% current_user.venues.each do |venue| %>
+    <div><%= venue.title %> <span><%= venue.status %></span></div>
+  <% end %>
+  <a href=<%= new_user_venue_path %> class="btn btn-primary btn-sm">Create a venue</a>
+<% else %>
+  <a href=<%= new_user_venue_path %> class="btn btn-primary btn-sm">Create a venue</a>
+<% end %>
+
