@@ -11,12 +11,11 @@
 // about supported directives.
 //
 //= require jquery3
-//= require popover
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
 //= require jquery_ujs
 //= require summernote/dist/summernote-bs4.js
-//= require bootstrap
+//= require bootstrap/dist/js/bootstrap
 //= require nprogress
 //= require nprogress-ajax
 //= require classnames

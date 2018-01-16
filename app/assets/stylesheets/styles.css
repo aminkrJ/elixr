@@ -6540,8 +6540,7 @@ video {
   }
   .site-menu,
   .offcanvas-toggle.cats-toggle,
-  .toolbar .account,
-  .toolbar-dropdown {
+  .toolbar .account{
     display: none !important;
   }
 }

@@ -13,7 +13,6 @@
 //= require jquery3
 //= require jquery_ujs
 //= require bootstrap/dist/js/bootstrap
-//= require popover
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
 //= require nprogress

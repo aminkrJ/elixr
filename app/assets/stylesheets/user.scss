@@ -1,5 +1,9 @@
-@import "bootstrap";
+$feather-font-path: "feather-icons-sass/fonts";
+@import 'feather-icons-sass/feather.css';
+
+@import "bootstrap/dist/css/bootstrap";
 @import "nprogress";
 @import "nprogress-bootstrap";
 @import "summernote/dist/summernote-bs4.css";
 @import "styles";
+@import "user-customised";

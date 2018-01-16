@@ -1,0 +1,9 @@
+.toolbar .account > .toolbar-dropdown{
+  margin-left: -150px
+}
+
+@media (max-width: 1070px) {
+  .toolbar .account{
+    display: inline-block !important
+  }
+}

@@ -5,7 +5,7 @@
     "classnames": "https://github.com/JedWatson/classnames.git",
     "underscore": "https://github.com/jashkenas/underscore.git",
     "summernote": "https://github.com/summernote/summernote.git",
-    "popover": "https://github.com/FezVrasta/popper.js.git",
-    "bootstrap": "4.0.0-beta.3"
+    "bootstrap": "4.0.0-beta.3",
+    "feather-icons-sass": "https://github.com/dciccale/feather-icons-sass.git"
   }
 }
