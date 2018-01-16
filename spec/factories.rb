@@ -12,7 +12,7 @@ FactoryGirl.define do
     delivery_option "MyString"
     count 1
   end
-  factory :dropoff_location do
+  factory :venue do
     address "address"
     suburb "suburb"
   end

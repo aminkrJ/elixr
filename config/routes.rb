@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         end
       end
       resources :meals, only: [:index]
-      resources :dropoff_locations, only: [:index] do
+      resources :venues, only: [:index] do
         collection do
           get :search
         end
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :dropoff_locations
+    resources :venues
     resources :coupons
     resources :intakes
     resources :meals

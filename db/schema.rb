@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104083015) do
+ActiveRecord::Schema.define(version: 20180116014004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,20 +179,6 @@ ActiveRecord::Schema.define(version: 20180104083015) do
     t.string   "firstname"
     t.string   "lastname"
   end
-
-  create_table "dropoff_locations", force: :cascade do |t|
-    t.string   "address"
-    t.string   "suburb"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "title"
-    t.integer  "capacity_per_day"
-    t.string   "phone"
-    t.string   "short_description"
-    t.text     "description"
-  end
-
-  add_index "dropoff_locations", ["suburb"], name: "index_dropoff_locations_on_suburb", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -470,6 +456,20 @@ ActiveRecord::Schema.define(version: 20180104083015) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "address"
+    t.string   "suburb"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "title"
+    t.integer  "capacity_per_day"
+    t.string   "phone"
+    t.string   "short_description"
+    t.text     "description"
+  end
+
+  add_index "venues", ["suburb"], name: "index_venues_on_suburb", using: :btree
 
   add_foreign_key "addresses", "customers"
   add_foreign_key "cart_product_ingredients", "cart_products"

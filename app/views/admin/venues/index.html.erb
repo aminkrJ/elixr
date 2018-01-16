@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing venues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Suburb</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%= venue.title %></td>
+        <td><%= venue.address %></td>
+        <td><%= venue.suburb %></td>
+        <td><%= link_to 'Show', [:admin, venue], class: 'btn btn-link' %></td>
+        <td><%= link_to 'Edit', edit_admin_venue_path(venue) %></td>
+        <td><%= link_to 'Destroy', [:admin, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New venue', new_admin_venue_path %>

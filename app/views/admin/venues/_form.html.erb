@@ -1,10 +1,10 @@
-<%= form_for([:admin, @dropoff_location]) do |f| %>
-  <% if @dropoff_location.errors.any? %>
+<%= form_for([:admin, @venue]) do |f| %>
+  <% if @venue.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@dropoff_location.errors.count, "error") %> prohibited this dropoff_location from being saved:</h2>
+      <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
 
       <ul>
-      <% @dropoff_location.errors.full_messages.each do |message| %>
+      <% @venue.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
