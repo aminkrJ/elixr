@@ -6,6 +6,7 @@
     "underscore": "https://github.com/jashkenas/underscore.git",
     "summernote": "https://github.com/summernote/summernote.git",
     "bootstrap": "4.0.0-beta.3",
-    "feather-icons-sass": "https://github.com/dciccale/feather-icons-sass.git"
+    "feather-icons-sass": "https://github.com/dciccale/feather-icons-sass.git",
+    "popper.js": "^1.12.9"
   }
 }
