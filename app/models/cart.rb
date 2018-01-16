@@ -4,6 +4,7 @@ class Cart < ActiveRecord::Base
 
   belongs_to :customer, validate: true
   belongs_to :coupon
+  belongs_to :venue
 
   has_many :cart_transitions, autosave: false
   has_many :products, through: :cart_products

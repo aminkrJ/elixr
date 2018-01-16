@@ -12,9 +12,12 @@
     <div class="col-md-6 text-center">
       <div class="card">
       <div class="card-body">
-      <h4 class="card-title">Orders</h4>
+      <h4 class="card-title">Shopping carts</h4>
       <% if current_user.venues.length > 0 %>
         <%= current_user.venues.last.title %> is active.
+        <div class="">
+          <%= render "orders" %>
+        </div>
       <% else %>
       <p class="card-text">Create a venue to see your orders.</p>
       <a href=<%= new_user_venue_path %> class="btn btn-primary btn-sm">Create a venue</a>

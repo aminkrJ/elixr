@@ -3,6 +3,7 @@ class Venue < ActiveRecord::Base
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
+  has_many :carts
 
   validates :title, :suburb, presence: true
 end
