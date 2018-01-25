@@ -431,7 +431,7 @@ DEPENDENCIES
   letter_opener
   nprogress-rails
   omniauth-facebook
-  paperclip
+  paperclip (>= 5.0)
   paperclip-meta
   pg
   phantomjs

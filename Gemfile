@@ -43,7 +43,7 @@ gem 'nprogress-rails'
 gem 'faker'
 gem 'rack-cors', require: 'rack/cors'
 gem 'friendly_id', '~> 5.1.0'
-gem 'paperclip'
+gem "paperclip", ">= 5.0"
 gem 'paperclip-meta'
 gem 'aws-sdk', '< 2.0'
 gem 'omniauth-facebook'
