@@ -45,7 +45,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'friendly_id', '~> 5.1.0'
 gem "paperclip", ">= 5.0"
 gem 'paperclip-meta'
-gem 'aws-sdk', '>= 2.0'
+gem 'aws-sdk', '< 3.0'
 gem 'omniauth-facebook'
 gem 'devise_token_auth'
 gem 'validates_timeliness'
