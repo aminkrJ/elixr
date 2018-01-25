@@ -1,4 +1,4 @@
-<%= form_for([:user, @venue]) do |f| %>
+<%= form_for([:user, @venue], html: {multipart: true}) do |f| %>
   <% if @venue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
@@ -38,6 +38,10 @@
   <div class="field">
     <%= f.label :suburb %><br>
     <%= f.text_field :suburb, placeholder: 'e.x 2072', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo %><br>
+    <%= f.file_field :logo %>
   </div>
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-primary' %>
