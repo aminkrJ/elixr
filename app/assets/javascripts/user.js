@@ -14,9 +14,9 @@
 //= require jquery.turbolinks
 //= require nprogress-turbolinks
 //= require jquery_ujs
-//= require popper.js/dist/popper.js
+//= require popper
 //= require summernote/dist/summernote-bs4.js
-//= require bootstrap/dist/js/bootstrap
+//= require bootstrap
 //= require nprogress
 //= require nprogress-ajax
 //= require classnames

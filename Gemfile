@@ -50,6 +50,8 @@ gem 'omniauth-facebook'
 gem 'devise_token_auth'
 gem 'validates_timeliness'
 
+gem 'bootstrap', '~> 4.0.0'
+
 gem 'sidekiq'
 # TODO It does not work as it expected
 #gem 'apartment-sidekiq'
