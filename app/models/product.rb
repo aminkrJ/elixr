@@ -9,18 +9,18 @@ class Product < ActiveRecord::Base
 
   belongs_to :product_category
 
-  has_many :carts, through: :carts_product
-  has_many :carts_product
+  has_many :carts, through: :cart_products, dependent: :destroy
+  has_many :cart_products
 
-  has_many :ingredients, through: :product_ingredients
+  has_many :ingredients, through: :product_ingredients, dependent: :destroy
   has_many :product_ingredients
 
   has_many :product_photos
 
-  has_many :recipes, through: :product_recipes
+  has_many :recipes, through: :product_recipes, dependent: :destroy
   has_many :product_recipes
 
-  has_many :tags, through: :product_tags
+  has_many :tags, through: :product_tags, dependent: :destroy
   has_many :product_tags
 
   accepts_nested_attributes_for :product_ingredients, allow_destroy: true, reject_if: :all_blank
