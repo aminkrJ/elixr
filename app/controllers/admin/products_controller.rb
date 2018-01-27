@@ -75,7 +75,7 @@ class Admin::ProductsController < AdminController
     end
 
     def set_form_variables
-      @ingredients = Ingredient.all
+      @ingredients = Ingredient.order("name").all
       @recipes = Recipe.all
       @tags = Tag.all
     end

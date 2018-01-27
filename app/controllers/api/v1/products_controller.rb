@@ -10,7 +10,7 @@ class Api::V1::ProductsController < Api::V1::BaseController
         .limit(25)
         .all
     else
-      Product.includes(:ingredients, :product_category).order("id DESC").limit(25).all
+      Product.includes(:ingredients, :product_category).order("updated_at DESC").limit(25).all
     end
   end
 
