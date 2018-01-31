@@ -21,8 +21,8 @@ class Cart < ActiveRecord::Base
   #validates_time :delivery_at, between: ['9:00am', '5:00pm'], if: lambda { |cart| !cart.delivery_at.nil? }
 
   validates_presence_of :cart_products, if: Proc.new { |cart| !cart.id.nil? }
-  validates_presence_of :delivery_at
-  validates_presence_of :delivery_time, allow_blank: false, message: "You have to choose a delivery time"
+  #validates_presence_of :delivery_at
+  #validates_presence_of :delivery_time, allow_blank: false, message: "You have to choose a delivery time"
 
   before_create :set_reference_number
 
