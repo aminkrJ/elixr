@@ -4,13 +4,13 @@ Hey there!
 </p>
 
 <p>
-First off, we’d like to extend a warm welcome and thank you for subscribing to our newsletter.
+You have been added to our mailing list and will now be among the first to hear about our new arrivals, big events and special offers.
+</p>
+<p>
+As a special treat, message us on our <a target="_blank" href="https://www.facebook.com/lifelixirnutrition">Facebook</a> page and enjoy 20% of your next purchase online.
 </p>
 
-<p>In <%= @tenant.app_name %>, <%= @campaign.description %>.</p>
-
-<p>We will be in contact with you shortly with exciting news, openings and new product releases.
-</p>
+<p>In <%= @tenant.app_name %>, <%= strip_tags(@campaign.description) %>.</p>
 
 <p>
 Regards,<br /><%= link_to @tenant.app_name, "http://www.lifelixir.com.au" %>
