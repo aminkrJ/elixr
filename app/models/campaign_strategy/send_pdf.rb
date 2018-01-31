@@ -8,7 +8,7 @@ module CampaignStrategy
     end
 
     def launch
-      CampaignMailer.delay.send_pdf(campaign.id, subscriber.id, Tenant.current.id)
+      CampaignMailer.send_pdf(campaign.id, subscriber.id, Tenant.current.id).deliver_later
     end
   end
 end
