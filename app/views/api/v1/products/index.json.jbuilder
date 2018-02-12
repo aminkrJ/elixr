@@ -3,6 +3,7 @@ json.array! @products do |product|
  json.name product.name
  json.description product.description
  json.short_description product.short_description
+ json.nutrition_fact product.nutrition_fact
  json.price product.price
  json.weight product.price
  json.primary product.primary
