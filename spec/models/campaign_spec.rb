@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Campaign, type: :model do
+
+  describe "#launch" do
+    it "launch campaign only if there is a strategy" do
+      campaign = create :campaign, strategy: nil
+      campaign.subscribers << create(:subscriber)
+      #TODO
+    end
+  end
+
   describe "has subscriber's count" do
     it "inc/dec subscribers" do
       campaign = create :campaign

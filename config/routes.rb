@@ -95,5 +95,7 @@ Rails.application.routes.draw do
   get 'users/dashboard', to: 'user#dashboard', as: 'user_dashboard'
   get 'users/profile', to: 'user#profile', as: 'user_profile'
 
+  post '/notify_me', to: 'public#notify_me'
+
   root 'public#experience'
 end

@@ -63,6 +63,6 @@ class Admin::SubscribersController < AdminController
   end
 
   def subscriber_params
-    params.require(:subscriber).permit(:id, :email, :full_name, :subscribed_to)
+    params.require(:subscriber).permit(:id, :email, :full_name)
   end
 end
