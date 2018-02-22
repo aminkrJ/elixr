@@ -2,7 +2,7 @@ class Api::V1::SubscribersController < Api::V1::BaseController
   skip_before_filter :verify_authenticity_token, only: [:create]
 
   def create
-    campaign = Campaign.find params[:campaign_id]
+    campaign = Campaign.find_by_name params[:campaign_id]
     @subscriber = campaign.subscribers.new(subscriber_params)
 
     if campaign.save
