@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222035208) do
+ActiveRecord::Schema.define(version: 20180226215830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -352,6 +352,7 @@ ActiveRecord::Schema.define(version: 20180222035208) do
     t.boolean  "vegan"
     t.boolean  "organic"
     t.boolean  "non_gmo"
+    t.integer  "serving_size"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
