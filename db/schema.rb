@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226215830) do
+ActiveRecord::Schema.define(version: 20180228000159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,10 +332,10 @@ ActiveRecord::Schema.define(version: 20180226215830) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",               precision: 8, scale: 2
+    t.decimal  "price",                 precision: 8, scale: 2
     t.boolean  "primary"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -353,6 +353,7 @@ ActiveRecord::Schema.define(version: 20180226215830) do
     t.boolean  "organic"
     t.boolean  "non_gmo"
     t.integer  "serving_size"
+    t.integer  "before_discount_price",                         default: 0
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", using: :btree

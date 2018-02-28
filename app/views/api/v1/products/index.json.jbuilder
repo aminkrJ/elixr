@@ -5,7 +5,8 @@ json.array! @products do |product|
  json.short_description product.short_description
  json.nutrition_fact product.nutrition_fact
  json.price product.price
- json.weight product.price
+ json.before_discount_price product.before_discount_price
+ json.weight product.weight
  json.primary product.primary
  json.slug product.slug
  json.category do |c|
