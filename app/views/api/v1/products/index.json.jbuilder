@@ -40,6 +40,7 @@ json.array! @products do |product|
    json.id t.id
    json.name t.name
    json.short_description t.short_description
+   json.description t.description
  end
  json.recipes product.product_recipes do |pr|
    json.id pr.id

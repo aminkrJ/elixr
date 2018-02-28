@@ -69,6 +69,6 @@ class Admin::TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_category_params
-      params.require(:tag).permit(:id, :name, :short_description)
+      params.require(:tag).permit(:id, :name, :short_description, :description)
     end
 end
