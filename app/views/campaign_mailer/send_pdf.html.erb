@@ -1,12 +1,22 @@
 <div style="font-family: verdana, tahoma">
 <p>
-Hey there! thanks for signing up for <%= @campaign.name.downcase %> program.
+Hey there! thanks for signing up.
 </p>
-<p><%= sanitize @campaign.description %></p>
-
-<p>The attached file is the program. You will be notified when a new version is available.</p>
 
 <p>
-Regards,<br /><%= link_to @tenant.app_name, "http://www.lifelixir.com.au" %>
+<%= if @campaign.pdf.exists? %>
+Download your PDF, <%= sanitize @campaign.short_description %>
+  <a href=<%= @campaign.pdf.url %>><%= @campaign.pdf.url %></a>
+<% end %>
+</p>
+
+<p>Life Elixir is about nutritions and hacks to help individuals rise above stress, overwhelm, and life challenges and promote mental acuteness and overall well being and performance. You can find all of our all-in-one, easy and quick nutrition solutions here.
+<a href="https://www.lifelixir.com.au/shop">https://www.lifelixir.com.au/shop</a>
+</p>
+
+<p>Get 20% off on your first order when you like our <a href="https://business.facebook.com/lifelixirnutrition">Facebook page</a>. Message us on Facebook to get your coupoun.</p>
+
+<p>
+Life Elixir team,<br /><%= link_to @tenant.app_name, "http://www.lifelixir.com.au" %>
 </p>
 </div>
