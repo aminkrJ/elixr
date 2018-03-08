@@ -43,9 +43,11 @@ json.array! @products do |product|
    json.description t.description
  end
  json.recipes product.product_recipes do |pr|
-   json.id pr.id
+   json.id pr.recipe.id
    json.order pr.order
-   json.description pr.description
+   json.description pr.recipe.description
+   json.short_description pr.recipe.short_description
+   json.how_to_cook pr.recipe.how_to_cook
    json.title pr.recipe.title
    json.slug pr.recipe.slug
    json.photo do
