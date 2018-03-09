@@ -50,6 +50,12 @@ json.array! @products do |product|
    json.how_to_cook pr.recipe.how_to_cook
    json.title pr.recipe.title
    json.slug pr.recipe.slug
+   json.category do |c|
+     json.id pr.recipe.recipe_category.id
+     json.name pr.recipe.recipe_category.name
+     json.description pr.recipe.recipe_category.description
+     json.short_description pr.recipe.recipe_category.short_description
+   end
    json.photo do
      json.thumb pr.recipe.photo.url(:thumb)
      json.medium pr.recipe.photo.url(:medium)
