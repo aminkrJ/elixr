@@ -1,4 +1,4 @@
-json.(@product, :gluten_free, :vegan, :non_gmo, :organic, :id, :name, :description, :price, :primary, :serving_size, :before_discount_price, :weight, :nutrition_fact, :serving_idea, :ingredients)
+json.(@product, :gluten_free, :vegan, :non_gmo, :organic, :id, :name, :description, :price, :primary, :serving_size, :before_discount_price, :weight, :nutrition_fact, :serving_idea)
 json.id @product.id
 json.name @product.name
 json.description @product.description
@@ -9,6 +9,12 @@ json.photo do
  json.thumb @product.photo.url(:thumb)
  json.medium @product.photo.url(:medium)
  json.original @product.photo.url
+end
+json.ingredients @product.product_ingredients do |i|
+  json.id i.ingredient.id
+  json.name i.ingredient.name
+  json.extract i.extract
+  json.info_link i.info_link
 end
 json.photos @product.product_photos do |pp|
  json.photo_type pp.photo_type
