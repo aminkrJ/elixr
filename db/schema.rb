@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314063359) do
+ActiveRecord::Schema.define(version: 20180318222525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -348,7 +348,7 @@ ActiveRecord::Schema.define(version: 20180314063359) do
     t.text     "nutrition_fact"
     t.string   "ingredients"
     t.string   "short_description"
-    t.string   "category"
+    t.string   "unit"
     t.integer  "product_category_id"
     t.boolean  "gluten_free"
     t.boolean  "vegan"
