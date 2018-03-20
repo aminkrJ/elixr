@@ -1,4 +1,4 @@
-json.(@product, :unit, :gluten_free, :vegan, :non_gmo, :organic, :id, :name, :description, :price, :primary, :serving_size, :before_discount_price, :weight, :nutrition_fact, :serving_idea)
+json.(@product, :unit, :meta_keywords, :gluten_free, :vegan, :non_gmo, :organic, :id, :name, :description, :price, :primary, :serving_size, :before_discount_price, :weight, :nutrition_fact, :serving_idea)
 json.id @product.id
 json.name @product.name
 json.description @product.description
